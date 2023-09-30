@@ -1,0 +1,32 @@
+super + w
+	brave	
+
+super + f
+	~/scripts/menu.sh	
+
+super + F4
+	~/scripts/powermenu.sh	
+
+# Take screenshot
+super + shift + s
+	maim -s | xclip -selection clipboard -t image/png
+
+# Toggle volume mute
+XF86AudioMute
+	amixer set Master toggle && pkill -RTMIN+20 dwmblocks
+
+# Decrease volume 
+XF86AudioLowerVolume
+	amixer set Master 5%- && pkill -RTMIN+20 dwmblocks
+
+# Increase volume 
+XF86AudioRaiseVolume
+	amixer set Master 5%+ && pkill -RTMIN+20 dwmblocks
+
+# Decrease brightness
+XF86MonBrightnessDown
+	light -U 10 && pkill -RTMIN+25 dwmblocks
+
+# Increase brightness
+XF86MonBrightnessUp
+	light -A 10  && pkill -RTMIN+25 dwmblocks
