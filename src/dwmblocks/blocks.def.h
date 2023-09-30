@@ -1,6 +1,7 @@
 //Modify this file to change what commands output to your statusbar, and recompile using the make command.
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
+  {"", "xkblayout-state print \"%s\" " ,0, 30},
   {"Br: ", "light -G | cut -d'.' -f1", 0, 25},
 	{"Mem: ", "free -h | awk 'NR==2{print $3}' | tr -d 'Gi'",	5,		0},
   {"GPU: ", "nvidia-settings -q gpucoretemp -t", 5, 0},

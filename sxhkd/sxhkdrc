@@ -4,8 +4,15 @@ super + w
 super + f
 	~/scripts/menu.sh	
 
+super + m
+	st -e btop
+
 super + F4
 	~/scripts/powermenu.sh	
+
+super + space
+    pkill -RTMIN+30 dwmblocks
+
 
 # Take screenshot
 super + shift + s
