@@ -10,12 +10,16 @@ super + m
 super + F4
 	~/scripts/powermenu.sh	
 
+# Sends dwmblocks signal to update keymap 
 super + space
     pkill -RTMIN+30 dwmblocks
 
 
+super + ctrl + Delete
+    slock
+
 # Take screenshot
-super + shift + s
+Print
 	maim -s | xclip -selection clipboard -t image/png
 
 # Toggle volume mute
