@@ -44,8 +44,7 @@ static unsigned int tripleclicktimeout = 600;
 int allowaltscreen = 1;
 
 /* allow certain non-interactive (insecure) window operations such as:
-   setting the clipboard text */
-int allowwindowops = 0;
+   setting the clipboard text */ int allowwindowops = 0;
 
 /*
  * draw latency range in ms - from new content/keypress/etc until drawing.
@@ -96,33 +95,35 @@ unsigned int tabspaces = 8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
 
+	[0] = "#323437",
+	[1] = "#ff5454",
+	[2] = "#00A36C",
+	[3] = "#e3c78a",
+	[4] = "#80a0ff",
+	[5] = "#d183e8",
+	[6] = "#79dac8",
+	[7] = "#a1aab8",
 	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
 
-  [256] = "#131515", /* background */
-  [257] = "#d2e0de", /* foreground */
+	[8] = "#7c8f8f",
+	[9] = "#ff5189",
+	[10] = "#00A36C",
+	[11] = "#bfbf97",
+	[12] = "#74b2ff",
+	[13] = "#ae81ff",
+	[14] = "#00A36C",
+	[15] = "#e2637f",
+    [256] = "#131515", /* background */
+    [257] = "#d2e0de", /* foreground */
 
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
 	"gray90", /* default foreground colour */
 	"black", /* default background colour */
+  [256] = "#282a36", 
+  [257] = "#f8f8f2",
+  [258] = "#080808",
+  [259]= "#eeeeee",
 };
 
 
@@ -130,8 +131,8 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 257;
-unsigned int defaultbg = 256;
+unsigned int defaultfg = 259;
+unsigned int defaultbg = 258;
 unsigned int defaultcs = 257;
 static unsigned int defaultrcs = 257;
 
