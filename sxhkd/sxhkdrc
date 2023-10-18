@@ -15,7 +15,7 @@ super + space
     pkill -RTMIN+30 dwmblocks
 
 
-super + ctrl + Delete
+alt + ctrl + Delete
     slock
 
 # Take screenshot
