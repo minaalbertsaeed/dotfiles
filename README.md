@@ -15,6 +15,7 @@ This is the configuration of my Arch linux System using [Suckless](https://suckl
 - Menu: dmenu 
 - Web Browser: brave-bin 
 - Recording tool: ffmpeg
+- Machine Emulator & Virtualizer : qemu
 - Filemanager: lf, thunar
 - Notification Daemon: dunst
 - Status Bar: dwmblocks
