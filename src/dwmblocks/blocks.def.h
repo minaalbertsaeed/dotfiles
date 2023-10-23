@@ -7,7 +7,7 @@ static const Block blocks[] = {
   {"Vol: ", "pamixer --get-volume", 0, 20},
   {"BAT: ", "cat /sys/class/power_supply/BAT0/capacity", 5, 0},
   {"", "nmcli -t -f NAME connection show --active | head -n 1", 2, 0},
-	{"", "date '+ %a %b %d %r'  ",					1,		0},
+	{"", "date '+ %a %b %d %r'",					1,		0},
 };
 
 // {"GPU: ", "nvidia-settings -q gpucoretemp -t", 5, 0},
