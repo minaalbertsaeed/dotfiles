@@ -18,6 +18,12 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require "plugins"
 
-vim.cmd "colorscheme oxocarbon"
+vim.cmd "colorscheme carbonfox"
+
+
+if vim.g.vscode then
+    vim.cmd "source $HOME/.config/nvim/vscode/settings.vim"
+else
+    require "plugins"
+end

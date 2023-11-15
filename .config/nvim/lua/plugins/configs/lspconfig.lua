@@ -87,7 +87,7 @@ lspconfig.clangd.setup {
 }
 
 -- setup multiple servers with same default options
-local servers = { "tsserver", "html", "cssls", "clangd" }
+local servers = { "tsserver", "html", "cssls","jdtls", "clangd" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {

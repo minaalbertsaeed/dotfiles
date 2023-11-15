@@ -1,32 +1,108 @@
 local plugins = {
+    { lazy = true,                        "nvim-lua/plenary.nvim" },
+
+
+    -- Themes
     { "nyoom-engineering/oxocarbon.nvim", lazy = false },
     { 'rockerBOO/boo-colorscheme-nvim' },
+    { "EdenEast/nightfox.nvim" },
+    { "kvrohit/mellow.nvim" },
+    { 'huyvohcmc/atlas.vim' },
+    { 'Mofiqul/vscode.nvim' },
     {
-        "iamcco/markdown-preview.nvim",
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        dependencies= {
+            "MunifTanjim/nui.nvim",
+        }
+    },
+    {
+        'navarasu/onedark.nvim',
         config = function()
-            vim.fn["mkdp#util#install"]()
+            require('onedark').setup {
+                style = 'darker'
+            }
+        end
+    },
+
+    {
+        'brenoprata10/nvim-highlight-colors',
+        config = function()
+            require('nvim-highlight-colors').setup {}
+        end
+    },
+
+    { 'mfussenegger/nvim-jdtls' },
+    {
+        "ray-x/lsp_signature.nvim",
+        event = "BufRead",
+        config = function() require "lsp_signature".on_attach() end,
+    },
+    -- {
+    --     "Pocco81/auto-save.nvim",
+    --     config = function()
+    --         require("auto-save").setup {}
+    --     end,
+    -- },
+    {
+        'simrat39/symbols-outline.nvim',
+        config = function()
+            require("symbols-outline").setup()
+        end,
+    },
+
+    {
+        "echasnovski/mini.indentscope",
+        version = false, -- wait till new 0.7.0 release to put it back on semver
+        event = "VeryLazy",
+        opts = {
+            -- symbol = "▏",
+            symbol = "│",
+            options = { try_as_border = true },
+        },
+        init = function()
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = {
+                    "help",
+                    "alpha",
+                    "dashboard",
+                    "neo-tree",
+                    "Trouble",
+                    "trouble",
+                    "lazy",
+                    "mason",
+                    "notify",
+                    "toggleterm",
+                    "lazyterm",
+                },
+                callback = function()
+                    vim.b.miniindentscope_disable = true
+                end,
+            })
         end,
     },
 
 
-    { "caenrique/swap-buffers.nvim" },
-    { "huyvohcmc/atlas.vim" },
-
-    { 'brenoprata10/nvim-highlight-colors' },
-    { "nvim-lua/plenary.nvim" },
-
     {
         'stevearc/oil.nvim',
-    },
-    { 'mg979/vim-visual-multi' },
 
+        config = function()
+            require("oil").setup()
+        end,
+    },
     {
         "NvChad/nvterm",
         config = function()
             require("nvterm").setup()
         end,
     },
-    -- colorscheme
+
+    {
+        "iamcco/markdown-preview.nvim",
+        config = function()
+            vim.fn["mkdp#util#install"]()
+        end,
+    },
 
     -- file tree
     {
@@ -36,30 +112,7 @@ local plugins = {
             require("nvim-tree").setup()
         end,
     },
-    {
-        "https://git.sr.ht/~nedia/auto-save.nvim",
-        event = { "BufReadPre" },
-        opts = {
-            events = { 'InsertLeave', 'BufLeave', "TextChanged" },
-            silent = true,
-            exclude_ft = { 'neo-tree' },
-        },
-    },
-    { 'akinsho/toggleterm.nvim', version = "*", config = true },
 
-    {
-        "https://git.sr.ht/~havi/telescope-toggleterm.nvim",
-        event = "TermOpen",
-        requires = {
-            "akinsho/nvim-toggleterm.lua",
-            "nvim-telescope/telescope.nvim",
-            "nvim-lua/popup.nvim",
-            "nvim-lua/plenary.nvim",
-        },
-        config = function()
-            require("telescope").load_extension "toggleterm"
-        end,
-    },
     -- icons, for UI related plugins
     {
         "nvim-tree/nvim-web-devicons",
@@ -72,7 +125,6 @@ local plugins = {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        event = { "BufReadPre", "BufNewFile" },
         config = function()
             require "plugins.configs.treesitter"
         end,
@@ -81,22 +133,33 @@ local plugins = {
     -- buffer + tab line
     {
         "akinsho/bufferline.nvim",
-        lazy = false,
+        event = "BufReadPre",
         config = function()
             require "plugins.configs.bufferline"
         end,
     },
 
-    -- statusline
 
     {
-        "echasnovski/mini.statusline",
-        lazy = false,
-        config = function()
-            require("mini.statusline").setup { set_vim_settings = false }
-        end,
+        'echasnovski/mini.nvim',
+        version = false,
     },
 
+    {
+        'f-person/git-blame.nvim',
+        -- enabled = false,
+        config = function()
+            require('gitblame').setup()
+        end,
+    },
+    -- statusline
+    {
+        "nvim-lualine/lualine.nvim",
+        event = "VeryLazy",
+        config = function()
+            require "plugins.configs.lualine"
+        end,
+    },
     -- we use cmp plugin only when in insert mode
     -- so lets lazyload it at InsertEnter event, to know all the events check h-events
     -- completion , now all of these plugins are dependent on cmp, we load them after cmp
@@ -114,7 +177,7 @@ local plugins = {
             -- snippets
             --list of default snippets
             "rafamadriz/friendly-snippets",
-            { 'folke/which-key.nvim', opts = {} },
+
             -- snippets engine
             {
                 "L3MON4D3/LuaSnip",
@@ -124,8 +187,8 @@ local plugins = {
             },
 
             -- autopairs , autocompletes ()[] etc
+            -- "windwp/nvim-autopairs",
             -- {
-            --     "windwp/nvim-autopairs",
             --     config = function()
             --         require("nvim-autopairs").setup()
             --
@@ -145,12 +208,6 @@ local plugins = {
         "williamboman/mason.nvim",
         build = ":MasonUpdate",
         cmd = { "Mason", "MasonInstall" },
-        opts = {
-            ensure_installed = {
-                "clangd",
-                "clang-format",
-            }
-        },
         config = function()
             require("mason").setup()
         end,
@@ -162,44 +219,30 @@ local plugins = {
         event = { "BufReadPre", "BufNewFile" },
         config = function()
             require "plugins.configs.lspconfig"
-            require "lspconfig"
         end,
-        dependencies = {
-            -- formatting , linting
-            {
-                "jose-elias-alvarez/null-ls.nvim",
-                event = "VeryLazy",
-                config = function()
-                    require "plugins.configs.null"
-                end,
-            },
-            -- Automatically install LSPs to stdpath for neovim
-            { 'williamboman/mason.nvim', config = true },
-            'williamboman/mason-lspconfig.nvim',
+    },
 
-            -- Useful status updates for LSP
-            -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-            { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
-
-            -- Additional lua configuration, makes nvim stuff amazing!
-            'folke/neodev.nvim',
-
-        },
-
+    -- formatting , linting
+    {
+        "stevearc/conform.nvim",
+        lazy = true,
+        config = function()
+            require "plugins.configs.conform"
+        end,
     },
 
     -- indent lines
     {
         "lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
         event = { "BufReadPre", "BufNewFile" },
+        char = "|",
+        tab_char = { "a", "b", "c" },
+        highlight = { "Function", "Label" },
+        smart_indent_cap = true,
+        priority = 2,
         config = function()
-            require("indent_blankline").setup()
+            require("ibl").setup()
         end,
-        opts = {
-            char = '┊',
-            show_trailing_blankline_indent = false,
-        },
     },
 
     -- files finder etc
@@ -213,39 +256,17 @@ local plugins = {
 
     -- git status on signcolumn etc
     {
-        -- Adds git related signs to the gutter, as well as utilities for managing changes
-        'lewis6991/gitsigns.nvim',
-        opts = {
-            -- See `:help gitsigns.txt`
-            signs = {
-                add = { text = '+' },
-                change = { text = '~' },
-                delete = { text = '_' },
-                topdelete = { text = '‾' },
-                changedelete = { text = '~' },
-            },
-            on_attach = function(bufnr)
-                vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk,
-                    { buffer = bufnr, desc = 'Preview git hunk' })
-
-                -- don't override the built-in and fugitive keymaps
-                local gs = package.loaded.gitsigns
-                vim.keymap.set({ 'n', 'v' }, ']c', function()
-                    if vim.wo.diff then return ']c' end
-                    vim.schedule(function() gs.next_hunk() end)
-                    return '<Ignore>'
-                end, { expr = true, buffer = bufnr, desc = "Jump to next hunk" })
-                vim.keymap.set({ 'n', 'v' }, '[c', function()
-                    if vim.wo.diff then return '[c' end
-                    vim.schedule(function() gs.prev_hunk() end)
-                    return '<Ignore>'
-                end, { expr = true, buffer = bufnr, desc = "Jump to previous hunk" })
-            end,
-        },
+        "lewis6991/gitsigns.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        config = function()
+            require("gitsigns").setup()
+        end,
     },
+
     -- comment plugin
     {
         "numToStr/Comment.nvim",
+        lazy = true,
         config = function()
             require("Comment").setup()
         end,
@@ -253,6 +274,7 @@ local plugins = {
 }
 
 require("lazy").setup(plugins, require "plugins.configs.lazy")
+
 
 
 local function my_on_attach(bufnr)
@@ -272,9 +294,37 @@ end
 
 -- pass to setup along with your other options
 require("nvim-tree").setup {
-    ---
     on_attach = my_on_attach,
-    ---
 }
-require("oil").setup()
-require('nvim-highlight-colors').setup {}
+
+-- cfg = {…}  -- add you config here
+local cfg = {
+    floating_window_off_x = 5,                           -- adjust float windows x position.
+    floating_window_off_y = function()                   -- adjust float windows y position. e.g. set to -2 can make floating window move up 2 lines
+        local linenr = vim.api.nvim_win_get_cursor(0)[1] -- buf line number
+        local pumheight = vim.o.pumheight
+        local winline = vim.fn.winline()                 -- line number in the window
+        local winheight = vim.fn.winheight(0)
+
+        -- window top
+        if winline - 1 < pumheight then
+            return pumheight
+        end
+
+        -- window bottom
+        if winheight - winline < pumheight then
+            return -pumheight
+        end
+        return 0
+    end,
+}
+require "lsp_signature".setup(cfg)
+
+vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client.server_capabilities.hoverProvider then
+            vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, { buffer = args.buf })
+        end
+    end,
+})
