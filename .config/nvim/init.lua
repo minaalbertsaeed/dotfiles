@@ -19,7 +19,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 
-vim.cmd "colorscheme carbonfox"
+vim.cmd "colorscheme vscode"
+vim.cmd "GitBlameDisable"
 
 
 if vim.g.vscode then

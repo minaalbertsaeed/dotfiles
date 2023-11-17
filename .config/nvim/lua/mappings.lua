@@ -7,6 +7,7 @@ require "plugins"
 
 map("n", "<Esc>", "<cmd> :noh <CR>")
 map("n", "<C-n>", "<cmd> NvimTreeToggle <CR>") -- Open file explorer
+map("n", "<C-a>", "ggVG") -- select all
 
 map("n", "<leader>x", "<cmd> :bd! <CR>")       -- Close  current buffer
 
@@ -56,8 +57,8 @@ map("n", "<leader>ghd", "<cmd> Gitsigns diffthis <CR>" )
 
 
 
--- <leader>tth --> Toggle Horizontal Terminal
--- <leader>ttv --> Toggle Vertical Terminal
+-- <leader>t--> Toggle Horizontal Terminal
+-- <leader>v--> Toggle Vertical Terminal
 --
 function getTerminal(position)
     local current_directory = vim.fn.expand("%:p:h") -- Get the full path of the current file

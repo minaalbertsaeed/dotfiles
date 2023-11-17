@@ -6,22 +6,11 @@ local plugins = {
     { "nyoom-engineering/oxocarbon.nvim", lazy = false },
     { 'rockerBOO/boo-colorscheme-nvim' },
     { "EdenEast/nightfox.nvim" },
-    { "kvrohit/mellow.nvim" },
-    { 'huyvohcmc/atlas.vim' },
     { 'Mofiqul/vscode.nvim' },
     {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v3.x",
-        dependencies= {
-            "MunifTanjim/nui.nvim",
-        }
-    },
-    {
-        'navarasu/onedark.nvim',
+        'stevearc/dressing.nvim',
         config = function()
-            require('onedark').setup {
-                style = 'darker'
-            }
+            require('plugins.configs.dressing')
         end
     },
 
