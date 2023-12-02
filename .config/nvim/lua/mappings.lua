@@ -107,3 +107,15 @@ end
 --     nnoremap <A-l> <cmd>lua require('swap-buffers').swap_buffers('l')<CR>
 
 map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- Debugger Mappings
+
+
+
+
+
+
+
+
+
+

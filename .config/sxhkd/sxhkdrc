@@ -1,9 +1,15 @@
+# open web browser
 alt + w
 	brave	
 
+alt + v
+	~/scripts/virt.sh	
+
+# launch file manager menu
 alt + f
 	~/scripts/menu.sh	
 
+# launch terminal emulator
 alt + m
 	st -e btop
 
@@ -14,7 +20,7 @@ alt + F4
 super + space
     pkill -RTMIN+30 dwmblocks
 
-
+# lock the screen
 alt + ctrl + Delete
     slock
 

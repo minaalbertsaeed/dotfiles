@@ -19,8 +19,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 
-vim.cmd "colorscheme vscode"
+vim.cmd "colorscheme carbonfox"
 vim.cmd "GitBlameDisable"
+-- vim.cmd "set relativenumber"
+-- vim.cmd "set ft=xxd"
 
 
 if vim.g.vscode then
