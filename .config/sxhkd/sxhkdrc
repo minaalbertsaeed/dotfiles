@@ -13,6 +13,12 @@ alt + f
 alt + m
 	st -e btop
 
+alt + s
+	~/scripts/screencast.sh	; pkill -RTMIN+10 dwmblocks
+
+alt + q
+    kill `pidof ffmpeg` ; rm /tmp/record ; pkill -RTMIN+10 dwmblocks
+
 alt + F4
 	~/scripts/powermenu.sh	
 
