@@ -3,7 +3,7 @@ local opt = vim.opt
 vim.g.mapleader = " "
 
 opt.laststatus = 3 -- global statusline
-opt.showmode = false
+opt.showmode = true
 
 -- opt.clipboard = "unnamedplus"
 
@@ -16,15 +16,15 @@ opt.expandtab = true
 opt.swapfile = false
 
 
-opt.fillchars = { eob = " " }
+opt.fillchars = { eob = "|" }
 opt.ignorecase = true
 opt.smartcase = true
-opt.mouse ="a"
+opt.mouse = "a"
 
 -- Numbers
 opt.number = true
 opt.relativenumber = true
-opt.ruler = false
+opt.ruler = true
 
 opt.signcolumn = "yes"
 opt.splitbelow = true

@@ -6,14 +6,14 @@ require "plugins"
 
 
 map("n", "<Esc>", "<cmd> :noh <CR>")
-map("n", "<C-n>", "<cmd> NvimTreeToggle <CR>") -- Open file explorer
-map("n", "<C-a>", "ggVG") -- select all
+map("n", "<leader>w", "<cmd> NvimTreeToggle <CR>") -- Open file explorer
+map("n", "<C-a>", "ggVG")                      -- select all
 
 map("n", "<leader>x", "<cmd> :bd! <CR>")       -- Close  current buffer
 
 -- Move group of lines
-map('v', "J", ":m '>+1<CR>gv=gv")
 map('v', "K", ":m '<-2<CR>gv=gv")
+map('v', "J", ":m '>+1<CR>gv=gv")
 
 -- Copy to System Clipboard
 map('n', "<leader>y", "\"+y")
@@ -54,20 +54,22 @@ map("n", "<leader>f", vim.lsp.buf.format)
 
 -- GitSigns
 map("n", "<leader>ghd", "<cmd> Gitsigns diffthis <CR>" )
+map("n", "<leader>ghr", "<cmd> Gitsigns reset_buffer <CR>")
 
 
 
 -- <leader>t--> Toggle Horizontal Terminal
 -- <leader>v--> Toggle Vertical Terminal
 --
-function getTerminal(position)
+function getTerminal(position, cmd)
     local current_directory = vim.fn.expand("%:p:h") -- Get the full path of the current file
-    local command = string.format("cd %s ; clear", current_directory)
+    -- local command = string.format("cd %s ; clear; %s", current_directory, cmd)
+    local command = string.format("cd %s; %s", current_directory, cmd)
     require("nvterm.terminal").send(command, position)
 end
 
-map('n', '<leader>t', ':lua getTerminal("horizontal")<CR>', { noremap = true, silent = true })
-map('n', '<leader>v', ':lua getTerminal("vertical")<CR>', { noremap = true, silent = true })
+map('n', '<leader>t', ':lua getTerminal("horizontal", "")<CR>', { noremap = true, silent = true })
+map('n', '<leader>v', ':lua getTerminal("vertical", "")<CR>', { noremap = true, silent = true })
 
 -- Allow Navigate Windows from terminal mode
 map('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
@@ -93,29 +95,17 @@ map("n", "<C-j>", "<C-w>j")
 map("n", "<C-k>", "<C-w>k")
 map("n", "<C-l>", "<C-w>l")
 
--- Map F5 to run cpp files
-map('n', '<F5>', ':lua runCppFile()<CR>', { noremap = true, silent = true })
-
 -- Function to run current CPP file in a horizontal terminal
-function runCppFile()
-    local current_file = vim.fn.expand("%:p") -- Get the full path of the current file
-    local command = string.format("clear; g++ --std=c++17 %s -o a.out && ./a.out; rm a.out", current_file)
-    require("nvterm.terminal").send(command, "horizontal")
+function CompileProject(direction)
+    getTerminal(direction, "./run")
 end
 
---     nnoremap <A-h> <cmd>lua require('swap-buffers').swap_buffers('h')<CR>
---     nnoremap <A-l> <cmd>lua require('swap-buffers').swap_buffers('l')<CR>
+-- Map F5 to run cpp files
+map('n', '<F5>', ':lua CompileProject("horizontal")<CR>', { noremap = true, silent = true })
+map('n', '<F6>', ':lua CompileProject("vertical")<CR>', { noremap = true, silent = true })
+
+
+-- map('n', '<C-H>', "<cmd>lua require('swap-buffers').swap_buffers('l')<CR>", { noremap = true, silent = true })
 
 map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-
--- Debugger Mappings
-
-
-
-
-
-
-
-
-
 

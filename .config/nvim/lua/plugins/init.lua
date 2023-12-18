@@ -4,8 +4,13 @@ local plugins = {
 
     -- Themes
     { "nyoom-engineering/oxocarbon.nvim", lazy = false },
+    {
+        "loctvl842/monokai-pro.nvim",
+        config = function()
+            require("monokai-pro").setup()
+        end
+    },
     { 'rockerBOO/boo-colorscheme-nvim' },
-    { "EdenEast/nightfox.nvim" },
     { 'Mofiqul/vscode.nvim' },
     {
         'stevearc/dressing.nvim',
@@ -13,14 +18,8 @@ local plugins = {
             require('plugins.configs.dressing')
         end
     },
-    -- { 
-    --     'neoclide/coc.nvim',
-    --     branch = 'release'
-    -- },
-
-    {
-        "mfussenegger/nvim-dap",
-    },
+    -- {"neoclide/coc.nvim", branch="release"},
+    -- debugger plugin
     {
         "rcarriga/nvim-dap-ui",
         event = "VeryLazy",
