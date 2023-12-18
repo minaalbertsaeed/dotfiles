@@ -1,5 +1,5 @@
 #!/bin/bash
 
-feh --bg-scale `find ~/Wallpapers/ | shuf -n 1`
+feh --bg-scale `find ~/D/wallpaper/ | shuf -n 1`
 
 
