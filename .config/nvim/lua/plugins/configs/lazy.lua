@@ -1,5 +1,5 @@
 return {
-  install = { colorscheme = { "nightfox" } },
+  -- install = { colorscheme = { "nightfox" } },
   performance = {
     rtp = {
       disabled_plugins = {

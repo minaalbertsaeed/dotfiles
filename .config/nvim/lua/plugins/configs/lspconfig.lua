@@ -1,4 +1,3 @@
-require'lspconfig'.pyright.setup{}
 -- Global mappings.
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
@@ -80,14 +79,16 @@ lspconfig.clangd.setup {
         objcpp = 'objective-cpp',
       },
       format = {
-        style = 'google', -- Specify your preferred formatting style here
+        style = 'Mozilla', -- Specify your preferred formatting style here
       },
     },
   },
 }
 
+lspconfig.rust_analyzer.setup{}
+
 -- setup multiple servers with same default options
-local servers = { "tsserver", "html", "cssls","jdtls", "clangd" }
+local servers = { "jdtls", "clangd", "rust_analyzer" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {

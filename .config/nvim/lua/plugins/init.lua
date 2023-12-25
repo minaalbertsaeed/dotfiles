@@ -1,25 +1,49 @@
 local plugins = {
-    { lazy = true,                        "nvim-lua/plenary.nvim" },
+    { lazy = true,                      "nvim-lua/plenary.nvim" },
 
 
     -- Themes
-    { "nyoom-engineering/oxocarbon.nvim", lazy = false },
+    { "tinted-theming/base16-vim",      lazy = false },
+
     {
         "loctvl842/monokai-pro.nvim",
         config = function()
             require("monokai-pro").setup()
         end
     },
-    { 'rockerBOO/boo-colorscheme-nvim' },
-    { 'Mofiqul/vscode.nvim' },
+
+    { 'yazeed1s/oh-lucy.nvim' },
+
     {
         'stevearc/dressing.nvim',
         config = function()
             require('plugins.configs.dressing')
         end
     },
-    -- {"neoclide/coc.nvim", branch="release"},
-    -- debugger plugin
+    {
+        "kylechui/nvim-surround",
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
+    },
+    {
+        'marko-cerovac/material.nvim'
+    },
+
+
+    -- {
+    --     "folke/trouble.nvim",
+    --     dependencies = { "nvim-tree/nvim-web-devicons" },
+    --     opts = {
+    --         -- your configuration comes here
+    --         -- or leave it empty to use the default settings
+    --         -- refer to the configuration section below
+    --     },
+    -- },
     {
         "rcarriga/nvim-dap-ui",
         event = "VeryLazy",

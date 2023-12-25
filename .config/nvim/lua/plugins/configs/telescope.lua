@@ -5,4 +5,9 @@ require("telescope").setup {
       horizontal = { prompt_position = "bottom" },
     },
   },
+    pickers = {
+        colorscheme = {
+            enable_preview =true
+        }
+    }
 }

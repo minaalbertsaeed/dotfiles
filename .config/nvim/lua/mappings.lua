@@ -4,10 +4,9 @@ local map = vim.keymap.set
 vim.opt.rtp:prepend(lazypath)
 require "plugins"
 
-
 map("n", "<Esc>", "<cmd> :noh <CR>")
 map("n", "<leader>w", "<cmd> NvimTreeToggle <CR>") -- Open file explorer
-map("n", "<C-a>", "ggVG")                      -- select all
+-- map("n", "<C-A>", "ggVG")                      -- select all
 
 map("n", "<leader>x", "<cmd> :bd! <CR>")       -- Close  current buffer
 
@@ -16,8 +15,8 @@ map('v', "K", ":m '<-2<CR>gv=gv")
 map('v', "J", ":m '>+1<CR>gv=gv")
 
 -- Copy to System Clipboard
-map('n', "<leader>y", "\"+y")
-map('v', "<leader>y", "\"+y")
+map('n', "<leader>z", "\"+y")
+map('v', "<leader>z", "\"+y")
 
 -- bufferline
 map("n", "<Tab>", "<cmd> BufferLineCycleNext <CR>")
@@ -62,7 +61,7 @@ map("n", "<leader>ghr", "<cmd> Gitsigns reset_buffer <CR>")
 -- <leader>v--> Toggle Vertical Terminal
 --
 function getTerminal(position, cmd)
-    local current_directory = vim.fn.expand("%:p:h") -- Get the full path of the current file
+    local current_directory = vim.fn.expand("%:p:h") --Get the full path of the current file
     -- local command = string.format("cd %s ; clear; %s", current_directory, cmd)
     local command = string.format("cd %s; %s", current_directory, cmd)
     require("nvterm.terminal").send(command, position)
@@ -108,4 +107,8 @@ map('n', '<F6>', ':lua CompileProject("vertical")<CR>', { noremap = true, silent
 -- map('n', '<C-H>', "<cmd>lua require('swap-buffers').swap_buffers('l')<CR>", { noremap = true, silent = true })
 
 map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+require "CustomScripts.build"
+
+map("n", "<leader>u" , ':lua Compile()<CR>' ,{ noremap = true, silent = true })
 
