@@ -1,9 +1,9 @@
 local plugins = {
-    { lazy = true,                      "nvim-lua/plenary.nvim" },
+    { lazy = true,                 "nvim-lua/plenary.nvim" },
 
 
     -- Themes
-    { "tinted-theming/base16-vim",      lazy = false },
+    { "tinted-theming/base16-vim", lazy = false },
 
     {
         "loctvl842/monokai-pro.nvim",
@@ -308,6 +308,24 @@ local plugins = {
         end,
     },
 
+    {
+        "ibhagwan/fzf-lua",
+        -- optional for icon support
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            -- calling `setup` is optional for customization
+            require("plugins.configs.fzf-lua")
+        end,
+    },
+
+    {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make',
+        -- config = function()
+        --     require "plugins.configs.telescope"
+        -- end,
+    },
+
     -- files finder etc
     {
         "nvim-telescope/telescope.nvim",
@@ -337,6 +355,7 @@ local plugins = {
 }
 
 require("lazy").setup(plugins, require "plugins.configs.lazy")
+-- require('telescope').load_extension('fzf')
 
 
 

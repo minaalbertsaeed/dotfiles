@@ -8,7 +8,7 @@ map("n", "<Esc>", "<cmd> :noh <CR>")
 map("n", "<leader>w", "<cmd> NvimTreeToggle <CR>") -- Open file explorer
 -- map("n", "<C-A>", "ggVG")                      -- select all
 
-map("n", "<leader>x", "<cmd> :bd! <CR>")       -- Close  current buffer
+map("n", "<leader>x", "<cmd> :bd! <CR>") -- Close  current buffer
 
 -- Move group of lines
 map('v', "K", ":m '<-2<CR>gv=gv")
@@ -44,15 +44,16 @@ map("v", "<leader>/", "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.
 -- Telescope
 map("n", "<leader>fo", "<cmd> Telescope oldfiles <CR>")
 map("n", "<leader>fw", "<cmd> Telescope live_grep <CR>")
-map("n", "<leader>gt", "<cmd> Telescope git_status <CR>")
-map("n", "<leader>rr", function() require("telescope.builtin").registers() end)
-map("n", "<leader>ls", function() require("telescope.builtin").lsp_document_symbols() end)
-map("n", "<leader>lr", function() require("telescope.builtin").lsp_references() end)
+-- map("n", "<leader>gt", "<cmd> Telescope git_status <CR>")
+map("n", "<leader>ff", "<cmd> FzfLua files <CR>")
+-- map("n", "<leader>rr", function() require("telescope.builtin").registers() end)
+-- map("n", "<leader>ls", function() require("telescope.builtin").lsp_document_symbols() end)
+-- map("n", "<leader>lr", function() require("telescope.builtin").lsp_references() end)
 map("n", "<leader>f", vim.lsp.buf.format)
 
 
 -- GitSigns
-map("n", "<leader>ghd", "<cmd> Gitsigns diffthis <CR>" )
+map("n", "<leader>ghd", "<cmd> Gitsigns diffthis <CR>")
 map("n", "<leader>ghr", "<cmd> Gitsigns reset_buffer <CR>")
 
 
@@ -110,5 +111,4 @@ map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 require "CustomScripts.build"
 
-map("n", "<leader>u" , ':lua Compile()<CR>' ,{ noremap = true, silent = true })
-
+map("n", "<leader>u", ':lua Compile()<CR>', { noremap = true, silent = true })
