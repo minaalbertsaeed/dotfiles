@@ -46,14 +46,15 @@ map("n", "<leader>fo", "<cmd> Telescope oldfiles <CR>")
 map("n", "<leader>fw", "<cmd> Telescope live_grep <CR>")
 -- map("n", "<leader>gt", "<cmd> Telescope git_status <CR>")
 map("n", "<leader>ff", "<cmd> FzfLua files <CR>")
--- map("n", "<leader>rr", function() require("telescope.builtin").registers() end)
+map("n", "<leader>rr", function() require("telescope.builtin").registers() end)
 -- map("n", "<leader>ls", function() require("telescope.builtin").lsp_document_symbols() end)
--- map("n", "<leader>lr", function() require("telescope.builtin").lsp_references() end)
+map("n", "<leader>ls", "<CMD> FzfLua lsp_document_symbols <CR>")
+map("n", "<leader>lr", function() require("telescope.builtin").lsp_references() end)
 map("n", "<leader>f", vim.lsp.buf.format)
 
 
 -- GitSigns
-map("n", "<leader>ghd", "<cmd> Gitsigns diffthis <CR>")
+map("n", "<leader>ghd", "<cmd> Gitsigns diffthis <CR>", {desc = "Run Current file in  Horizontal Terminal" })
 map("n", "<leader>ghr", "<cmd> Gitsigns reset_buffer <CR>")
 
 
@@ -68,8 +69,8 @@ function getTerminal(position, cmd)
     require("nvterm.terminal").send(command, position)
 end
 
-map('n', '<leader>t', ':lua getTerminal("horizontal", "")<CR>', { noremap = true, silent = true })
-map('n', '<leader>v', ':lua getTerminal("vertical", "")<CR>', { noremap = true, silent = true })
+map('n', '<leader>t', ':lua getTerminal("horizontal", "")<CR>', { noremap = true, silent = true ,desc = "Spwan Horizontal Terminal" })
+map('n', '<leader>v', ':lua getTerminal("vertical", "")<CR>', { noremap = true, silent = true , desc = "Spwan Horizontal Terminal" })
 
 -- Allow Navigate Windows from terminal mode
 map('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
@@ -79,10 +80,10 @@ map('t', '<C-k>', '<C-\\><C-n><C-w>k', { noremap = true, silent = true })
 map('t', '<C-l>', '<C-\\><C-n><C-w>l', { noremap = true, silent = true })
 
 -- Resize Buffers
-map("n", "<C-A-k>", ":resize +1<CR>", { noremap = true, silent = true })
+map("n", "<C-A-k>", ":resize +3<CR>", { noremap = true, silent = true })
 map("n", "<C-A-j>", ":resize -3<CR>", { noremap = true, silent = true })
 map("n", "<C-A-h>", ":vertical resize -3<CR>", { noremap = true, silent = true })
-map("n", "<C-A-l>", ":vertical resize +1<CR>", { noremap = true, silent = true })
+map("n", "<C-A-l>", ":vertical resize +3<CR>", { noremap = true, silent = true })
 
 
 -- Stay in indent mode
@@ -101,8 +102,8 @@ function CompileProject(direction)
 end
 
 -- Map F5 to run cpp files
-map('n', '<F5>', ':lua CompileProject("horizontal")<CR>', { noremap = true, silent = true })
-map('n', '<F6>', ':lua CompileProject("vertical")<CR>', { noremap = true, silent = true })
+map('n', '<F5>', ':lua CompileProject("horizontal")<CR>', { noremap = true, silent = true ,  desc = "Run Current file in  Horizontal Terminal" })
+map('n', '<F6>', ':lua CompileProject("vertical")<CR>', { noremap = true, silent = true,  desc = "Run Current file in  Vertical Terminal" })
 
 
 -- map('n', '<C-H>', "<cmd>lua require('swap-buffers').swap_buffers('l')<CR>", { noremap = true, silent = true })
@@ -111,4 +112,7 @@ map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 require "CustomScripts.build"
 
-map("n", "<leader>u", ':lua Compile()<CR>', { noremap = true, silent = true })
+map("n", "<F7>", ':lua test()<CR>', { noremap = true, silent = true })
+
+
+

@@ -1,6 +1,6 @@
 local plugins = {
-    { lazy = true,                 "nvim-lua/plenary.nvim" },
 
+    { lazy = true,                 "nvim-lua/plenary.nvim" },
 
     -- Themes
     { "tinted-theming/base16-vim", lazy = false },
@@ -88,6 +88,7 @@ local plugins = {
             },
         },
     },
+
     {
         'brenoprata10/nvim-highlight-colors',
         config = function()
@@ -96,17 +97,8 @@ local plugins = {
     },
 
     { 'mfussenegger/nvim-jdtls' },
-    {
-        "ray-x/lsp_signature.nvim",
-        event = "BufRead",
-        config = function() require "lsp_signature".on_attach() end,
-    },
-    -- {
-    --     "Pocco81/auto-save.nvim",
-    --     config = function()
-    --         require("auto-save").setup {}
-    --     end,
-    -- },
+
+
     {
         'simrat39/symbols-outline.nvim',
         config = function()
@@ -153,6 +145,7 @@ local plugins = {
             require("oil").setup()
         end,
     },
+
     {
         "NvChad/nvterm",
         config = function()
@@ -172,7 +165,7 @@ local plugins = {
         "nvim-tree/nvim-tree.lua",
         cmd = { "NvimTreeToggle", "NvimTreeFocus" },
         config = function()
-            require("nvim-tree").setup()
+            require("plugins.configs.nvim-tree");
         end,
     },
 
@@ -215,6 +208,7 @@ local plugins = {
             require('gitblame').setup()
         end,
     },
+
     -- statusline
     {
         "nvim-lualine/lualine.nvim",
@@ -223,6 +217,7 @@ local plugins = {
             require "plugins.configs.lualine"
         end,
     },
+
     -- we use cmp plugin only when in insert mode
     -- so lets lazyload it at InsertEnter event, to know all the events check h-events
     -- completion , now all of these plugins are dependent on cmp, we load them after cmp
@@ -318,14 +313,6 @@ local plugins = {
         end,
     },
 
-    {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'make',
-        -- config = function()
-        --     require "plugins.configs.telescope"
-        -- end,
-    },
-
     -- files finder etc
     {
         "nvim-telescope/telescope.nvim",
@@ -352,61 +339,16 @@ local plugins = {
             require("Comment").setup()
         end,
     },
+
+    {
+        "ray-x/lsp_signature.nvim",
+        event = "BufRead",
+        config = function() 
+            require "lsp_signature".on_attach() 
+        end,
+    },
 }
 
 require("lazy").setup(plugins, require "plugins.configs.lazy")
--- require('telescope').load_extension('fzf')
 
-
-
-local function my_on_attach(bufnr)
-    local api = require "nvim-tree.api"
-
-    local function opts(desc)
-        return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-    end
-
-    -- default mappings
-    api.config.mappings.default_on_attach(bufnr)
-
-    -- custom mappings
-    vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent, opts('Up'))
-    vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
-end
-
--- pass to setup along with your other options
-require("nvim-tree").setup {
-    on_attach = my_on_attach,
-}
-
--- cfg = {…}  -- add you config here
-local cfg = {
-    floating_window_off_x = 5,                           -- adjust float windows x position.
-    floating_window_off_y = function()                   -- adjust float windows y position. e.g. set to -2 can make floating window move up 2 lines
-        local linenr = vim.api.nvim_win_get_cursor(0)[1] -- buf line number
-        local pumheight = vim.o.pumheight
-        local winline = vim.fn.winline()                 -- line number in the window
-        local winheight = vim.fn.winheight(0)
-
-        -- window top
-        if winline - 1 < pumheight then
-            return pumheight
-        end
-
-        -- window bottom
-        if winheight - winline < pumheight then
-            return -pumheight
-        end
-        return 0
-    end,
-}
-require "lsp_signature".setup(cfg)
-
-vim.api.nvim_create_autocmd('LspAttach', {
-    callback = function(args)
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client.server_capabilities.hoverProvider then
-            vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, { buffer = args.buf })
-        end
-    end,
-})
+require("plugins.configs.lsp-signature")
