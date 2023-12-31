@@ -1,18 +1,113 @@
-# TinyVim
-- Minimal Neovim config meant to be a starting point for new neovim users.
+# My-Linux-System-Setup/.config/nvim
 
-![2023-09-26-133901_2560x1440_scrot](https://github.com/NvChad/tinyvim/assets/59060246/ce143ca2-07f1-4d54-971d-0f8304c50b58)
+<a href="https://dotfyle.com/minaalbert33/my-linux-system-setup-config-nvim"><img src="https://dotfyle.com/minaalbert33/my-linux-system-setup-config-nvim/badges/plugins?style=flat" /></a>
+<a href="https://dotfyle.com/minaalbert33/my-linux-system-setup-config-nvim"><img src="https://dotfyle.com/minaalbert33/my-linux-system-setup-config-nvim/badges/leaderkey?style=flat" /></a>
+<a href="https://dotfyle.com/minaalbert33/my-linux-system-setup-config-nvim"><img src="https://dotfyle.com/minaalbert33/my-linux-system-setup-config-nvim/badges/plugin-manager?style=flat" /></a>
 
-# Install
-- Linux
-```bash
-git clone https://github.com/NvChad/tinyvim ~/.config/nvim && nvim
+
+## Install Instructions
+
+ > Install requires Neovim 0.9+. Always review the code before installing a configuration.
+
+Clone the repository and install the plugins:
+
+```sh
+git clone git@github.com:minaalbert33/My-Linux-System-Setup ~/.config/minaalbert33/My-Linux-System-Setup
+NVIM_APPNAME=minaalbert33/My-Linux-System-Setup/.config/nvim nvim --headless +"Lazy! sync" +qa
 ```
 
-- Windows
-```bash
-git clone https://github.com/NvChad/tinyvim $HOME\AppData\Local\nvim --depth 1 && nvim
+Open Neovim with this config:
+
+```sh
+NVIM_APPNAME=minaalbert33/My-Linux-System-Setup/.config/nvim nvim
 ```
+
+## Plugins
+
+### color
+
++ [brenoprata10/nvim-highlight-colors](https://dotfyle.com/plugins/brenoprata10/nvim-highlight-colors)
+### colorscheme
+
++ [marko-cerovac/material.nvim](https://dotfyle.com/plugins/marko-cerovac/material.nvim)
+### comment
+
++ [numToStr/Comment.nvim](https://dotfyle.com/plugins/numToStr/Comment.nvim)
+### completion
+
++ [hrsh7th/nvim-cmp](https://dotfyle.com/plugins/hrsh7th/nvim-cmp)
+### debugging
+
++ [rcarriga/nvim-dap-ui](https://dotfyle.com/plugins/rcarriga/nvim-dap-ui)
++ [mfussenegger/nvim-dap](https://dotfyle.com/plugins/mfussenegger/nvim-dap)
+### diagnostics
+
++ [folke/trouble.nvim](https://dotfyle.com/plugins/folke/trouble.nvim)
+### editing-support
+
++ [windwp/nvim-autopairs](https://dotfyle.com/plugins/windwp/nvim-autopairs)
+### file-explorer
+
++ [stevearc/oil.nvim](https://dotfyle.com/plugins/stevearc/oil.nvim)
+### formatting
+
++ [stevearc/conform.nvim](https://dotfyle.com/plugins/stevearc/conform.nvim)
+### fuzzy-finder
+
++ [ibhagwan/fzf-lua](https://dotfyle.com/plugins/ibhagwan/fzf-lua)
++ [nvim-telescope/telescope.nvim](https://dotfyle.com/plugins/nvim-telescope/telescope.nvim)
+### git
+
++ [lewis6991/gitsigns.nvim](https://dotfyle.com/plugins/lewis6991/gitsigns.nvim)
++ [f-person/git-blame.nvim](https://dotfyle.com/plugins/f-person/git-blame.nvim)
+### indent
+
++ [echasnovski/mini.indentscope](https://dotfyle.com/plugins/echasnovski/mini.indentscope)
++ [lukas-reineke/indent-blankline.nvim](https://dotfyle.com/plugins/lukas-reineke/indent-blankline.nvim)
+### lsp
+
++ [simrat39/symbols-outline.nvim](https://dotfyle.com/plugins/simrat39/symbols-outline.nvim)
++ [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
++ [mfussenegger/nvim-jdtls](https://dotfyle.com/plugins/mfussenegger/nvim-jdtls)
++ [ray-x/lsp_signature.nvim](https://dotfyle.com/plugins/ray-x/lsp_signature.nvim)
+### lsp-installer
+
++ [williamboman/mason.nvim](https://dotfyle.com/plugins/williamboman/mason.nvim)
+### markdown-and-latex
+
++ [iamcco/markdown-preview.nvim](https://dotfyle.com/plugins/iamcco/markdown-preview.nvim)
+### nvim-dev
+
++ [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
+### plugin-manager
+
++ [folke/lazy.nvim](https://dotfyle.com/plugins/folke/lazy.nvim)
+### snippet
+
++ [L3MON4D3/LuaSnip](https://dotfyle.com/plugins/L3MON4D3/LuaSnip)
++ [rafamadriz/friendly-snippets](https://dotfyle.com/plugins/rafamadriz/friendly-snippets)
+### statusline
+
++ [nvim-lualine/lualine.nvim](https://dotfyle.com/plugins/nvim-lualine/lualine.nvim)
+### syntax
+
++ [kylechui/nvim-surround](https://dotfyle.com/plugins/kylechui/nvim-surround)
++ [nvim-treesitter/nvim-treesitter](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter)
+### tabline
+
++ [akinsho/bufferline.nvim](https://dotfyle.com/plugins/akinsho/bufferline.nvim)
+### utility
+
++ [echasnovski/mini.nvim](https://dotfyle.com/plugins/echasnovski/mini.nvim)
++ [stevearc/dressing.nvim](https://dotfyle.com/plugins/stevearc/dressing.nvim)
+## Language Servers
+
++ clangd
++ jdtls
++ rust_analyzer
++ lua_ls
+
+
 
 # Dir structure
 ```bash
@@ -28,24 +123,3 @@ git clone https://github.com/NvChad/tinyvim $HOME\AppData\Local\nvim --depth 1 &
             ├── telescope.lua
             └── ( more ... )
 ```
-# About
-- Dont expect this config to be beautiful or blazing fast (no hardcore lazyloading is done)! 
-- I'm just using some plugins with their default configs
-- This config only uses only lesser plugins which I think are important for any config.
-
-# Important Plugins used
-Below is the list of some very important plugins which I think should be must for any neovim config.
-
-| Name             | Description                                  |
-|-------------------------|----------------------------------------------|
-| nvim-tree.lua           | File tree                                    |
-| Nvim-web-devicons       | Icons provider                               |
-| nvim-treesitter         | Configure treesitter                         |
-| bufferline.nvim         | Tab + bufferline plugin                      |
-| nvim-cmp                | Autocompletion                               |
-| Luasnip & friendly snippets               | Snippets                                      |
-| mason.nvim              | Download binaries of various lsps, formatters, debuggers, etc. |
-| gitsigns.nvim                | Git-related features                         |
-| comment.nvim            | Commenting                                   |
-| telescope.nvim          | Fuzzy finder                                 |
-| conform.nvim            | Formatter                                    |
