@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the output directory
-output_dir="recordings"
+output_dir="/mnt/D/Mina/recordings"
 
 # Create the output directory if it doesn't exist
 mkdir -p "$output_dir"
