@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# i use this script in my Xorg enviroment
+
 # Set the output file name and path
 output_file="screencast_$(date +"%Y%m%d_%H%M%S").mkv"
 
