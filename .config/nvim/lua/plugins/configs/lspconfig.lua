@@ -86,9 +86,10 @@ lspconfig.clangd.setup {
 }
 
 lspconfig.rust_analyzer.setup{}
+lspconfig.slint_lsp.setup{}
 
 -- setup multiple servers with same default options
-local servers = { "jdtls", "clangd", "rust_analyzer" }
+local servers = {  "clangd", "rust_analyzer" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {

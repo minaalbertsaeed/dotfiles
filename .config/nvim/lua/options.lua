@@ -4,6 +4,7 @@ vim.g.mapleader = " "
 
 opt.laststatus = 3 -- global statusline
 opt.showmode = true
+opt.cursorline = true
 
 -- opt.clipboard = "unnamedplus"
 
@@ -14,12 +15,13 @@ opt.tabstop = 4
 opt.softtabstop = 4
 opt.expandtab = true
 opt.swapfile = false
-
+opt.mouse = "n"
 
 opt.fillchars = { eob = " " }
 opt.ignorecase = true
 opt.smartcase = true
 opt.mouse = "a"
+opt.foldmethod = "syntax"
 
 -- Numbers
 opt.number = true

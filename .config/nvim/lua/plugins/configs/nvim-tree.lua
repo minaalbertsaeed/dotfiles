@@ -15,5 +15,11 @@ end
 
 -- pass to setup along with your other options
 require("nvim-tree").setup {
+    sync_root_with_cwd = true,
+    respect_buf_cwd = true,
+    update_focused_file = {
+        enable = true,
+        update_root = true
+    },
     on_attach = my_on_attach,
 }

@@ -3,9 +3,8 @@ local map = vim.keymap.set
 
 vim.opt.rtp:prepend(lazypath)
 require "plugins"
-
 map("n", "<Esc>", "<cmd> :noh <CR>")
-map("n", "<leader>w", "<cmd> NvimTreeToggle <CR>") -- Open file explorer
+map("n", "<leader>d", "<cmd> NvimTreeToggle <CR>") -- Open file explorer
 -- map("n", "<C-A>", "ggVG")                      -- select all
 
 map("n", "<leader>x", "<cmd> :bd! <CR>") -- Close  current buffer
@@ -14,7 +13,7 @@ map("n", "<leader>x", "<cmd> :bd! <CR>") -- Close  current buffer
 map('v', "K", ":m '<-2<CR>gv=gv")
 map('v', "J", ":m '>+1<CR>gv=gv")
 
--- Copy to System Clipboard
+-- Copy to Syst:em Clipboard
 map('n', "<leader>z", "\"+y")
 map('v', "<leader>z", "\"+y")
 
@@ -43,7 +42,6 @@ map("v", "<leader>/", "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.
 
 -- Telescope
 map("n", "<leader>fo", "<cmd> Telescope oldfiles <CR>")
-map("n", "<leader>fw", "<cmd> Telescope live_grep <CR>")
 -- map("n", "<leader>gt", "<cmd> Telescope git_status <CR>")
 map("n", "<leader>ff", "<cmd> FzfLua files <CR>")
 map("n", "<leader>rr", function() require("telescope.builtin").registers() end)
@@ -62,15 +60,10 @@ map("n", "<leader>ghr", "<cmd> Gitsigns reset_buffer <CR>")
 -- <leader>t--> Toggle Horizontal Terminal
 -- <leader>v--> Toggle Vertical Terminal
 --
-function getTerminal(position, cmd)
-    local current_directory = vim.fn.expand("%:p:h") --Get the full path of the current file
-    -- local command = string.format("cd %s ; clear; %s", current_directory, cmd)
-    local command = string.format("cd %s; %s", current_directory, cmd)
-    require("nvterm.terminal").send(command, position)
-end
 
-map('n', '<leader>t', ':lua getTerminal("horizontal", "")<CR>', { noremap = true, silent = true ,desc = "Spwan Horizontal Terminal" })
-map('n', '<leader>v', ':lua getTerminal("vertical", "")<CR>', { noremap = true, silent = true , desc = "Spwan Horizontal Terminal" })
+map('n', '<leader>t', ':lua require("nvterm.terminal").toggle "horizontal" <CR>', { noremap = true, silent = true ,desc = "Spwan Horizontal Terminal" })
+map('n', '<leader>v', ':lua require("nvterm.terminal").toggle "vertical" <CR>', { noremap = true, silent = true ,desc = "Spwan Horizontal Terminal" })
+    
 
 -- Allow Navigate Windows from terminal mode
 map('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
@@ -96,14 +89,10 @@ map("n", "<C-j>", "<C-w>j")
 map("n", "<C-k>", "<C-w>k")
 map("n", "<C-l>", "<C-w>l")
 
--- Function to run current CPP file in a horizontal terminal
-function CompileProject(direction)
-    getTerminal(direction, "./run")
-end
 
 -- Map F5 to run cpp files
-map('n', '<F5>', ':lua CompileProject("horizontal")<CR>', { noremap = true, silent = true ,  desc = "Run Current file in  Horizontal Terminal" })
-map('n', '<F6>', ':lua CompileProject("vertical")<CR>', { noremap = true, silent = true,  desc = "Run Current file in  Vertical Terminal" })
+map('n', '<F5>', ':lua require("nvterm.terminal").send("./run", "horizontal") <CR>', { noremap = true, silent = true ,  desc = "Run Current file in  Horizontal Terminal" })
+map('n', '<F6>', ':lua require("nvterm.terminal").send("./run", "vertical") <CR>', { noremap = true, silent = true ,  desc = "Run Current file in  Horizontal Terminal" })
 
 
 -- map('n', '<C-H>', "<cmd>lua require('swap-buffers').swap_buffers('l')<CR>", { noremap = true, silent = true })
@@ -113,6 +102,3 @@ map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 require "CustomScripts.build"
 
 map("n", "<F7>", ':lua test()<CR>', { noremap = true, silent = true })
-
-
-

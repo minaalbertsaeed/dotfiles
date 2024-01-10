@@ -1,16 +1,11 @@
 local plugins = {
 
-    { lazy = true,                 "nvim-lua/plenary.nvim" },
-
-    -- Themes
-    { "tinted-theming/base16-vim", lazy = false },
-
     {
-        "loctvl842/monokai-pro.nvim",
-        config = function()
-            require("monokai-pro").setup()
-        end
+        "nvim-lua/plenary.nvim",
+        lazy = true,
     },
+
+    { "tinted-theming/base16-vim", lazy = false },
 
     { 'yazeed1s/oh-lucy.nvim' },
 
@@ -20,6 +15,18 @@ local plugins = {
             require('plugins.configs.dressing')
         end
     },
+
+    {
+        "ahmedkhalf/project.nvim",
+        config = function()
+            require("project_nvim").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    },
+
     {
         "kylechui/nvim-surround",
         version = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -29,9 +36,6 @@ local plugins = {
                 -- Configuration here, or leave empty to use defaults
             })
         end
-    },
-    {
-        'marko-cerovac/material.nvim'
     },
 
 
@@ -96,7 +100,7 @@ local plugins = {
         end
     },
 
-    { 'mfussenegger/nvim-jdtls' },
+    -- { 'mfussenegger/nvim-jdtls' },
 
 
     {
@@ -343,8 +347,8 @@ local plugins = {
     {
         "ray-x/lsp_signature.nvim",
         event = "BufRead",
-        config = function() 
-            require "lsp_signature".on_attach() 
+        config = function()
+            require "lsp_signature".on_attach()
         end,
     },
 }
