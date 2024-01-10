@@ -12,7 +12,7 @@ output_file="$output_dir/recorded_video_$current_date.mp4"
 
 start_recording() {
     echo "Starting recording..."
-    wf-recorder -f  "$output_file" -g "$(slurp)"
+    wf-recorder -a -f  "$output_file" -g "$(slurp)"
 }
 
 stop_recording() {
@@ -20,18 +20,17 @@ stop_recording() {
     pkill -f wf-recorder
 }
 
-case "$1" in
-    start)
-        start_recording
-        ;;
-    stop)
-        stop_recording
-        ;;
-    *)
-        echo "Usage: $0 {start|stop}"
-        exit 1
-        ;;
-esac
+process_name="wf-recorder"
 
+if pgrep -x "$process_name" > /dev/null; then
+    choice=$(echo -e "stop recording" | rofi -dmenu  -p "Choose action: ")
+
+    if [ "$choice" = "stop recording" ]; then
+            stop_recording
+    fi
+
+else
+    start_recording
+fi
 exit 0
 
