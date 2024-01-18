@@ -5,10 +5,24 @@ local plugins = {
         lazy = true,
     },
 
-    { "tinted-theming/base16-vim", lazy = false },
-
+    -- Themes
     { 'yazeed1s/oh-lucy.nvim' },
-
+    { 'kdheepak/monochrome.nvim' },
+    { "EdenEast/nightfox.nvim" },
+  {'akinsho/toggleterm.nvim', version = "*", opts = {--[[ things you want to change go here]]}},
+    -- {
+    --     "folke/which-key.nvim",
+    --     event = "VeryLazy",
+    --     init = function()
+    --         vim.o.timeout = true
+    --         vim.o.timeoutlen = 300
+    --     end,
+    --     opts = {
+    --         -- your configuration comes here
+    --         -- or leave it empty to use the default settings
+    --         -- refer to the configuration section below
+    --     }
+    -- },
     {
         'stevearc/dressing.nvim',
         config = function()
@@ -18,6 +32,7 @@ local plugins = {
 
     {
         "ahmedkhalf/project.nvim",
+        lazy = false,
         config = function()
             require("project_nvim").setup {
                 -- your configuration comes here
@@ -27,27 +42,33 @@ local plugins = {
         end
     },
 
+    -- fill git integration in neovim
     {
-        "kylechui/nvim-surround",
-        version = "*", -- Use for stability; omit to use `main` branch for the latest features
-        event = "VeryLazy",
-        config = function()
-            require("nvim-surround").setup({
-                -- Configuration here, or leave empty to use defaults
-            })
-        end
+        "chrisgrieser/nvim-tinygit",
+        ft = { "gitrebase", "gitcommit" }, -- so ftplugins are loaded
+        dependencies = {
+            "stevearc/dressing.nvim",
+            -- "nvim-telescope/telescope.nvim", -- either telescope or fzf-lua
+            "ibhagwan/fzf-lua",
+            "rcarriga/nvim-notify", -- optional, but will lack some features without it
+        },
     },
 
+    {
+        "rcarriga/nvim-notify", -- optional, but will lack some features without it
+        config = function()
+            require("notify").setup {
+                -- stages = 'fade_in_slide_out',
+                -- background_colour = 'FloatShadow',
+                -- timeout = 3000,
+            }
+            vim.notify = require('notify')
+        end
 
-    -- {
-    --     "folke/trouble.nvim",
-    --     dependencies = { "nvim-tree/nvim-web-devicons" },
-    --     opts = {
-    --         -- your configuration comes here
-    --         -- or leave it empty to use the default settings
-    --         -- refer to the configuration section below
-    --     },
-    -- },
+    },
+
+    -- { 'nvim-telescope/telescope-dap.nvim' },
+
     {
         "rcarriga/nvim-dap-ui",
         event = "VeryLazy",
@@ -95,13 +116,13 @@ local plugins = {
 
     {
         'brenoprata10/nvim-highlight-colors',
+        lazy = false,
         config = function()
             require('nvim-highlight-colors').setup {}
         end
     },
 
-    -- { 'mfussenegger/nvim-jdtls' },
-
+    -- :SymbolsOutline -> get list of symobls
 
     {
         'simrat39/symbols-outline.nvim',
@@ -144,7 +165,6 @@ local plugins = {
 
     {
         'stevearc/oil.nvim',
-
         config = function()
             require("oil").setup()
         end,
@@ -159,6 +179,9 @@ local plugins = {
 
     {
         "iamcco/markdown-preview.nvim",
+        lazy = true,
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
         config = function()
             vim.fn["mkdp#util#install"]()
         end,
@@ -266,12 +289,21 @@ local plugins = {
         end,
     },
 
+    -- Mason (package manager for LSP servers, Linters, Formatters, DAP servers)
     {
         "williamboman/mason.nvim",
         build = ":MasonUpdate",
         cmd = { "Mason", "MasonInstall" },
         config = function()
-            require("mason").setup()
+            require("mason").setup({
+                ui = {
+                    icons = {
+                        package_installed = "✓",
+                        package_pending = "➜",
+                        package_uninstalled = "✗"
+                    }
+                }
+            })
         end,
     },
 
@@ -309,10 +341,7 @@ local plugins = {
 
     {
         "ibhagwan/fzf-lua",
-        -- optional for icon support
-        dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
-            -- calling `setup` is optional for customization
             require("plugins.configs.fzf-lua")
         end,
     },
@@ -340,7 +369,7 @@ local plugins = {
         "numToStr/Comment.nvim",
         lazy = true,
         config = function()
-            require("Comment").setup()
+            -- require('Comment').setup()
         end,
     },
 

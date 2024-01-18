@@ -19,15 +19,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 
-vim.cmd "colorscheme oh-lucy"
+vim.cmd "colorscheme monochrome"
 
--- vim.cmd "GitBlameDisable"
+vim.cmd "GitBlameDisable"
 -- vim.cmd "set relativenumber"
 -- vim.cmd "set ft=xxd"
-
-
-if vim.g.vscode then
-    vim.cmd "source $HOME/.config/nvim/vscode/settings.vim"
-else
-    require "plugins"
-end

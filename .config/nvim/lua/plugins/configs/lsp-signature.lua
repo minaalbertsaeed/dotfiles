@@ -25,7 +25,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         if client.server_capabilities.hoverProvider then
-            vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, { buffer = args.buf })
+            vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, { buffer = args.buf , desc = "Display keyword description" })
         end
     end,
 })

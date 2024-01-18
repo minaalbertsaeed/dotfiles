@@ -7,6 +7,7 @@ opt.showmode = true
 opt.cursorline = true
 
 -- opt.clipboard = "unnamedplus"
+vim.g.monochrome_style = 'default'
 
 -- Indenting
 opt.shiftwidth = 4
@@ -15,13 +16,15 @@ opt.tabstop = 4
 opt.softtabstop = 4
 opt.expandtab = true
 opt.swapfile = false
-opt.mouse = "n"
 
+-- opt.mouse = "n"
 opt.fillchars = { eob = " " }
 opt.ignorecase = true
 opt.smartcase = true
 opt.mouse = "a"
 opt.foldmethod = "syntax"
+-- Assuming g:netrw_browsex_viewer is a global variable for a plugin
+-- vim.g.netrw_browsex_viewer = "brave"
 
 -- Numbers
 opt.number = true

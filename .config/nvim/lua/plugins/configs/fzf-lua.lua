@@ -1,7 +1,7 @@
 require("fzf-lua").setup({
-    preview = {
-        border = 'noborder',
-    },
-    hls = { border = "FloatBorder" }
-
+    -- fzf_opts = { ['--layout'] = 'reverse-list' },
+    -- hls = {
+    --     border  = "FloatBorder",
+    -- }
 })
+
