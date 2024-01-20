@@ -9,7 +9,83 @@ local plugins = {
     { 'yazeed1s/oh-lucy.nvim' },
     { 'kdheepak/monochrome.nvim' },
     { "EdenEast/nightfox.nvim" },
-  {'akinsho/toggleterm.nvim', version = "*", opts = {--[[ things you want to change go here]]}},
+    {
+        "j-hui/fidget.nvim",
+        opts = {
+            -- options
+        },
+    },
+
+    {
+        'https://github.com/adelarsq/image_preview.nvim',
+        event = 'VeryLazy',
+        config = function()
+            require("image_preview").setup()
+        end
+    },
+    {
+        "niuiic/code-shot.nvim",
+        dependencies = {
+            "niuiic/core.nvim"
+        },
+        config = function()
+            require("code-shot").setup({
+                ---@return string output file path
+                output = function()
+                    local core = require("core")
+                    local buf_name = vim.api.nvim_buf_get_name(0)
+                    return core.file.name(buf_name) .. ".png"
+                end,
+                ---@return string[]
+                -- select_area: {s_start: {row: number, col: number}, s_end: {row: number, col: number}} | nil
+                options = function(select_area)
+                    if not select_area then
+                        return {}
+                    end
+                    return {
+                        "--line-offset",
+                        select_area.s_start.row,
+                    }
+                end,
+            })
+        end
+    },
+    -- lazy.nvim
+    -- {
+    --     "folke/noice.nvim",
+    --     event = "VeryLazy",
+    --     opts = {
+    --         -- add any options here
+    --     },
+    --     dependencies = {
+    --         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+    --         "MunifTanjim/nui.nvim",
+    --         -- OPTIONAL:
+    --         --   `nvim-notify` is only needed, if you want to use the notification view.
+    --         --   If not available, we use `mini` as the fallback
+    --         "rcarriga/nvim-notify",
+    --     },
+    -- config = function()
+    --     require("noice").setup({
+    --         lsp = {
+    --             -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+    --             -- override = {
+    --             --     ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+    --             --     ["vim.lsp.util.stylize_markdown"] = true,
+    --             --     -- ["cmp.entry.get_documentation"] = true,
+    --             -- },
+    --         },
+    --         -- you can enable a preset for easier configuration
+    --         presets = {
+    --             bottom_search = true,     -- use a classic bottom cmdline for search
+    --             command_palette = true,   -- position the cmdline and popupmenu together
+    --             long_message_to_split = true, -- long messages will be sent to a split
+    --             inc_rename = false,       -- enables an input dialog for inc-rename.nvim
+    --             -- lsp_doc_border = false,   -- add a border to hover docs and signature help
+    --         },
+    --     })
+    -- end,
+    -- },
     -- {
     --     "folke/which-key.nvim",
     --     event = "VeryLazy",

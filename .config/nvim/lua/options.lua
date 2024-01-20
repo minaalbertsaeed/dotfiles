@@ -7,7 +7,7 @@ opt.showmode = true
 opt.cursorline = true
 
 -- opt.clipboard = "unnamedplus"
-vim.g.monochrome_style = 'default'
+-- vim.g.monochrome_style = 'default'
 
 -- Indenting
 opt.shiftwidth = 4

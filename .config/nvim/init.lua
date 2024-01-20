@@ -19,7 +19,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 
-vim.cmd "colorscheme monochrome"
+-- vim.cmd "colorscheme monochrome"
+vim.cmd "colorscheme carbonfox"
 
 vim.cmd "GitBlameDisable"
 -- vim.cmd "set relativenumber"
