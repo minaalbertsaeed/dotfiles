@@ -1,35 +1,28 @@
 # My Linux System Setup
 
-This is the configuration of my Arch linux System using [Suckless](https://suckless.org/) Tools (X server)
+This is the configuration of my Arch linux System using [Hyprland Compositor](https://hyprland.org/) (Wayland)
 
 ## Common Packages
-- Window Manager : dwm
-- Terminal: st
-- Screen locker: slock
+- Window Manager : Hyprland
+- Terminal Multiplexer: tmux
 - Text Editor: nvim
 - Image Viewer: sxiv
-- Video Player: mpv, vlc
-- Document Viewer: zathura (vim based)
+- Video Player: vlc
+- Document Viewer: zathura (vim based keybindings)
 - Zathura pdf plugin: zathura-pdf-mupdf
 - Font: ttf-jetbrains-mono-nerd
-- Menu: dmenu 
+- Menu: rofi 
 - Web Browser: brave-bin 
-- Recording tool: ffmpeg
+- Recording tool: wfrecorder
 - Machine Emulator & Virtualizer : qemu
 - Filemanager: lf, thunar
-- Notification Daemon: dunst
-- Status Bar: dwmblocks
-- Screenshots: maim
+- Status Bar: waybar
+- Screenshots: hyprshot
 - System Monitor: btop
 - Clipboard Manager: xclip
 - Backlight Controller: light
 - Command line Translator: translate-shell
-
-## Why using Suckless Tools ?
-   Suckless offers bunch of softwares like dwm, st, dmenu, slock and dwmblocks that are very minimal<br> 
-   and even don't have configuration files , u need to edit the source code and recompile the software <br> 
-   if you want to add a feature then u need to patch the software and recompile it
  
 ## NOTES:
-- All the keybindings related to windows and other ones are located in .config/sxhkd/sxhkdrc
+- All the keybindings related to windows and other ones are located in .config/hypr/files/binds.conf
 - Some packages are in the official repositories and other from the AUR (Arch User Repository)
