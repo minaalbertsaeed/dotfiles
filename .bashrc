@@ -18,20 +18,21 @@ alias q='sudo pacman -Q'
 alias u='sudo pacman -Syu'
 alias s='sudo pacman -Ss'
 alias za='zathura'
-# alias vi='vim'
 alias vim='nvim'
 alias lf='lfub'
+alias llf='lfub -config .config/lf_for_dwm/lf/lfrc'
 alias transa='trans :en+ara'
 alias gput='nvidia-settings -q gpucoretemp -t'
-alias intel='/mnt/D/badApps/idea-IU-233.11799.300/bin/idea.sh'
 alias pickcolor='xcolor -s'
+alias freee='~/.local/bin/scripts/free.sh'
+# alias discord='WebCord-4.6.1-x64.AppImage'
 export EDITOR="nvim"
+export XDG_SESSION_TYPE=wayland
 export dmenufont="JetBrains Mono Nerd Font:size=10"    
 export TERMINAL="st"
 export GTK_THEME="Adwaita:dark"
 export GTK_FONT_NAME="Cairo:size=10"
-export _JAVA_AWT_WM_NONREPARENTING=1
-export PATH="$PATH:/home/mina/.local/bin/"
+export PATH="$PATH:/home/mina/.local/bin/:/home/mina/.cargo/bin"
 # export PATH="$HOME/.local/bin:$PATH"
 PS1='\[\e[32m\]\w \[\e[0m\]>\[\e[0m\] '
 

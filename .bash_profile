@@ -4,4 +4,6 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-[[  $(tty) = "/dev/tty1" ]] && startx
+ if [  $(tty) = "/dev/tty1" ] ;then
+	 ~/.local/bin/scripts/select_window_manager.sh
+ fi
