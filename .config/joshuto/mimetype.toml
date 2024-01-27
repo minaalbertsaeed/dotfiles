@@ -1,0 +1,41 @@
+[class]
+image_default	= [
+	{ command = "sxiv", fork = true, silent = true },
+	# { command = "krita", fork = true, silent = true } 
+    ]
+#
+# text_default	= [
+# 	{ command = "nvim", fork = true, silent = true },
+#     ]
+
+[extension]
+# inherit from image_default class
+png.inherit	= "image_default"
+
+# inherit from image_default class
+jpg.inherit	= "image_default"
+# in addition, also add gimp for .jpg files only
+jpg.app_list	= [
+	{ command = "sxiv", fork = true, silent = true } ]
+
+mkv.app_list	= [
+	{ command = "vlc", args = [ "--" ] , fork = true, silent = true },
+	{ command = "mediainfo", confirm_exit = true }, ]
+
+mp3.app_list	= [
+	{ command = "vlc", args = [ "--" ] , fork = true, silent = true },
+	{ command = "mediainfo", confirm_exit = true }, ]
+
+# rs.app_list	= [
+# 	{ command = "nvim" , fork = true, silent = true },
+# ]
+
+[mimetype]
+
+# text/*
+[mimetype.text]
+inherit = "text_default"
+
+# application/octet-stream
+[mimetype.application.subtype.octet-stream]
+inherit = "video_default"

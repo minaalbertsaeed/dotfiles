@@ -5,6 +5,7 @@ vim.g.mapleader = " "
 opt.laststatus = 3 -- global statusline
 opt.showmode = true
 opt.cursorline = true
+opt.cmdheight = 0
 
 -- opt.clipboard = "unnamedplus"
 -- vim.g.monochrome_style = 'default'

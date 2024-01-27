@@ -1,7 +1,7 @@
 -- Global mappings.
-vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+-- vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
+-- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+-- vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 -- vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 
 -- Use LspAttach autocommand to only map the following keys
@@ -86,10 +86,9 @@ lspconfig.clangd.setup {
 }
 
 lspconfig.rust_analyzer.setup{}
--- lspconfig.slint_lsp.setup{}
 
 -- setup multiple servers with same default options
-local servers = {  "clangd", "rust_analyzer" }
+local servers = {  "clangd" ,"rust_analyzer" ,"lua_ls"}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {

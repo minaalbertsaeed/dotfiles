@@ -4,7 +4,9 @@ local current_directory = vim.fn.expand("%:p:h") --Get the full path of the curr
 
 
 function test()
-    vim.ui.select({ 'test', 'lol', "asd" }, {
+    local total_buffers = #vim.fn.getbufinfo({ buflisted = 1 })
+
+    vim.ui.select({ 'test', 'lol', "asd", total_buffers }, {
         prompt = 'Choose something',
         format_item = function(item)
             return "I'd like to choose " .. item

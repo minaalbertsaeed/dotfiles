@@ -23,5 +23,8 @@ require("nvim-tree").setup {
         update_root = true
     },
 
+  view = {
+    width = 35,
+  },
     on_attach = my_on_attach,
 }

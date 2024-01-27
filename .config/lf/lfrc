@@ -2,9 +2,13 @@
 set hidden true
 set ignorecase true
 set icons true
-#set drawbox true
-set cleaner '~/.config/lf/cleaner'
-set previewer '~/.config/lf/scope'
+set info size
+# set cleaner '~/.config/lf/cleaner'
+# set previewer '~/.config/lf/scope'
+
+set previewer ~/.config/lf/lf_kitty_preview
+set cleaner ~/.config/lf/lf_kitty_clean
+
 set preview true
 set ratios 1:2:3
 
@@ -43,10 +47,16 @@ cmd open ${{
         image/*) sxiv "$fx" & disown;;
         audio/*) vlc "$fx" & disown;; 
         video/*) vlc "$fx" & disown;;
+        application/x-zerosize) xdg-open "$fx" & disown;;
         *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;    
     esac    
 }}  
 
+mime `file --mime-type -b %s` {
+    application/vnd.openxmlformats-officedocument.presentationml.presentation, \
+    application/vnd.ms-powerpoint
+    eval "libreoffice --impress %s &"
+}
 
 
 
@@ -124,6 +134,6 @@ map C clear
 
 # Movement
 map gd cd /mnt/D
-map gf cd /mnt/D
+map gf cd /mnt/F
 map gc cd ~/.config
 map gr cd ~/repos

@@ -1,7 +1,4 @@
 require("fzf-lua").setup({
-    -- fzf_opts = { ['--layout'] = 'reverse-list' },
-    -- hls = {
-    --     border  = "FloatBorder",
-    -- }
+    vim.api.nvim_set_hl(0, "FzfLuaBorder", { link = "FloatBorder" })
 })
 

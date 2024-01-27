@@ -20,8 +20,7 @@ vim.opt.rtp:prepend(lazypath)
 
 
 -- vim.cmd "colorscheme monochrome"
-vim.cmd "colorscheme carbonfox"
-
+vim.cmd "set guicursor=i:block"
+vim.cmd "colorscheme base16-chalk"
 vim.cmd "GitBlameDisable"
--- vim.cmd "set relativenumber"
--- vim.cmd "set ft=xxd"
+

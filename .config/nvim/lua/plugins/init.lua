@@ -1,14 +1,11 @@
 local plugins = {
 
-    {
-        "nvim-lua/plenary.nvim",
-        lazy = true,
-    },
 
     -- Themes
     { 'yazeed1s/oh-lucy.nvim' },
-    { 'kdheepak/monochrome.nvim' },
     { "EdenEast/nightfox.nvim" },
+    { "tinted-theming/base16-vim" },
+
     {
         "j-hui/fidget.nvim",
         opts = {
@@ -17,88 +14,47 @@ local plugins = {
     },
 
     {
-        'https://github.com/adelarsq/image_preview.nvim',
-        event = 'VeryLazy',
+        'm4xshen/autoclose.nvim',
         config = function()
-            require("image_preview").setup()
+            require("autoclose").setup()
         end
     },
-    {
-        "niuiic/code-shot.nvim",
-        dependencies = {
-            "niuiic/core.nvim"
-        },
-        config = function()
-            require("code-shot").setup({
-                ---@return string output file path
-                output = function()
-                    local core = require("core")
-                    local buf_name = vim.api.nvim_buf_get_name(0)
-                    return core.file.name(buf_name) .. ".png"
-                end,
-                ---@return string[]
-                -- select_area: {s_start: {row: number, col: number}, s_end: {row: number, col: number}} | nil
-                options = function(select_area)
-                    if not select_area then
-                        return {}
-                    end
-                    return {
-                        "--line-offset",
-                        select_area.s_start.row,
-                    }
-                end,
-            })
-        end
-    },
-    -- lazy.nvim
+
     -- {
-    --     "folke/noice.nvim",
-    --     event = "VeryLazy",
-    --     opts = {
-    --         -- add any options here
-    --     },
+    --     "niuiic/code-shot.nvim",
     --     dependencies = {
-    --         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-    --         "MunifTanjim/nui.nvim",
-    --         -- OPTIONAL:
-    --         --   `nvim-notify` is only needed, if you want to use the notification view.
-    --         --   If not available, we use `mini` as the fallback
-    --         "rcarriga/nvim-notify",
+    --         "niuiic/core.nvim"
     --     },
-    -- config = function()
-    --     require("noice").setup({
-    --         lsp = {
-    --             -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-    --             -- override = {
-    --             --     ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-    --             --     ["vim.lsp.util.stylize_markdown"] = true,
-    --             --     -- ["cmp.entry.get_documentation"] = true,
-    --             -- },
-    --         },
-    --         -- you can enable a preset for easier configuration
-    --         presets = {
-    --             bottom_search = true,     -- use a classic bottom cmdline for search
-    --             command_palette = true,   -- position the cmdline and popupmenu together
-    --             long_message_to_split = true, -- long messages will be sent to a split
-    --             inc_rename = false,       -- enables an input dialog for inc-rename.nvim
-    --             -- lsp_doc_border = false,   -- add a border to hover docs and signature help
-    --         },
-    --     })
-    -- end,
-    -- },
-    -- {
-    --     "folke/which-key.nvim",
-    --     event = "VeryLazy",
-    --     init = function()
-    --         vim.o.timeout = true
-    --         vim.o.timeoutlen = 300
+    --
+    --     options = function()
+    --         return {
+    --             "--theme",
+    --             "carbonfox",
+    --         }
     --     end,
-    --     opts = {
-    --         -- your configuration comes here
-    --         -- or leave it empty to use the default settings
-    --         -- refer to the configuration section below
-    --     }
+    --     config = function()
+    --         require("code-shot").setup({
+    --             ---@return string output file path
+    --             output = function()
+    --                 local core = require("core")
+    --                 local buf_name = vim.api.nvim_buf_get_name(0)
+    --                 return core.file.name(buf_name) .. ".png"
+    --             end,
+    --             ---@return string[]
+    --             -- select_area: {s_start: {row: number, col: number}, s_end: {row: number, col: number}} | nil
+    --             options = function(select_area)
+    --                 if not select_area then
+    --                     return {}
+    --                 end
+    --                 return {
+    --                     "--line-offset",
+    --                     select_area.s_start.row,
+    --                 }
+    --             end,
+    --         })
+    --     end
     -- },
+
     {
         'stevearc/dressing.nvim',
         config = function()
@@ -111,9 +67,6 @@ local plugins = {
         lazy = false,
         config = function()
             require("project_nvim").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
             }
         end
     },
@@ -124,7 +77,6 @@ local plugins = {
         ft = { "gitrebase", "gitcommit" }, -- so ftplugins are loaded
         dependencies = {
             "stevearc/dressing.nvim",
-            -- "nvim-telescope/telescope.nvim", -- either telescope or fzf-lua
             "ibhagwan/fzf-lua",
             "rcarriga/nvim-notify", -- optional, but will lack some features without it
         },
@@ -134,16 +86,14 @@ local plugins = {
         "rcarriga/nvim-notify", -- optional, but will lack some features without it
         config = function()
             require("notify").setup {
-                -- stages = 'fade_in_slide_out',
-                -- background_colour = 'FloatShadow',
-                -- timeout = 3000,
+                stages = 'fade_in_slide_out',
+                background_colour = 'FloatShadow',
+                timeout = 3000,
             }
             vim.notify = require('notify')
         end
 
     },
-
-    -- { 'nvim-telescope/telescope-dap.nvim' },
 
     {
         "rcarriga/nvim-dap-ui",
@@ -290,13 +240,13 @@ local plugins = {
     },
 
     -- buffer + tab line
-    {
-        "akinsho/bufferline.nvim",
-        event = "BufReadPre",
-        config = function()
-            require "plugins.configs.bufferline"
-        end,
-    },
+    -- {
+    --     "akinsho/bufferline.nvim",
+    --     event = "BufReadPre",
+    --     config = function()
+    --         require "plugins.configs.bufferline"
+    --     end,
+    -- },
 
 
     {
@@ -347,18 +297,6 @@ local plugins = {
                 end,
             },
 
-            -- autopairs , autocompletes ()[] etc
-            -- "windwp/nvim-autopairs",
-            -- {
-            --     config = function()
-            --         require("nvim-autopairs").setup()
-            --
-            --         --  cmp integration
-            --         local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-            --         local cmp = require "cmp"
-            --         cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-            --     end,
-            -- },
         },
         config = function()
             require "plugins.configs.cmp"
@@ -415,6 +353,7 @@ local plugins = {
         end,
     },
 
+    -- fzf-lua
     {
         "ibhagwan/fzf-lua",
         config = function()
@@ -422,7 +361,12 @@ local plugins = {
         end,
     },
 
-    -- files finder etc
+    {
+        "nvim-lua/plenary.nvim",
+        lazy = true,
+    },
+
+    -- Telescope
     {
         "nvim-telescope/telescope.nvim",
         cmd = "Telescope",
@@ -459,5 +403,4 @@ local plugins = {
 }
 
 require("lazy").setup(plugins, require "plugins.configs.lazy")
-
 require("plugins.configs.lsp-signature")
