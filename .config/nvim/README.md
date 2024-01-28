@@ -4,22 +4,21 @@
 <!-- ![2023-09-26-133901_2560x1440_scrot](https://github.com/NvChad/tinyvim/assets/59060246/ce143ca2-07f1-4d54-971d-0f8304c50b58) -->
 
 # Install
-- Linux <br>
-     * First, clone NvChad/tinyvim repo as this is the base config
+ * First, clone NvChad/tinyvim repo as this is the base config
 
-        ```bash
-        git clone https://github.com/NvChad/tinyvim ~/.config/nvim && nvim
-        ```
+    ```bash
+    git clone https://github.com/NvChad/tinyvim ~/.config/nvim && nvim
+    ```
 
-     * Second 
+ * Second 
 
-        ```bash
-        # clone this repo
-        git clone https://github.com/minaalbert33/dotfiles.git 
+    ```bash
+    # clone this repo
+    git clone https://github.com/minaalbert33/dotfiles.git 
 
-        # copy my nvim config to ~/.config/nvim/
-        cp -rf dotfiles/.config/nvim ~/.config/nvim 
-        ```
+    # copy my nvim config to ~/.config/nvim/
+    cp -rf dotfiles/.config/nvim ~/.config/nvim 
+    ```
 
 
 # Dir structure
@@ -54,3 +53,4 @@ all the plugins are located in lua/plugins/init.lua
 <!-- | fzf-lua                 | Blazingly Fast Fuzzy finder                                 | -->
 <!-- | conform.nvim            | Formatter                                    | -->
 <!-- | lualine.nvim            | Statusline                                    | -->
+
