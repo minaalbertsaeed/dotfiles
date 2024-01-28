@@ -15,7 +15,7 @@ This is the configuration of my Arch linux System using [Hyprland Compositor](ht
 - Web Browser: brave-bin 
 - Recording tool: wfrecorder
 - Machine Emulator & Virtualizer : qemu
-- Filemanager: lf, thunar
+- Filemanager: lf, thunar, joshuto
 - Status Bar: waybar
 - Screenshots: hyprshot
 - System Monitor: btop
