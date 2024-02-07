@@ -10,13 +10,14 @@ static const unsigned int systrayspacing = 4;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
+static const int topbar             = 0;        /* 0 means bottom bar */
 static const int splitstatus        = 0;        /* 1 for split status items */
 static const char *splitdelim        = ";";       /* Character used for separating status */
 static const char *fonts[]          = { 
     "JetBrains Mono Nerd Font:size=10",
 
-}; static const char dmenufont[]       = "JetBrains Mono Nerd Font:size=10";
+}; 
+static const char dmenufont[]       = "JetBrains Mono Nerd Font:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -37,10 +38,17 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Spotify"       ,NULL,       NULL,       1 << 9,            0,           -1 },
-	{ "discord"       ,NULL,       NULL,       1 << 9,            0,           -1 },
-    { "Brave-browser"       ,"chat.openai.com",       NULL,       1 << 8,            0,           -1 },
+    /* class            instance            title       tags mask     switchtotag    isfloating   monitor */
+    { "st-256color"         ,NULL ,         NULL,       1 << 0,            1,           0,          -1 },
+    { "Brave-browser"       ,NULL ,         NULL,       1 << 1,            1,           0,          -1 },
+    // { "Brave-browser"       ,NULL ,         NULL,       1 << 2,            1,           0,          -1 },
+    { "Zathura"             ,NULL ,         NULL,       1 << 3,            1,           0,          -1 },
+    { "vlc"                 ,NULL ,         NULL,       1 << 4,            1,           0,          -1 },
+    // { "vlc"                 ,NULL ,         NULL,       1 << 5,            1,           0,          -1 },
+    { "thunar"              ,NULL ,         NULL,       1 << 6,            1,           0,          -1 },
+	{ "qemu-system-x86_64"  ,NULL,          NULL,       1 << 7,            1,           0,          -1 },
+	{ "discord"             ,NULL,          NULL,       1 << 8,            1,           0,          -1 },
+    { "Spotify"             ,NULL,          NULL,       1 << 9,            1,           0,          -1 },
 };
 
 /* layout(s) */

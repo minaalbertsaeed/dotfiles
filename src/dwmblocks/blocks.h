@@ -2,7 +2,7 @@
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
     // {"", "[ -f /tmp/record ] && echo \"Recording\" || echo \" \"", 0, 10},
-    {"", "/home/mina/scripts/test.sh", 0, 10},
+    // {"", "/home/mina/scripts/test.sh", 0, 10},
   {"", "xkblayout-state print \"%s\" " ,0, 30},
   {"BR: ", "light -G | cut -d'.' -f1", 0, 25},
   {"MEM: ", "free -h | awk 'NR==2{print $3}' | tr -d 'Gi'",	3,		0},
