@@ -10,7 +10,7 @@ static const unsigned int systrayspacing = 4;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 0;        /* 0 means bottom bar */
+static const int topbar             = 1;        /* 0 means bottom bar */
 static const int splitstatus        = 0;        /* 1 for split status items */
 static const char *splitdelim        = ";";       /* Character used for separating status */
 static const char *fonts[]          = { 
@@ -41,11 +41,11 @@ static const Rule rules[] = {
     /* class            instance            title       tags mask     switchtotag    isfloating   monitor */
     { "st-256color"         ,NULL ,         NULL,       1 << 0,            1,           0,          -1 },
     { "Brave-browser"       ,NULL ,         NULL,       1 << 1,            1,           0,          -1 },
-    // { "Brave-browser"       ,NULL ,         NULL,       1 << 2,            1,           0,          -1 },
+    { NULL       ,"chat.openai.com" ,         "ChatGPT",       1 << 2,            1,           0,          -1 },
     { "Zathura"             ,NULL ,         NULL,       1 << 3,            1,           0,          -1 },
     { "vlc"                 ,NULL ,         NULL,       1 << 4,            1,           0,          -1 },
     // { "vlc"                 ,NULL ,         NULL,       1 << 5,            1,           0,          -1 },
-    { "thunar"              ,NULL ,         NULL,       1 << 6,            1,           0,          -1 },
+    // { "thunar"              ,NULL ,         NULL,       1 << 6,            1,           0,          -1 },
 	{ "qemu-system-x86_64"  ,NULL,          NULL,       1 << 7,            1,           0,          -1 },
 	{ "discord"             ,NULL,          NULL,       1 << 8,            1,           0,          -1 },
     { "Spotify"             ,NULL,          NULL,       1 << 9,            1,           0,          -1 },
@@ -91,7 +91,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_z, zoom,           {0} },
+	{ MODKEY,                       XK_z,      zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
     { MODKEY|ShiftMask,             XK_k,      pushup,         {0} },
@@ -100,6 +100,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
 	{ MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
+    { MODKEY|ShiftMask,             XK_y,      togglefloating, {0} },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
@@ -114,6 +115,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	TAGKEYS(                        XK_0,                      9)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+    // Reload DWM
 	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, 
 };
 
