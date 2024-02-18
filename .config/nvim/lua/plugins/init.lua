@@ -5,7 +5,13 @@ local plugins = {
     { 'yazeed1s/oh-lucy.nvim' },
     { "EdenEast/nightfox.nvim" },
     { "tinted-theming/base16-vim" },
-
+    {
+        'akinsho/toggleterm.nvim', 
+        version = "*",
+        config = function ()
+            require("toggleterm").setup{}
+        end
+    },
     {
         "j-hui/fidget.nvim",
         opts = {
@@ -19,41 +25,6 @@ local plugins = {
             require("autoclose").setup()
         end
     },
-
-    -- {
-    --     "niuiic/code-shot.nvim",
-    --     dependencies = {
-    --         "niuiic/core.nvim"
-    --     },
-    --
-    --     options = function()
-    --         return {
-    --             "--theme",
-    --             "carbonfox",
-    --         }
-    --     end,
-    --     config = function()
-    --         require("code-shot").setup({
-    --             ---@return string output file path
-    --             output = function()
-    --                 local core = require("core")
-    --                 local buf_name = vim.api.nvim_buf_get_name(0)
-    --                 return core.file.name(buf_name) .. ".png"
-    --             end,
-    --             ---@return string[]
-    --             -- select_area: {s_start: {row: number, col: number}, s_end: {row: number, col: number}} | nil
-    --             options = function(select_area)
-    --                 if not select_area then
-    --                     return {}
-    --                 end
-    --                 return {
-    --                     "--line-offset",
-    --                     select_area.s_start.row,
-    --                 }
-    --             end,
-    --         })
-    --     end
-    -- },
 
     {
         'stevearc/dressing.nvim',
@@ -196,12 +167,12 @@ local plugins = {
         end,
     },
 
-    {
-        "NvChad/nvterm",
-        config = function()
-            require("nvterm").setup()
-        end,
-    },
+    -- {
+    --     "NvChad/nvterm",
+    --     config = function()
+    --         require("nvterm").setup()
+    --     end,
+    -- },
 
     {
         "iamcco/markdown-preview.nvim",
@@ -345,9 +316,11 @@ local plugins = {
         event = { "BufReadPre", "BufNewFile" },
         char = "|",
         tab_char = { "a", "b", "c" },
-        highlight = { "Function", "Label" },
+        -- highlight = { "Function", "Label" },
         smart_indent_cap = true,
         priority = 2,
+
+
         config = function()
             require("ibl").setup()
         end,

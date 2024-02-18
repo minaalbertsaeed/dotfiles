@@ -2,7 +2,6 @@ local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim" -- path where its go
 vim.opt.rtp:prepend(lazypath)
 require "plugins"
 
-
 local map = vim.keymap.set
 local options = { noremap = true, silent = true }
 local fzf_lua = require('fzf-lua')
@@ -75,19 +74,25 @@ map("n", "<leader>gp", function() require("tinygit").push() end,        { desc =
 
 
 
--- function get_dir ()
---    local dir = vim.fn.expand('%:p:h')
---    return dir
--- end
+-- <leader>t--> Toggle Horizontal Terminal
+-- <leader>v--> Toggle Vertical Terminal
+function get_dir ()
+   local dir = vim.fn.expand('%:p:h')
+   return dir
+end
 
--- Terminal keymaps
-map('n', '<leader>t','<cmd> ToggleTerm  size=17 direction=horizontal<cr> ',
-    { desc = "Spwan Horizontal Terminal" }, options)
+-- map('n', '<leader>th','<cmd>lua require("nvterm.terminal").send("cd ' .. get_dir() .. ' ; clear", "horizontal")<CR>',
+--     { desc = "Spwan Terminal in current buffer directory" }, options)
+map('n', '<leader>th','<cmd> ToggleTerm  size=17 direction=horizontal<cr>',
+    { desc = "Spwan Terminal in current buffer directory" }, options)
+--
+-- map('n', '<leader>tt', function() require("nvterm.terminal").toggle "horizontal" end,
+--     { desc = "Spwan Horizontal Terminal" }, options)
+--
+-- map('n', '<leader>v', function() require("nvterm.terminal").toggle "vertical" end,
+--     { desc = "Spwan Vertical Terminal" }, options )
 
-map('n', '<leader>v','<cmd> ToggleTerm  size=100 direction=vertical<cr> ',
-    { desc = "Spwan Vertical Terminal" }, options )
-
--- Navigate Windows from terminal mode
+-- Allow Navigate Windows from terminal mode
 map('t', '<Esc>', '<C-\\><C-n>', options)
 map('t', '<C-h>', '<C-\\><C-n><C-w>h', options)
 map('t', '<C-j>', '<C-\\><C-n><C-w>j', options)
@@ -97,8 +102,8 @@ map('t', '<C-l>', '<C-\\><C-n><C-w>l', options)
 -- Resize Buffers
 map("n", "<Up>", ":resize +3<CR>", options)
 map("n", "<Down>", ":resize -3<CR>", options)
-map("n", "<Right>", ":vert resize -3<CR>", options)
-map("n", "<Left>", ":vert resize +3<CR>", options)
+map("n", "<Right>", ":vertical resize -3<CR>", options)
+map("n", "<Left>", ":vertical resize +3<CR>", options)
 
 
 -- Stay in indent mode
@@ -112,12 +117,16 @@ map("n", "<C-k>", "<cmd> wincmd k <cr>")
 map("n", "<C-l>", "<cmd> wincmd l <cr>")
 
 
--- Compiling Projects and files 
-map('n', '.', '<cmd> TermExec  cmd="./run" size=20 direction=horizontal go_back=0 <cr>',
-     { desc = "Run Current Projects in Horizontal Terminal" },options)
+-- . to run current project in horizontal terminal
+map('n', '.', function() require("nvterm.terminal").send("./run", "horizontal") end,"<CMD>startinsert<CR>",
+     { desc = "Run Current file in Horizontal Terminal" },options)
 
+-- map('n', '.', '<cmd> TermExec  cmd="./run" size=17 direction=horizontal go_back=0 <cr>',
+--      { desc = "Run Current file in Horizontal Terminal" },options)
+
+-- Leader + . to run current project in vertical terminal
 map('n', '<leader>.', '<cmd> TermExec  cmd="./run" size=100  direction=vertical go_back=0 <cr>' ,
-     { desc = "Run Current Projects in Vertical Terminal" },options)
+     { desc = "Run Current file in Vertical Terminal" },options)
 
 
 map("n", "<leader>i" ,"<CMD>Oil<CR>", { desc = "Open parent directory as a Buffer" })

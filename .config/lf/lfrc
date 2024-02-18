@@ -1,16 +1,13 @@
 # Basic Settings
 set hidden true
 set ignorecase true
-set icons true
-set info size
-# set cleaner '~/.config/lf/cleaner'
-# set previewer '~/.config/lf/scope'
-
-set previewer ~/.config/lf/lf_kitty_preview
-set cleaner ~/.config/lf/lf_kitty_clean
-
+# set mouse true
+# set icons true
+# set drawbox true
+set cleaner '~/.config/lf/cleaner'
+set previewer '~/.config/lf/scope'
 set preview true
-set ratios 1:2:3
+set ratios 1:3:2
 
 # Custom Functions
 cmd mkdir ${{
@@ -37,7 +34,12 @@ cmd openwith ${{
 }}
 
 # dedicated keys for file opener actions
-
+# cmd video_preview ${{
+#     cache="$(mktemp "${TMPDIR:-/tmp}/thumb_cache.XXXXX")"
+#     ffmpegthumbnailer -i "$f" -o "$cache" -s 0
+#     # ~/.config/lf/draw_img.sh "$cache"
+# }}
+# map + :video_preview
 
 cmd open ${{    
     test -L $f && f=$(readlink -f $f)    
@@ -47,16 +49,10 @@ cmd open ${{
         image/*) sxiv "$fx" & disown;;
         audio/*) vlc "$fx" & disown;; 
         video/*) vlc "$fx" & disown;;
-        application/x-zerosize) xdg-open "$fx" & disown;;
         *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;    
     esac    
 }}  
 
-mime `file --mime-type -b %s` {
-    application/vnd.openxmlformats-officedocument.presentationml.presentation, \
-    application/vnd.ms-powerpoint
-    eval "libreoffice --impress %s &"
-}
 
 
 
@@ -111,21 +107,22 @@ cmd final_delete ${{
 
 # Bindings
 map d
-map m
+# map m
 map o openwith
+map L redraw
 
 
 map au unarchive
-map ae $wine "$f"
+# map ae $wine "$f"
 
 # Basic Functions
 map . set hidden!
-map dd trash
+map dt trash
 map df final_delete
 map dr restore_trash
 map p paste
-map x cut
-map y copy
+map dd cut
+map yy copy
 map <enter> open
 map R reload
 map mf mkfile
@@ -133,7 +130,10 @@ map md mkdir
 map C clear
 
 # Movement
-map gd cd /mnt/D
-map gf cd /mnt/F
+map gdf cd /mnt/D/Mina/Films/
+map gdd cd /mnt/D
+map gdm cd /mnt/D/music/
+map gs cd ~/.local/scripts
+map gb cd ~/books/
 map gc cd ~/.config
 map gr cd ~/repos

@@ -1,50 +1,58 @@
 # open web browser
 alt + w
-	brave	
+    brave	
+#
+alt + Return
+    ~/.local/scripts/tmux_new_window.sh
 
+alt + s
+    ~/.local/scripts/tmux_new_window.sh "find | fzf | xargs xdg-open"
+
+# Open List of Vms installed in ~/vms 
 alt + v
-	~/scripts/virt.sh	
+	~/.local/scripts/virt.sh	
+# Opens clipboard manager alt + c
+	clipmenu
 
 # launch file manager menu
 alt + f
-	~/scripts/menu.sh	
+     ~/.local/scripts/tmux_new_window.sh lfub
 
-# launch terminal emulator
+# Sytem Monitor
 alt + m
-	st -e btop
+    ~/.local/scripts/tmux_new_window.sh btop
 
-alt + s
-	~/scripts/screencast.sh	; pkill -RTMIN+10 dwmblocks
+# launch gpt 
+alt + g
+	~/.local/bin/gpt  
 
-alt + q
-    kill `pidof ffmpeg` ; rm /tmp/record ; pkill -RTMIN+10 dwmblocks
+# alt + s
+# 	~/.local/scripts/screencast.sh	; pkill -RTMIN+10 dwmblocks
 
+# alt + q
+#     kill `pidof ffmpeg` ; rm /tmp/record ; pkill -RTMIN+10 dwmblocks
+ 
+
+# launch powermenu
 alt + F4
-	~/scripts/powermenu.sh	
+	~/.local/scripts/powermenu.sh	
 
-# Sends dwmblocks signal to update keymap 
-super + space
+# Sends dwmblocks signal to update lang
+ctrl + space
     pkill -RTMIN+30 dwmblocks
 
-# lock the screen
+# Screen Locker
 alt + ctrl + Delete
     slock
 
 # Take screenshot
 Print
-	maim -s | xclip -selection clipboard -t image/png
+	maim -s  | xclip -selection clipboard -t image/png
 
-# Toggle volume mute
-alt + F1
-	amixer set Master toggle && pkill -RTMIN+20 dwmblocks
+# Manipulate Sound
+alt + {F1,F2,F3}
+    ~/.local/scripts/sound.sh {=,-,+}
 
-# Decrease volume 
-alt + F2
-	amixer set Master 5%- && pkill -RTMIN+20 dwmblocks
-
-# Increase volume 
-alt + F3
-	amixer set Master 5%+ && pkill -RTMIN+20 dwmblocks
 
 # Decrease brightness
 alt + F5

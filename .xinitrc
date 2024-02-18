@@ -1,7 +1,10 @@
-setxkbmap -layout us,ara -variant ,digits -option grp:win_space_toggle caps:escape
+setxkbmap -layout us,ara -variant ,digits -option grp:ctrl_space_toggle caps:escape
+# xrandr --setprovideroutputsource modesetting NVIDIA-0 & 
+# xrandr --auto & 
 # xsetroot -solid "#131515"
-feh --bg-scale temp/nord-background/1r1kk9qi00961.png 
+feh --bg-scale Downloads/wallpaper.png
 sxhkd & 
 # dunst &
+clipmenud & 
 dwmblocks & 
 dwm

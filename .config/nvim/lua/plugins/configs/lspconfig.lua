@@ -88,7 +88,7 @@ lspconfig.clangd.setup {
 lspconfig.rust_analyzer.setup{}
 
 -- setup multiple servers with same default options
-local servers = {  "clangd" ,"rust_analyzer" ,"lua_ls"}
+local servers = {  "clangd" ,"rust_analyzer" ,"lua_ls", "bashls"}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
