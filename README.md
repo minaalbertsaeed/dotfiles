@@ -1,9 +1,9 @@
 # My Linux System Setup
 
-This is the configuration of my Arch linux System using [Hyprland Compositor](https://hyprland.org/) (Wayland)
+This is the configuration of my Arch linux System using [DWM](https://dwm.suckless.org/) (Xorg)
 
 ## Common Packages
-- Window Manager : Hyprland
+- Window Manager : dwm
 - Terminal Multiplexer: tmux
 - Text Editor: nvim
 - Image Viewer: sxiv
@@ -11,15 +11,14 @@ This is the configuration of my Arch linux System using [Hyprland Compositor](ht
 - Document Viewer: zathura (vim based keybindings)
 - Zathura pdf plugin: zathura-pdf-mupdf
 - Font: ttf-jetbrains-mono-nerd
-- Menu: rofi 
+- Menu: dmenu 
 - Web Browser: brave-bin 
-- Recording tool: wfrecorder
+- Recording tool: ffmpeg
 - Machine Emulator & Virtualizer : qemu
-- Filemanager: lf, thunar, joshuto
-- Status Bar: waybar
-- Screenshots: hyprshot
+- Filemanager: lf
+- Screenshots: maim
 - System Monitor: btop
-- Clipboard Manager: xclip
+- Clipboard Manager: xclip, clipmenu
 - Backlight Controller: light
 - Command line Translator: translate-shell
  
