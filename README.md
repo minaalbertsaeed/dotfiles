@@ -26,3 +26,4 @@ This is the configuration of my Arch linux System using [Hyprland Compositor](ht
 ## NOTES:
 - All the keybindings related to windows and other ones are located in .config/hypr/files/binds.conf
 - Some packages are in the official repositories and other from the AUR (Arch User Repository)
+- All the scripts use **/bin/sh** to execute so all of them are **POSIX compliant scripts**
