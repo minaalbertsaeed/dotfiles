@@ -1,0 +1,6 @@
+#!/bin/dash
+
+brave --app=https://chat.openai.com/
+
+xdotool key Alt+Shift+3
+xdotool key Alt+3
