@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Get the network name from the user
 printf "Enter the network name:" ;read ssid
