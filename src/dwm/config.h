@@ -1,6 +1,6 @@
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 6;        /* gaps between windows */
+static const unsigned int gappx     = 3;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 1;    /* 0: systray in the right corner, >0: systray on left of status text */
@@ -45,7 +45,7 @@ static const Rule rules[] = {
     // { "vlc"                 ,NULL ,         NULL,       1 << 5,            1,           0,          -1 },
     // { "thunar"              ,NULL ,         NULL,       1 << 6,            1,           0,          -1 },
 	{ "qemu-system-x86_64"  ,NULL,          NULL,       1 << 7,            1,           0,          -1 },
-	{ "discord"             ,NULL,          NULL,       1 << 8,            1,           0,          -1 },
+	{ "WebCord"             ,NULL,          NULL,       1 << 8,            1,           0,          -1 },
     // { "Spotify"             ,NULL,          NULL,       1 << 9,            1,           0,          -1 },
 };
 
@@ -77,7 +77,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 // static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *dmenucmd[] = { "dmenu_run", /* "-m", dmenumon, */ "-fn", dmenufont, /* "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4 ,*/ NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-i",/* ,"-m", dmenumon, */ "-fn", dmenufont, /* "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4 ,*/ NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
@@ -85,24 +85,25 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_h,           setcfact,       {.f = +0.25} },
 	{ MODKEY|ShiftMask,             XK_l,           setcfact,       {.f = -0.25} },
 	{ MODKEY|ShiftMask,             XK_o,           setcfact,       {.f =  0.00} },
-    { MODKEY|ShiftMask,             XK_Tab,         shiftviewclients, { .i = +1 } },         
 	{ MODKEY|ShiftMask,             XK_backslash,   shiftviewclients, { .i = -1 } },
+    { MODKEY|ShiftMask,             XK_b,           togglebar,      {0} },
+    { MODKEY|ShiftMask,             XK_y,           togglefloating, {0} },
+    { MODKEY|ShiftMask,             XK_f,           togglefullscr,  {0} },
+    { MODKEY|ShiftMask,             XK_period,      tagmon,         {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_c,           killclient,     {0} },
+    { MODKEY|ShiftMask,             XK_k,           pushup,         {0} },
+    { MODKEY|ShiftMask,             XK_j,           pushdown,       {0} },
+    { MODKEY|ShiftMask,             XK_comma,       tagmon,         {.i = -1 } },
+    { MODKEY,                       XK_Tab,         shiftviewclients, { .i = +1 } },         
 	{ MODKEY,                       XK_p,           spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_b,           togglebar,      {0} },
 	{ MODKEY,                       XK_j,           focusstack,     {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_f,           togglefullscr,  {0} },
 	{ MODKEY,                       XK_k,           focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_h,           setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,           setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_z,           zoom,           {0} },
-	{ MODKEY,                       XK_Tab,         view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,           killclient,     {0} },
-    { MODKEY|ShiftMask,             XK_k,           pushup,         {0} },
-    { MODKEY|ShiftMask,             XK_j,           pushdown,       {0} },
-	{ MODKEY,                       XK_comma,       focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period,      focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,       tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period,      tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_a,           view,           {0} }, 
+    { MODKEY,                       XK_comma,       focusmon,       {.i = -1 } },
+    { MODKEY,                       XK_period,      focusmon,       {.i = +1 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -113,7 +114,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	TAGKEYS(                        XK_0,                      9)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },  // Quit dwm
+	// { MODKEY|ShiftMask,             XK_q,      quit,           {0} },  // Quit dwm
 	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },  // restart Signal
 };
 

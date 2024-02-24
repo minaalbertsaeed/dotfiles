@@ -62,7 +62,6 @@ cmd open ${{
 cmd unarchive ${{
   case "$f" in
       *.zip) unzip "$f" ;;
-      *.rar) unrar x "$f" ;;
       *.tar.gz) tar -xzvf "$f" ;;
       *.tar.bz2) tar -xjvf "$f" ;;
       *.tar) tar -xvf "$f" ;;
@@ -108,7 +107,7 @@ cmd final_delete ${{
 
 # Bindings
 map d
-# map m
+map m
 map o openwith
 map L redraw
 
@@ -131,10 +130,12 @@ map md mkdir
 map C clear
 
 # Movement
-map gdf cd /mnt/D/Mina/Films/
-map gdd cd /mnt/D
-map gdm cd /mnt/D/music/
-map gs cd ~/.local/scripts
+map gdf cd ~/hdd/D/Mina/Films/
+map gdd cd ~/hdd/D
+map gdm cd ~/hdd/D/music
+map gf cd ~/hdd/F
+map gD cd ~/Downloads/
+map gl cd ~/.local
 map gb cd ~/books/
 map gc cd ~/.config
 map gr cd ~/repos
