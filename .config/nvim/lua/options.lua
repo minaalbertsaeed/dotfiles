@@ -9,9 +9,9 @@ opt.cursorline = true
 opt.cmdheight = 0
 
 --neovide
-vim.g.neovide_cursor_animation_length = 0.00
-vim.o.guifont = "Source Code Pro:h14" -- text below applies for VimScript
-vim.g.neovide_scale_factor = 0.51
+-- vim.g.neovide_cursor_animation_length = 0.00
+-- vim.o.guifont = "Source Code Pro:h14" -- text below applies for VimScript
+-- vim.g.neovide_scale_factor = 0.51
 
 
 -- Indenting

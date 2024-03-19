@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oor:items xmlns:oor="http://openoffice.org/2001/registry">
+ <item oor:path="/org.openoffice.Office.Paths/Paths/Iconset/InternalPaths">
+  <node oor:name="vnd.sun.star.expand:$UNO_USER_PACKAGES_CACHE/uno_packages/lu481211r8l2.tmp_/yaru-theme-2021-03-14.oxt/iconsets" oor:op="fuse"/>
+ </item>
+</oor:items>

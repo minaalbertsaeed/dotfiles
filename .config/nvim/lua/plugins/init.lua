@@ -1,17 +1,29 @@
 local plugins = {
 
-
     -- Themes
     { 'yazeed1s/oh-lucy.nvim' },
-    { "EdenEast/nightfox.nvim" },
-    { "tinted-theming/base16-vim" },
+    { "RRethy/base16-nvim" },
+
     {
-        'akinsho/toggleterm.nvim', 
+        "NvChad/nvterm",
+        config = function()
+            require("nvterm").setup({
+                type_opts = {
+                    horizontal = { location = "rightbelow", split_ratio = .5, },
+                    vertical = { location = "rightbelow", split_ratio = .5 },
+                }
+            })
+        end,
+    },
+
+    {
+        'akinsho/toggleterm.nvim',
         version = "*",
-        config = function ()
-            require("toggleterm").setup{}
+        config = function()
+            require("toggleterm").setup {}
         end
     },
+
     {
         "j-hui/fidget.nvim",
         opts = {
@@ -69,7 +81,7 @@ local plugins = {
     {
         "rcarriga/nvim-dap-ui",
         event = "VeryLazy",
-        dependencies = "mfussenegger/nvim-dap",
+        dependencies = {"mfussenegger/nvim-dap",  "nvim-neotest/nvim-nio" },
         config = function()
             local dap = require("dap")
             local dapui = require("dapui")
@@ -167,13 +179,6 @@ local plugins = {
         end,
     },
 
-    -- {
-    --     "NvChad/nvterm",
-    --     config = function()
-    --         require("nvterm").setup()
-    --     end,
-    -- },
-
     {
         "iamcco/markdown-preview.nvim",
         lazy = true,
@@ -227,9 +232,10 @@ local plugins = {
 
     {
         'f-person/git-blame.nvim',
-        -- enabled = false,
+        lazy = true,
+        cmd = { "GitBlameEnable", "GitBlameDisable" },
         config = function()
-            require('gitblame').setup()
+            -- require('gitblame').setup()
         end,
     },
 
@@ -316,7 +322,7 @@ local plugins = {
         event = { "BufReadPre", "BufNewFile" },
         char = "|",
         tab_char = { "a", "b", "c" },
-        -- highlight = { "Function", "Label" },
+        highlight = { "Function", "Label" },
         smart_indent_cap = true,
         priority = 2,
 

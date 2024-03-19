@@ -134,6 +134,7 @@ map gdf cd ~/hdd/D/Mina/Films/
 map gdd cd ~/hdd/D
 map gdm cd ~/hdd/D/music
 map gf cd ~/hdd/F
+map ge cd ~/ieee/
 map gD cd ~/Downloads/
 map gl cd ~/.local
 map gb cd ~/books/

@@ -45,7 +45,7 @@ static const Rule rules[] = {
     // { "vlc"                 ,NULL ,         NULL,       1 << 5,            1,           0,          -1 },
     // { "thunar"              ,NULL ,         NULL,       1 << 6,            1,           0,          -1 },
 	{ "qemu-system-x86_64"  ,NULL,          NULL,       1 << 7,            1,           0,          -1 },
-	{ "WebCord"             ,NULL,          NULL,       1 << 8,            1,           0,          -1 },
+	{ "vesktop"             ,NULL,          NULL,       1 << 8,            1,           0,          -1 },
     // { "Spotify"             ,NULL,          NULL,       1 << 9,            1,           0,          -1 },
 };
 
@@ -94,14 +94,14 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,             XK_k,           pushup,         {0} },
     { MODKEY|ShiftMask,             XK_j,           pushdown,       {0} },
     { MODKEY|ShiftMask,             XK_comma,       tagmon,         {.i = -1 } },
-    { MODKEY,                       XK_Tab,         shiftviewclients, { .i = +1 } },         
+    { MODKEY,                       XK_a,         shiftviewclients, { .i = +1 } },         
 	{ MODKEY,                       XK_p,           spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_j,           focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,           focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_h,           setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,           setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_z,           zoom,           {0} },
-	{ MODKEY,                       XK_a,           view,           {0} }, 
+	{ MODKEY,                       XK_Tab,           view,           {0} }, 
     { MODKEY,                       XK_comma,       focusmon,       {.i = -1 } },
     { MODKEY,                       XK_period,      focusmon,       {.i = +1 } },
 	TAGKEYS(                        XK_1,                      0)

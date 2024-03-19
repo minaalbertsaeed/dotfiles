@@ -21,9 +21,8 @@ vim.opt.rtp:prepend(lazypath)
 
 -- vim.cmd "colorscheme monochrome"
 vim.cmd "set guicursor=i:block"
-
+-- vim.cmd "colorscheme base16-gruvbox-dark-hard"
 -- vim.cmd "colorscheme oh-lucy"
-vim.cmd " colorscheme base16-ayu-dark"
--- vim.cmd "colorscheme base16-gruvbox-material-dark-hard"
-vim.cmd "GitBlameDisable"
+vim.cmd "colorscheme base16-catppuccin"
 
+vim.cmd "GitBlameDisable"

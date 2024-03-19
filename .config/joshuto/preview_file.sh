@@ -5,8 +5,7 @@
 ## Copy this script to your Joshuto configuration directory and refer to this
 ## script in `joshuto.toml` in the `[preview]` section like
 ## ```
-## preview_script = "~/.config/joshuto/preview_file.sh"
-## ```
+## preview_script = "~/.config/joshuto/preview_file.sh" # ```
 ## Make sure the file is marked as executable:
 ## ```sh
 ## chmod +x ~/.config/joshuto/preview_file.sh

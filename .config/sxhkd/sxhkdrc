@@ -2,16 +2,24 @@
 alt + w
     brave	
 #
+alt + n
+    ~/.local/bin/freee
+
 alt + Return
     ~/.local/scripts/tmux_new_window.sh
 
 alt + s
     ~/.local/scripts/tmux_new_window.sh "find | fzf | xargs xdg-open"
 
-# Open List of Vms installed in ~/vms 
 alt + v
+    ~/.local/scripts/tmux_new_window.sh nvim
+
+# Open List of Vms installed in ~/vms 
+alt + Home
 	~/.local/scripts/virt.sh	
-# Opens clipboard manager alt + c
+
+# Opens clipboard manager 
+alt + c
 	clipmenu
 
 # launch file manager menu
@@ -26,15 +34,15 @@ alt + m
 alt + g
 	~/.local/bin/gpt  
 
-# alt + s
-# 	~/.local/scripts/screencast.sh	; pkill -RTMIN+10 dwmblocks
+alt + Print 
+    ~/.local/scripts/screencast.sh ; pkill -RTMIN+15 dwmblocks
 
-# alt + q
-#     kill `pidof ffmpeg` ; rm /tmp/record ; pkill -RTMIN+10 dwmblocks
+alt + q
+    pkill ffmpeg; pkill -RTMIN+15 dwmblocks
  
 
 # launch powermenu
-alt + F4
+alt + shift + q
 	~/.local/scripts/powermenu.sh	
 
 # Sends dwmblocks signal to update lang
@@ -53,10 +61,12 @@ Print
 alt + {F1,F2,F3}
     ~/.local/scripts/sound.sh {=,-,+}
 
-
 # Decrease brightness
 alt + F5
 	light -U 10 && pkill -RTMIN+25 dwmblocks
+
+alt + F11
+    pamixer --default-source -t && pkill -RTMIN+10 dwmblocks
 
 # Increase brightness
 alt + F6

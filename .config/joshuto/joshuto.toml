@@ -26,7 +26,8 @@ max_preview_size = 2097152 # 2MB
 # Define custom commands (using shell) with parameters like %text, %s etc.
 custom_commands = [
    { name = "rgfzf", command = "/home/<USER>/.config/joshuto/rgfzf '%text' %s" },
-   { name = "rg", command = "/home/<USER>/.config/joshuto/rg '%text' %s" }
+   { name = "rg", command = "/home/<USER>/.config/joshuto/rg '%text' %s" },
+   { name = "unarchive", command = "/home/mina/.local/bin/scripts/unarchive.sh %p" }
 ]
 
 # Configurations related to the display
@@ -45,7 +46,7 @@ collapse_preview = false
 column_ratio = [1, 3, 4]
 
 # Show borders around different views
-show_borders = false
+show_borders = true
 
 # Show hidden files
 show_hidden = true
@@ -98,10 +99,11 @@ reverse = false
 # max_preview_size = 2097152
 
 # Executable script for previews
-preview_script = "~/.config/joshuto/preview_file.sh"
+# preview_script = "~/.config/joshuto/preview_file.sh"
 
-preview_shown_hook_script = "~/.config/joshuto/on_preview_shown.sh"
+preview_shown_hook_script = "~/.config/lf/preview"
 preview_removed_hook_script = "~/.config/joshuto/on_preview_removed.sh"
+
 # Configurations related to searching and selecting files
 [search]
 # Different case sensitivities for operations using substring matching

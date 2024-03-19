@@ -40,7 +40,6 @@ map('n', '<leader>8', '<Cmd>LualineBuffersJum 8<CR>', options)
 map('n', '<leader>n', 'o<Esc>', options, { desc = "Add new line under cursor" })
 map('n', '<leader>N', 'O<Esc>', options, { desc = "Add new line above cursor" })
 
-
 -- Replacing current word with some another
 map({'n',  'x'}, "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],  { desc = "Replace Word Under cursor" })
 
@@ -75,14 +74,24 @@ map("n", "<leader>gp", function() require("tinygit").push() end,        { desc =
 
 
 
--- function get_dir ()
---    local dir = vim.fn.expand('%:p:h')
---    return dir
--- end
+function get_dir ()
+   local dir = vim.fn.expand('%:p:h')
+   local res = string.format('<cmd> ToggleTerm  dir=%s size=17 direction=horizontal<cr>', vim.fn.expand('%:p:h'))
+   print(res)
+   return res
+end
 
--- Terminal keymaps
+--Terminal keymaps
 map('n', '<leader>t','<cmd> ToggleTerm  size=17 direction=horizontal<cr> ',
     { desc = "Spwan Horizontal Terminal" }, options)
+
+function getTerminal(position)
+    local current_directory = vim.fn.expand("%:p:h") -- Get the full path of the current file
+    local command = string.format("cd %s ; clear", current_directory)
+    require("nvterm.terminal").send(command, position)
+end
+
+map('n', '<leader>c', ':lua getTerminal("horizontal")<CR>', { noremap = true, silent = true })
 
 map('n', '<leader>v','<cmd> ToggleTerm  size=100 direction=vertical<cr> ',
     { desc = "Spwan Vertical Terminal" }, options )
@@ -123,5 +132,9 @@ map('n', '<leader>.', '<cmd> TermExec  cmd="./run" size=100  direction=vertical 
 map("n", "<leader>i" ,"<CMD>Oil<CR>", { desc = "Open parent directory as a Buffer" })
 
 require "CustomScripts.build"
+
+-- Lua configuration to open terminal in current buffer's directory
+vim.api.nvim_set_keymap('n', '<F11>', ':lua require("toggleterm").exec("cd " .. vim.fn.expand("%:p:h"))<CR>', {noremap = true, silent = true})
+
 
 map("n", "<F7>", ':lua test()<CR>', options)

@@ -6,7 +6,7 @@ require("lualine").setup {
 
     options = {
         globalstatus = true,
-        theme = 'ayu'
+        theme = 'base16'
     },
 
     sections = {

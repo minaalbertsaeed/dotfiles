@@ -85,10 +85,11 @@ lspconfig.clangd.setup {
   },
 }
 
-lspconfig.rust_analyzer.setup{}
+-- lspconfig.rust_analyzer.setup{}
+-- lspconfig.jdtls.setup{}
 
 -- setup multiple servers with same default options
-local servers = {  "clangd" ,"rust_analyzer" ,"lua_ls", "bashls"}
+local servers = { "arduino_language_server", "clangd" ,"rust_analyzer" ,"lua_ls", "jdtls" ,"texlab" , "pyright"}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
