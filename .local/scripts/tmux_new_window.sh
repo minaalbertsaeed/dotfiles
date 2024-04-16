@@ -4,7 +4,7 @@ command=$1
 TERMINAL="$TERMINAL"
 # echo $TERM
 
-xdotool key Alt+1
+hyprctl dispatch workspace 0
 create_tmux_window(){
     [ -z "$command" ] && tmux neww || tmux neww "$command" 
     xdotool key Alt+1

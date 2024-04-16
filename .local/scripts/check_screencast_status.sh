@@ -2,4 +2,4 @@
 test=`pgrep ffmpeg`
 
 [ -n "$test" ] && printf "Recording"  
-
+ 
