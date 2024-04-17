@@ -44,7 +44,7 @@ keymap = [
 
   { keys = ["delete"], commands = ["delete_files"] },
   { keys = ["d", "D"], commands = ["delete_files"] },
-  { keys = ["d", "f"], commands = ["shell rm -rf  %p"] },
+  { keys = ["d", "f"], commands = ["shell rm -r  %p"] },
 
   { keys = ["p", "p"], commands = ["paste_files"] },
   { keys = ["p", "o"], commands = ["paste_files --overwrite=true"] },
@@ -96,8 +96,10 @@ keymap = [
   { keys = ["g", "g"], commands = ["cursor_move_home"] },
   { keys = ["g", "d", "d"], commands = ["cd /mnt/D/"] },
   { keys = ["g", "d", "f"], commands = ["cd /mnt/D/Mina/Films/"] },
-  { keys = ["g", "d", "m"], commands = ["cd /mnt/D/Mina/Music/"] },
+  { keys = ["g", "d", "m"], commands = ["cd /mnt/D/music/"] },
   { keys = ["g", "f"], commands = ["cd /mnt/F/"] },
+  { keys = ["g", "e"], commands = ["cd ~/IEEE/"] },
+  { keys = ["g", "b"], commands = ["cd ~/hdd/D/books/"] },
   { keys = ["g", "r"], commands = ["cd ~/repos/"] },
   { keys = ["g", "l"], commands = ["cd ~/.local/"] },
   { keys = ["g", "c"], commands = ["cd ~/.config"] },

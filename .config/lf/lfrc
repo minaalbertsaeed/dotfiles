@@ -1,9 +1,10 @@
 # Basic Settings
 set hidden true
+set info size
 set ignorecase true
 # set mouse true
-# set icons true
-# set drawbox true
+set icons true
+set drawbox true
 set cleaner '~/.config/lf/cleaner'
 set previewer '~/.config/lf/scope'
 set preview true
@@ -47,8 +48,8 @@ cmd open ${{
         text/*) st -e nvim  "$fx" & disown  ;;    
         application/pdf) zathura "$fx" & disown ;;
         image/*) sxiv "$fx" & disown;;
-        audio/*) vlc "$fx" & disown;; 
-        video/*) vlc "$fx" & disown;;
+        audio/*) mpv --player-operation-mode=pseudo-gui "$fx" & disown;; 
+        video/*) mpv --player-operation-mode=pseudo-gui "$fx" & disown;;
         *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;    
     esac    
 }}  
@@ -94,24 +95,30 @@ cmd restore_trash ${{
 cmd final_delete ${{
     printf "Are U sure to delete this ?: "
     read ans
-    if [ "$ans" = "y" ]; then
-        if [ -d "$fx" ]; then
-            rm -rf "$fx"
+    [ "$ans" = "y" ] && rm -rf $fs 
+}}
+
+cmd fzf_jump ${{
+    res="$(find . | fzf --header='Jump to location')"
+    if [ -n "$res" ]; then
+        if [ -d "$res" ]; then
+            cmd="cd"
         else
-            rm "$fx"
+            cmd="select"
         fi
-    else
-        echo "Deletion cancelled."
+        res="$(printf '%s' "$res" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+        lf -remote "send $id $cmd \"$res\""
     fi
 }}
+
+map S :fzf_jump
 
 # Bindings
 map d
 map m
 map o openwith
 map L redraw
-
-
+map y
 map au unarchive
 # map ae $wine "$f"
 
@@ -127,16 +134,17 @@ map <enter> open
 map R reload
 map mf mkfile
 map md mkdir
-map C clear
+map c clear
 
 # Movement
 map gdf cd ~/hdd/D/Mina/Films/
 map gdd cd ~/hdd/D
 map gdm cd ~/hdd/D/music
 map gf cd ~/hdd/F
-map ge cd ~/ieee/
+map gt cd ~/.local/share/Trash/files/
+map ge cd ~/IEEE/
 map gD cd ~/Downloads/
 map gl cd ~/.local
-map gb cd ~/books/
+map gb cd ~/hdd/D/books/
 map gc cd ~/.config
 map gr cd ~/repos
