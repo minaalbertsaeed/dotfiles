@@ -1,0 +1,9 @@
+[Trigger]
+Operation = Install
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+When = PostTransaction
+Exec = /bin/sh -c '/usr/bin/pacman -Qqen > /home/mina/.local/share/pkglist.txt && /usr/bin/pacman -Qqem > /home/mina/.local/share/foreign_pkglist.txt' 
