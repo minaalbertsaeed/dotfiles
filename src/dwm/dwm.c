@@ -211,6 +211,7 @@ static void maprequest(XEvent *e);
 static void monocle(Monitor *m);
 static void motionnotify(XEvent *e);
 static void movemouse(const Arg *arg);
+static void moveresize(const Arg *arg);
 static Client *nexttiled(Client *c);
 static void pop(Client *c);
 static Client *prevtiled(Client *c);
@@ -442,6 +443,22 @@ arrange(Monitor *m)
 	} else for (m = mons; m; m = m->next)
 		arrangemon(m);
 }
+
+static void
+moveresize(const Arg *arg)
+{
+	XEvent ev;
+	Monitor *m = selmon;
+	if(!(m->sel && arg && arg->v && m->sel->isfloating))
+		return;
+	resize(m->sel, m->sel->x + ((int *)arg->v)[0],
+		m->sel->y + ((int *)arg->v)[1],
+		m->sel->w + ((int *)arg->v)[2],
+		m->sel->h + ((int *)arg->v)[3],
+		True);
+	while(XCheckMaskEvent(dpy, EnterWindowMask, &ev));
+}
+
 
 void
 arrangemon(Monitor *m)

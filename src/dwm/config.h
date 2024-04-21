@@ -17,7 +17,7 @@ static const char *fonts[]          = {
 }; 
 static const char dmenufont[]       = "JetBrains Mono Nerd Font:size=10";
 static const char col_gray1[]       = "#161616";
-static const char col_gray2[]       = "#555555";
+static const char col_gray2[]       = "#555555"; 
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#008cc4";
@@ -36,17 +36,17 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-    /* class            instance            title       tags mask     switchtotag    isfloating   monitor */
-    { "st-256color"         ,NULL ,         NULL,       1 << 0,            1,           0,          -1 },
-    { "Brave-browser"       ,NULL ,         NULL,       1 << 1,            1,           0,          -1 },
-    // { "Brave-browser"       ,NULL ,         NULL,       1 << 2,            1,           0,          -1 },
-    { "Zathura"             ,NULL ,         NULL,       1 << 3,            1,           0,          -1 },
-    { "vlc"                 ,NULL ,         NULL,       1 << 4,            1,           0,          -1 },
-    // { "vlc"                 ,NULL ,         NULL,       1 << 5,            1,           0,          -1 },
-    // { "thunar"              ,NULL ,         NULL,       1 << 6,            1,           0,          -1 },
-	{ "qemu-system-x86_64"  ,NULL,          NULL,       1 << 7,            1,           0,          -1 },
-	{ "vesktop"             ,NULL,          NULL,       1 << 8,            1,           0,          -1 },
-    // { "Spotify"             ,NULL,          NULL,       1 << 9,            1,           0,          -1 },
+    /* class                    instance        title       tags mask     switchtotag    isfloating   monitor */
+    { "st-256color"             ,NULL ,         NULL,       1 << 0,            1,           0,          -1 },
+    { "Brave-browser"           ,NULL ,         NULL,       1 << 1,            1,           0,          -1 },
+    // { "Brave-browser"           ,NULL ,         NULL,       1 << 2,            1,           0,          -1 },
+    { "Zathura"                 ,NULL ,         NULL,       1 << 3,            1,           0,          -1 },
+    { "mpv"                     ,NULL ,         NULL,       1 << 4,            1,           0,          -1 },
+    { "libreoffice"             ,NULL ,         NULL,       1 << 5,            1,           0,          -1 },
+    { "output.exe"              ,NULL ,         NULL,       1 << 6,            1,           0,          -1 },
+	{ "qemu-system-x86_64"      ,NULL,          NULL,       1 << 7,            1,           0,          -1 },
+	{ "vesktop"                 ,NULL,          NULL,       1 << 8,            1,           0,          -1 },
+    { "PacketTracer"            ,NULL,          NULL,       1 << 9,            1,           0,          -1 },
 };
 
 /* layout(s) */
@@ -76,46 +76,54 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-// static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *dmenucmd[] = { "dmenu_run", "-i",/* ,"-m", dmenumon, */ "-fn", dmenufont, /* "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4 ,*/ NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
-	/* modifier                     key        function        argument */
-	{ MODKEY|ShiftMask,             XK_h,           setcfact,       {.f = +0.25} },
-	{ MODKEY|ShiftMask,             XK_l,           setcfact,       {.f = -0.25} },
-	{ MODKEY|ShiftMask,             XK_o,           setcfact,       {.f =  0.00} },
-	{ MODKEY|ShiftMask,             XK_backslash,   shiftviewclients, { .i = -1 } },
-    { MODKEY|ShiftMask,             XK_b,           togglebar,      {0} },
-    { MODKEY|ShiftMask,             XK_y,           togglefloating, {0} },
-    { MODKEY|ShiftMask,             XK_f,           togglefullscr,  {0} },
-    { MODKEY|ShiftMask,             XK_period,      tagmon,         {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_c,           killclient,     {0} },
-    { MODKEY|ShiftMask,             XK_k,           pushup,         {0} },
-    { MODKEY|ShiftMask,             XK_j,           pushdown,       {0} },
-    { MODKEY|ShiftMask,             XK_comma,       tagmon,         {.i = -1 } },
-    { MODKEY,                       XK_a,         shiftviewclients, { .i = +1 } },         
-	{ MODKEY,                       XK_p,           spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_j,           focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,           focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_h,           setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,           setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_z,           zoom,           {0} },
-	{ MODKEY,                       XK_Tab,           view,           {0} }, 
-    { MODKEY,                       XK_comma,       focusmon,       {.i = -1 } },
-    { MODKEY,                       XK_period,      focusmon,       {.i = +1 } },
-	TAGKEYS(                        XK_1,                      0)
-	TAGKEYS(                        XK_2,                      1)
-	TAGKEYS(                        XK_3,                      2)
-	TAGKEYS(                        XK_4,                      3)
-	TAGKEYS(                        XK_5,                      4)
-	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
-	TAGKEYS(                        XK_0,                      9)
-	// { MODKEY|ShiftMask,             XK_q,      quit,           {0} },  // Quit dwm
-	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },  // restart Signal
+	/* modifier                             key             function            argument */
+    { MODKEY,                               XK_e,           togglefloating,     {0} },
+    { MODKEY,                               XK_a,           shiftviewclients,   { .i = +1 } },         
+	// { MODKEY,                               XK_p,           spawn,              {.v = dmenucmd } },
+	{ MODKEY,                               XK_j,           focusstack,         {.i = +1 } },
+	{ MODKEY,                               XK_k,           focusstack,         {.i = -1 } },
+	{ MODKEY,                               XK_h,           setmfact,           {.f = -0.05} },
+	{ MODKEY,                               XK_l,           setmfact,           {.f = +0.05} },
+	{ MODKEY,                               XK_z,           zoom,               {0} },
+	{ MODKEY,                               XK_Tab,         view,               {0} }, 
+    { MODKEY,                               XK_comma,       focusmon,           {.i = -1 } },
+    { MODKEY,                               XK_period,      focusmon,           {.i = +1 } },
+    { MODKEY|ShiftMask,                     XK_f,           togglefullscr,      {0} },
+	{ MODKEY|ShiftMask,                     XK_h,           setcfact,           {.f = +0.25} },
+	{ MODKEY|ShiftMask,                     XK_l,           setcfact,           {.f = -0.25} },
+	// { MODKEY|ShiftMask,                     XK_o,           setcfact,           {.f =  0.00} },
+
+	{ MODKEY|ShiftMask,                     XK_backslash,   shiftviewclients    , { .i = -1 } },
+    { MODKEY|ShiftMask,                     XK_b,           togglebar,          {0} },
+    { MODKEY|ShiftMask,                     XK_period,      tagmon,             {.i = +1 } },
+	{ MODKEY|ShiftMask,                     XK_c,           killclient,         {0} },
+    { MODKEY|ShiftMask,                     XK_k,           pushup,             {0} },
+    { MODKEY|ShiftMask,                     XK_j,           pushdown,           {0} },
+    { MODKEY|ShiftMask,                     XK_comma,       tagmon,             {.i = -1 } },
+    { MODKEY|ShiftMask,					    XK_j,	        moveresize,		    {.v = (int []){ 0, 50, 0, 0 }}},
+    { MODKEY|ShiftMask,					    XK_k,		    moveresize,		    {.v = (int []){ 0, -50, 0, 0 }}},
+    { MODKEY|ShiftMask,					    XK_h,	        moveresize,		    {.v = (int []){ -50, 0, 0, 0 }}},
+    { MODKEY|ShiftMask,					    XK_l,	        moveresize,		    {.v = (int []){ 50, 0, 0, 0 }}},
+    { MODKEY|ShiftMask|ControlMask,			XK_j,	        moveresize,		    {.v = (int []){ 0, 0, 0, 25 }}},
+    { MODKEY|ShiftMask|ControlMask,			XK_k, 	        moveresize,		    {.v = (int []){ 0, 0, 0, -25 }}},
+    { MODKEY|ShiftMask|ControlMask,			XK_l,	        moveresize,		    {.v = (int []){ 0, 0, 25, 0 }}},
+    { MODKEY|ShiftMask|ControlMask,			XK_h,	        moveresize,		    {.v = (int []){ 0, 0, -25, 0 }}},
+    { MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },  // restart Signal
+    // { MODKEY|ShiftMask,             XK_q,      quit,           {0} },  // Quit dwm
+	TAGKEYS(                                XK_1,                      0)
+	TAGKEYS(                                XK_2,                      1)
+	TAGKEYS(                                XK_3,                      2)
+	TAGKEYS(                                XK_4,                      3)
+	TAGKEYS(                                XK_5,                      4)
+	TAGKEYS(                                XK_6,                      5)
+	TAGKEYS(                                XK_7,                      6)
+	TAGKEYS(                                XK_8,                      7)
+	TAGKEYS(                                XK_9,                      8)
+	TAGKEYS(                                XK_0,                      9)
 };
 
 /* button definitions */
