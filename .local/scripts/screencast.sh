@@ -15,7 +15,7 @@ start_recording() {
 stop_recording() {
     echo "Stopping recording..."
     killall ffmpeg
-    pkill -RTMIN+15 dwmblocks
+    # pkill -RTMIN+15 dwmblocks
 }
 
 process_name="ffmpeg"
@@ -40,6 +40,6 @@ echo "$screen_size"
 echo "$screen_size"
 # Record the screen with ffmpeg
 
-pkill -RTMIN+15 dwmblocks
+# pkill -RTMIN+15 dwmblocks
 # ffmpeg -f x11grab -s "$screen_size" -i :0.0 -f alsa -i default -c:v libx264 -c:a aac -strict experimental -b:a 192k "$output_file"
 
