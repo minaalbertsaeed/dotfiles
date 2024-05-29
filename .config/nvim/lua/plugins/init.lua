@@ -1,8 +1,20 @@
 local plugins = {
 
     -- Themes
-    { 'yazeed1s/oh-lucy.nvim' },
     { "RRethy/base16-nvim" },
+    { "lurst/austere.vim" },
+
+
+
+    { "blazkowolf/gruber-darker.nvim",
+        opts = {
+            bold = false,
+            italic = {
+                strings = false,
+            },
+        },
+    },
+
 
     {
         "NvChad/nvterm",
@@ -17,6 +29,16 @@ local plugins = {
     },
 
     {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+        },
+    },
+
+    {
         'akinsho/toggleterm.nvim',
         version = "*",
         config = function()
@@ -24,20 +46,13 @@ local plugins = {
         end
     },
 
-    {
-        "j-hui/fidget.nvim",
-        opts = {
-            -- options
-        },
-    },
-
-    {
-        'm4xshen/autoclose.nvim',
-        config = function()
-            require("autoclose").setup()
-        end
-    },
-
+    -- {
+    --     'm4xshen/autoclose.nvim',
+    --     config = function()
+    --         require("autoclose").setup()
+    --     end
+    -- },
+    --
     {
         'stevearc/dressing.nvim',
         config = function()
@@ -81,7 +96,7 @@ local plugins = {
     {
         "rcarriga/nvim-dap-ui",
         event = "VeryLazy",
-        dependencies = {"mfussenegger/nvim-dap",  "nvim-neotest/nvim-nio" },
+        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
         config = function()
             local dap = require("dap")
             local dapui = require("dapui")
@@ -353,8 +368,12 @@ local plugins = {
             require "plugins.configs.telescope"
         end,
     },
+    --
+    {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make'
+    },
 
-    -- git status on signcolumn etc
     {
         "lewis6991/gitsigns.nvim",
         event = { "BufReadPre", "BufNewFile" },

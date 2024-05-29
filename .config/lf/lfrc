@@ -4,7 +4,7 @@ set info size
 set ignorecase true
 # set mouse true
 set icons true
-set drawbox true
+# set drawbox true
 set cleaner '~/.config/lf/cleaner'
 set previewer '~/.config/lf/scope'
 set preview true
@@ -93,11 +93,14 @@ cmd restore_trash ${{
 
 
 cmd final_delete ${{
-    printf "Are U sure to delete this ?: "
-    read ans
-    [ "$ans" = "y" ] && rm -rf $fs 
+    # printf "Are U sure to delete this ?: "
+    # read ans
+    # if [ "$ans" = "y" ]; then
+    rm -r "$fx"
+    # else
+        # echo "Deletion cancelled."
+    # fi
 }}
-
 cmd fzf_jump ${{
     res="$(find . | fzf --header='Jump to location')"
     if [ -n "$res" ]; then
@@ -118,9 +121,9 @@ map d
 map m
 map o openwith
 map L redraw
-map y
+
+
 map au unarchive
-# map ae $wine "$f"
 
 # Basic Functions
 map . set hidden!
@@ -134,7 +137,7 @@ map <enter> open
 map R reload
 map mf mkfile
 map md mkdir
-map c clear
+map C clear
 
 # Movement
 map gdf cd ~/hdd/D/Mina/Films/

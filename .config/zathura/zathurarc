@@ -1,7 +1,7 @@
 ﻿
 set selection-clipboard clipboard
 # zathurarc-dark
-
+set sandbox none
 set font "inconsolata 11"
 set default-bg "#000000" #00
 set default-fg "#F7F7F6" #01
@@ -32,7 +32,7 @@ set notification-fg "#151515" #00
 
 set recolor "true"
 set recolor-lightcolor "#131515" #00
-set recolor-darkcolor "#FFFADF" #06
+set recolor-darkcolor "#FFFFFF" #06
 set recolor-reverse-video "true"
 set recolor-keephue "true"
 

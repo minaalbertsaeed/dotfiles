@@ -1,18 +1,27 @@
 # open web browser
 alt + w
-    brave	
+    brave
 #
-alt + n
+super + c
     ~/.local/bin/freee
 
 alt + Return
     ~/.local/scripts/tmux_new_window.sh
 
-alt + s
-    ~/.local/scripts/tmux_new_window.sh "find | fzf | xargs xdg-open"
+alt + p
+    dmenu_run -i -fn "$dmenufont"
+
+alt + o
+    mpv $(xclip -o)
+
+# alt + s
+#     ~/.local/scripts/tmux_new_window.sh "find | fzf | xargs xdg-open"
 
 alt + v
     ~/.local/scripts/tmux_new_window.sh nvim
+
+alt + f
+    ~/.local/scripts/tmux_new_window.sh lfub
 
 # Open List of Vms installed in ~/vms 
 alt + Home
@@ -20,29 +29,24 @@ alt + Home
 
 # Opens clipboard manager 
 alt + c
-	clipmenu
+    ~/.local/scripts/clipboard_xorg.sh
 
-# launch file manager menu
-alt + f
-     ~/.local/scripts/tmux_new_window.sh lfub
-
-# Sytem Monitor
+# Sytem Monitor (btop)
 alt + m
     ~/.local/scripts/tmux_new_window.sh btop
-
+ 
 # launch gpt 
 alt + g
 	~/.local/bin/gpt  
 
 alt + Print 
-    ~/.local/scripts/screencast.sh ; pkill -RTMIN+15 dwmblocks
+    ~/.local/scripts/screencast.sh &&  pkill -RTMIN+15 dwmblocks
 
-alt + q
-    pkill ffmpeg; pkill -RTMIN+15 dwmblocks
- 
+alt + End
+    pkill ffmpeg &&  pkill -RTMIN+15 dwmblocks
 
 # launch powermenu
-alt + shift + q
+alt + q
 	~/.local/scripts/powermenu.sh	
 
 # Sends dwmblocks signal to update lang
@@ -54,7 +58,7 @@ alt + ctrl + Delete
     slock
 
 # Take screenshot
-Print
+alt + s
 	maim -s  | xclip -selection clipboard -t image/png
 
 # Manipulate Sound
