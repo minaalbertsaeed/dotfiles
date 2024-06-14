@@ -7,7 +7,7 @@ This is the configuration of my Arch linux System using [DWM](https://dwm.suckle
 - Terminal Multiplexer: tmux
 - Text Editor: nvim
 - Image Viewer: sxiv
-- Video Player: mpv
+- Video Player: mpv with a gui verison using [uosc](Https://github.com/tomasklaen/uosc)
 - Document Viewer: zathura (vim based keybindings)
 - Zathura pdf plugin: zathura-pdf-mupdf
 - Fonts: ttf-jetbrains-mono-nerd ttf-cairo
@@ -18,7 +18,7 @@ This is the configuration of my Arch linux System using [DWM](https://dwm.suckle
 - Filemanager: lf
 - Screenshots: maim
 - System Monitor: btop
-- Clipboard Manager: xclip, clipmenu
+- Clipboard Manager: xclip, rofi-greenclip
 - Backlight Controller: light
 - Command line Translator: translate-shell
  
@@ -27,4 +27,4 @@ This is the configuration of my Arch linux System using [DWM](https://dwm.suckle
 - Other keybindings related to the rest of the system are located at .cofig/sxhkd/sxhkdrc 
 - Some packages are in the official repositories and other from the AUR (Arch User Repository)
 - All the scripts use **/bin/sh** to execute so all of them are **POSIX compliant scripts**
-- All the installed packages are listed in .local/share/pkglist.txt
+- All the installed packages are listed in .local/share/*pkglist.txt 
