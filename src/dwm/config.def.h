@@ -8,7 +8,7 @@ static const unsigned int systrayspacing = 4;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
+static const int topbar             = 0;        /* 0 means bottom bar */
 static const int splitstatus        = 0;        /* 1 for split status items */
 static const char *splitdelim        = ";";       /* Character used for separating status */
 static const char *fonts[]          = { 
@@ -36,17 +36,17 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-    /* class                    instance        title       tags mask     switchtotag    isfloating   monitor */
-    { "st-256color"             ,NULL ,         NULL,       1 << 0,            1,           0,          -1 },
-    { "Brave-browser"           ,NULL ,         NULL,       1 << 1,            1,           0,          -1 },
-    // { "Brave-browser"           ,NULL ,         NULL,       1 << 2,            1,           0,          -1 },
-    { "Zathura"                 ,NULL ,         NULL,       1 << 3,            1,           0,          -1 },
-    { "mpv"                     ,NULL ,         NULL,       1 << 4,            1,           0,          -1 },
-    { "libreoffice"             ,NULL ,         NULL,       1 << 5,            1,           0,          -1 },
-    { "output.exe"              ,NULL ,         NULL,       1 << 6,            1,           0,          -1 },
-	{ "qemu-system-x86_64"      ,NULL,          NULL,       1 << 7,            1,           0,          -1 },
-	{ "vesktop"                 ,NULL,          NULL,       1 << 8,            1,           0,          -1 },
-    { "PacketTracer"            ,NULL,          NULL,       1 << 9,            1,           0,          -1 },
+    /* class                    instance                title           tags mask     switchtotag    isfloating   monitor */
+    { "st-256color"             ,NULL ,                 NULL,           1 << 0,            1,           0,          -1 },
+    { "Brave-browser"           ,NULL ,                 NULL,           1 << 1,            1,           0,          -1 },
+    { "Brave-browser"           ,NULL ,                 "ChatGPT",      1 << 2,            1,           0,          -1 },
+    { "Zathura"                 ,NULL ,                 NULL,           1 << 3,            1,           0,          -1 },
+    { "mpv"                     ,NULL ,                 NULL,           1 << 4,            1,           0,          -1 },
+    { "libreoffice"             ,NULL ,                 NULL,           1 << 5,            1,           0,          -1 },
+    { NULL                      ,"excalidraw.com" ,     "Excalidraw",   1 << 6,            1,           0,          -1 },
+	{ "qemu-system-x86_64"      ,NULL,                  NULL,           1 << 7,            1,           0,          -1 },
+	{ "vesktop"                 ,NULL,                  NULL,           1 << 8,            1,           0,          -1 },
+    { "PacketTracer"            ,NULL,                  NULL,           1 << 9,            1,           0,          -1 },
 };
 
 /* layout(s) */
