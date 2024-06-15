@@ -1,0 +1,51 @@
+loadkeys us
+
+iwctl --passphrase passphrase station device connect SSID
+cfdisk /dev/nvme0n1
+
+mkfs.ext4  ROOT 
+mkfs.fat -F 32 EFI
+
+mount ROOT /mnt
+mkdir -p /mnt/boot/efi
+mount EFI /mnt/boot/efi
+
+pacstrap /mnt base base-devel linux linux-firmware sof-firmware grub efibootmgr nano networkmanager
+
+
+genfstab /mnt > /mnt/etc/fstab
+
+
+arch-chroot /mnt
+
+ln -sf /usr/share/zoneinfo/zone/region /etc/localtime
+
+hwclock --systohc
+
+
+vim /etc/locale.gen
+locale-gen
+
+
+vim /etc/locale.conf
+
+
+passwd  --> change root pass
+
+useradd -m -G wheel -s /bin/bash username
+
+passwd username
+
+
+EDITOR=vim visudo
+
+systemctl enable NetworkManager
+
+grub install  DISK
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+
+umount -a 
+-- after booting run this 
+ pacman -S --needed - < pkglist.txt
