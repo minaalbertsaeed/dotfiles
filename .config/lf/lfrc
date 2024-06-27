@@ -42,11 +42,24 @@ cmd openwith ${{
 # }}
 # map + :video_preview
 
+cmd choose_pdf_app ${{
+    filename="$fx"
+    printf "Choose an App\n"
+    printf "1) Zathura\n"
+    printf "2) Xournal++\n"
+    read -p "Enter a choice (1) OR (2): " choice
+    if [ "$choice" -eq 1 ]; then
+        zathura "$filename" & disown
+    elif [ "$choice" -eq 2 ]; then
+        xournalpp "$filename" & disown
+    fi
+}}
+
 cmd open ${{    
     test -L $f && f=$(readlink -f $f)    
     case "$(file --mime-type "$f" -b)" in    
         text/*) st -e nvim  "$fx" & disown  ;;    
-        application/pdf) zathura "$fx" & disown ;;
+        application/pdf) $choose_pdf_app ;;
         image/*) sxiv "$fx" & disown;;
         audio/*) mpv --player-operation-mode=pseudo-gui "$fx" & disown;; 
         video/*) mpv --player-operation-mode=pseudo-gui "$fx" & disown;;
@@ -124,6 +137,7 @@ map L redraw
 
 
 map au unarchive
+map O choose_pdf_app
 
 # Basic Functions
 map . set hidden!
@@ -145,7 +159,6 @@ map gdd cd ~/hdd/D
 map gdm cd ~/hdd/D/music
 map gf cd ~/hdd/F
 map gt cd ~/.local/share/Trash/files/
-map ge cd ~/IEEE/
 map gD cd ~/Downloads/
 map gl cd ~/.local
 map gb cd ~/hdd/D/books/
