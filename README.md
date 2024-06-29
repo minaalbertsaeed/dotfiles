@@ -8,7 +8,6 @@ This is the configuration of my Arch linux System using [DWM](https://dwm.suckle
 - Text Editor: nvim
 - Image Viewer: sxiv
 - Video Player: mpv with a gui verison using [uosc](Https://github.com/tomasklaen/uosc)
-- Document Viewer: zathura (vim based keybindings)
 - Zathura pdf plugin: zathura-pdf-mupdf
 - Fonts: ttf-jetbrains-mono-nerd ttf-cairo
 - Menu: dmenu 
