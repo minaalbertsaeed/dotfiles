@@ -3,7 +3,7 @@ static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
     // {"", "[ -f /tmp/record ] && echo \"Recording\" || echo \" \"", 0, 10},
     // {"", "/home/mina/scripts/test.sh", 0, 10},
-    {"", "~/.local/scripts/check_screencast_status.sh" ,0, 15},
+    {";", "~/.local/scripts/check_screencast_status.sh" ,0, 15},
     {"", "xkblayout-state print \"%s\" " ,0, 30},
     {"", "~/.local/scripts/get_mic_status.sh" ,0, 10},
     {"Vol: ", "~/.local/scripts/get_sound_status.sh", 0, 20},
