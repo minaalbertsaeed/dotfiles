@@ -25,7 +25,7 @@ static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	// [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeNorm] = { col_gray4, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_gray2,  col_cyan},
+	[SchemeSel]  = { col_gray4, col_gray2,  col_cyan}
 };
 
 /* tagging */
@@ -39,11 +39,11 @@ static const Rule rules[] = {
     /* class                    instance                title           tags mask     switchtotag    isfloating   monitor */
     { "st-256color"             ,NULL ,                 NULL,           1 << 0,            1,           0,          -1 },
     { "Brave-browser"           ,NULL ,                 NULL,           1 << 1,            1,           0,          -1 },
-    // { "Brave-browser"           ,NULL ,                 "ChatGPT",      1 << 2,            1,           0,          -1 },
+    { "Brave-browser"           ,"chat.openai.com" ,                 "ChatGPT",      1 << 2,            1,           0,          -1 },
     { "Zathura"                 ,NULL ,                 NULL,           1 << 3,            1,           0,          -1 },
     { "mpv"                     ,NULL ,                 NULL,           1 << 4,            1,           0,          -1 },
     { "libreoffice"             ,NULL ,                 NULL,           1 << 5,            1,           0,          -1 },
-    { "Brave-browser"           ,"excalidraw.com",     "Excalidraw",   1 << 6,            1,           0,          -1 },
+    { NULL                      ,"excalidraw.com",     "Excalidraw",   1 << 6,            1,           0,          -1 },
 	{ "qemu-system-x86_64"      ,NULL,                  NULL,           1 << 7,            1,           0,          -1 },
 	// { "vesktop"                 ,NULL,                  NULL,           1 << 8,            1,           0,          -1 },
 	{ "sunroof"                 ,NULL,                  NULL,           1 << 8,            1,           0,          -1 },

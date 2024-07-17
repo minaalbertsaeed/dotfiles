@@ -10,25 +10,13 @@ function M.create_autocmd(events, opts)
 	opts = vim.tbl_extend("force", opts, { group = group })
 	vim.api.nvim_create_autocmd(events, opts)
 end
--- ---------------------------------------
 
+-- ---------------------------------------
 function M.opts_extend(default, opts)
 	return vim.tbl_extend("force", default, opts ~= nil and opts or {})
 end
 
 -- ---------------------------------------
-function ColorMyGruber()
-    vim.opt.background = "dark"
-    vim.opt.termguicolors = true
-    vim.cmd.colorscheme("gruber-darker")
-    vim.cmd('highlight DiagnosticWarn guifg=#FF9000')
-    -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-    -- vim.cmd('highlight Comment NONE')
-end
-
--- ---------------------------------------
-
 M.create_autocmd({ "BufEnter", "FileType" }, {
 		desc = "don't auto comment new line",
 		pattern = "*",
@@ -59,7 +47,7 @@ vim.cmd('set nofoldenable')
 
 vim.cmd "setlocal formatoptions-=c formatoptions-=r formatoptions-=o" -- Dont auto comment new line 
 
-vim.cmd "GitBlameDisable"
-ColorMyGruber()
+vim.cmd.colorscheme("base16-catppuccin")
+vim.cmd("GitBlameDisable")
 
 return M

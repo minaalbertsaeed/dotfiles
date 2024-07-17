@@ -1,20 +1,63 @@
 local plugins = {
 
     -- Themes
+    { 'yazeed1s/oh-lucy.nvim' },
     { "RRethy/base16-nvim" },
-    { "lurst/austere.vim" },
+    { "xiyaowong/transparent.nvim" },
+    {
+        "nyoom-engineering/oxocarbon.nvim"
+        -- Add in any other configuration; 
+        --   event = foo, 
+        --   config = bar
+        --   end,
+    },
 
+    -- {
+    --     "ThePrimeagen/harpoon",
+    --     branch = "master",
+    --     dependencies = { "nvim-lua/plenary.nvim" }
+    -- },
 
-
-    { "blazkowolf/gruber-darker.nvim",
-        opts = {
-            bold = false,
-            italic = {
-                strings = false,
-            },
+    {
+        "christoomey/vim-tmux-navigator",
+        cmd = {
+            "TmuxNavigateLeft",
+            "TmuxNavigateDown",
+            "TmuxNavigateUp",
+            "TmuxNavigateRight",
+            "TmuxNavigatePrevious",
+        },
+        keys = {
+            { "<c-h>",  "<cmd>TmuxNavigateLeft<cr>" },
+            { "<c-j>",  "<cmd>TmuxNavigateDown<cr>" },
+            { "<c-k>",  "<cmd>TmuxNavigateUp<cr>" },
+            { "<c-l>",  "<cmd>TmuxNavigateRight<cr>" },
+            { "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>" },
         },
     },
 
+    -- {
+    --     'nvimdev/dashboard-nvim',
+    --     event = 'VimEnter',
+    --     config = function()
+    --         require('dashboard').setup {
+    --             -- config
+    --         }
+    --     end,
+    --     dependencies = { {'nvim-tree/nvim-web-devicons'}}
+    -- },
+
+    -- {
+    --     "folke/which-key.nvim",
+    --     event = "VeryLazy",
+    --     init = function ()
+    --         vim.o.timeout =  true
+    --         vim.o.timeoutlen =  300
+    --     end,
+    --     opts = {
+    --     }
+    --
+    -- },
 
     {
         "NvChad/nvterm",
@@ -93,50 +136,50 @@ local plugins = {
 
     },
 
-    {
-        "rcarriga/nvim-dap-ui",
-        event = "VeryLazy",
-        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-        config = function()
-            local dap = require("dap")
-            local dapui = require("dapui")
-            dapui.setup()
-            dap.listeners.after.event_initialized["dapui_config"] = function()
-                dapui.open()
-            end
-            dap.listeners.before.event_terminated["dapui_config"] = function()
-                dapui.close()
-            end
-            dap.listeners.before.event_exited["dapui_config"] = function()
-                dapui.close()
-            end
-        end
-    },
+    -- {
+    --     "rcarriga/nvim-dap-ui",
+    --     event = "VeryLazy",
+    --     dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+    --     config = function()
+    --         local dap = require("dap")
+    --         local dapui = require("dapui")
+    --         dapui.setup()
+    --         dap.listeners.after.event_initialized["dapui_config"] = function()
+    --             dapui.open()
+    --         end
+    --         dap.listeners.before.event_terminated["dapui_config"] = function()
+    --             dapui.close()
+    --         end
+    --         dap.listeners.before.event_exited["dapui_config"] = function()
+    --             dapui.close()
+    --         end
+    --     end
+    -- },
 
-    {
-        "jay-babu/mason-nvim-dap.nvim",
-        event = "VeryLazy",
-        dependencies = {
-            "mason.nvim",
-            "mfussenegger/nvim-dap",
-        },
-        cmd = { "DapInstall", "DapUninstall" },
-        opts = {
-            -- Makes a best effort to setup the various debuggers with
-            -- reasonable debug configurations
-            automatic_installation = true,
-
-            -- You can provide additional configuration to the handlers,
-            -- see mason-nvim-dap README for more information
-            handlers = {},
-
-            -- You'll need to check that you have the required things installed
-            -- online, please don't ask me how to install them :)
-            ensure_installed = {
-                -- Update this to ensure that you have the debuggers for the langs you want
-            },
-        },
-    },
+    -- {
+    --     "jay-babu/mason-nvim-dap.nvim",
+    --     event = "VeryLazy",
+    --     dependencies = {
+    --         "mason.nvim",
+    --         "mfussenegger/nvim-dap",
+    --     },
+    --     cmd = { "DapInstall", "DapUninstall" },
+    --     opts = {
+    --         -- Makes a best effort to setup the various debuggers with
+    --         -- reasonable debug configurations
+    --         automatic_installation = true,
+    --
+    --         -- You can provide additional configuration to the handlers,
+    --         -- see mason-nvim-dap README for more information
+    --         handlers = {},
+    --
+    --         -- You'll need to check that you have the required things installed
+    --         -- online, please don't ask me how to install them :)
+    --         ensure_installed = {
+    --             -- Update this to ensure that you have the debuggers for the langs you want
+    --         },
+    --     },
+    -- },
 
     {
         'brenoprata10/nvim-highlight-colors',

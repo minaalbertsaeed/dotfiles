@@ -6,6 +6,8 @@ require "plugins"
 local map = vim.keymap.set
 local options = { noremap = true, silent = true }
 local fzf_lua = require('fzf-lua')
+-- local harpoon = require("harpoon")
+-- harpoon:setup()
 
 local telescope = require('telescope.builtin')
 map("n", "<Esc>", "<cmd> :noh <CR>")
@@ -16,6 +18,7 @@ map("n", "<leader>e", "<cmd> NvimTreeToggle <CR>",  { desc = "Open file explorer
 -- Move group of lines
 map('v', "K", ":m '<-2<CR>gv=gv", options) 
 map('v', "J", ":m '>+1<CR>gv=gv", options)
+
 -- Copy to System Clipboard
 map({ 'n', 'v' }, "<leader>z", "\"+y", { desc = "Copy Text to System Clipboard" })
 
@@ -25,9 +28,6 @@ map('v', "<leader>p", "\"_dP" )
 
 -- Delete forever !!!
 map({ 'n', 'v' }, "<leader>d", "\"_d",{ desc = "Delete Text forever" })
-
--- map('v',  "<C-d>", "<C-d>zz", options) 
--- map('v',  "<C-u>", "<C-u>zz", options) 
 
 -- buffers
 map("n", "<Tab>", "<cmd> bnext <CR>")
@@ -50,12 +50,12 @@ map({'n',  'x'}, "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Lef
 map("n", "<leader>/", function() require("Comment.api").toggle.linewise.current() end ,                 { desc = "Comment Current line" })
 map("v", "<leader>/", "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>" , { desc = "Comment Current Block" })
 
--- fzf-lua
+-- Fzf-lua & Telescope Keymaps 
 -- map('n', "<leader>ff",  function () telescope.find_files({ hidden = true, follow= true})  end,{ desc = "Find files" })
 map('n', "<leader>ff",  function() fzf_lua.files() end,                             { desc = "Find files" })
 map('n', "<leader>lg",  function() fzf_lua.live_grep() end,                         { desc = "Live Grep" })
 map('n', "<leader>fh",  function() fzf_lua.files({cwd = "~"}) end,                  { desc = "Find files from ~" })
-map('n', "<leader>lp",  "<cmd> Telescope projects<CR>",                         { desc = "List Projects" })
+map('n', "<leader>lp",  "<cmd> Telescope projects<CR>",                             { desc = "List Projects" })
 map('n', "<leader>b",   function() fzf_lua.buffers() end,                           { desc = "List Buffers" })
 map('n', "<leader>rr",  function() fzf_lua.registers() end,                         { desc = "Show Registers" })
 map('n', "<leader>ls",  function() fzf_lua.lsp_document_symbols() end,              { desc = "List Document Symbols" })
@@ -63,6 +63,21 @@ map('n', "<leader>fo",  function() fzf_lua.oldfiles() end,                      
 map('n', "<leader>lr",  function() fzf_lua.lsp_references() end,                    { desc = "List References" })
 map('n', "<leader>m",   function() fzf_lua.man_pages() end,                         { desc = "Show man_pages" })
 map("n", "<leader>S", "<cmd>SymbolsOutline <cr>" ,                                  { desc = "Start SymbolsOutline" })
+map("n", "<leader>T", "<cmd>TroubleToggle <cr>" ,                                   { desc = "Start Trouble" })
+
+-- harpoon bindings
+
+-- REQUIRED
+-- REQUIRED
+
+-- map('n', "<leader>ha", function() harpoon:list():add() end)
+-- map('n', "<leader>ht", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+-- map('n', "<leader>h1", function() harpoon:list():select(1) end)
+-- map('n', "<leader>h2", function() harpoon:list():select(2) end)
+-- map('n', "<leader>h3", function() harpoon:list():select(3) end)
+-- map('n', "<leader>h4", function() harpoon:list():select(4) end)
+
+-- Toggle previous & next buffers
 map("n", "<leader>T", "<cmd>TroubleToggle <cr>" ,                                   { desc = "Start Trouble" })
 
 
@@ -81,22 +96,22 @@ map("n", "<leader>gp", function() require("tinygit").push() end,        { desc =
 
 
 
-function get_dir ()
+function get_current_dir ()
    local dir = vim.fn.expand('%:p:h')
    local res = string.format('<cmd> ToggleTerm  dir=%s size=17 direction=horizontal<cr>', vim.fn.expand('%:p:h'))
    print(res)
    return res
 end
 
---Terminal keymaps
-map('n', '<leader>th','<cmd> ToggleTerm  size=17 direction=horizontal<cr> ',
-    { desc = "Spwan Horizontal Terminal" }, options)
-
 function getTerminal(position)
     local current_directory = vim.fn.expand("%:p:h") -- Get the full path of the current file
     local command = string.format("cd %s ; clear", current_directory)
     require("nvterm.terminal").send(command, position)
 end
+
+--Terminal keymaps
+map('n', '<leader>th','<cmd> ToggleTerm  size=17 direction=horizontal<cr> ',
+    { desc = "Spwan Horizontal Terminal" }, options)
 
 map('n', '<leader>tc', ':lua getTerminal("horizontal")<CR>', { noremap = true, silent = true })
 
@@ -121,17 +136,23 @@ map("n", "<Left>", ":vert resize +3<CR>", options)
 map("v", "<", "<gv", options)
 map("v", ">", ">gv", options)
 
--- To Move through windows
+-- To Move among windows
 map("n", "<C-h>", ":wincmd h <cr>")
 map("n", "<C-j>", ":wincmd j <cr>")
 map("n", "<C-k>", ":wincmd k <cr>")
+map("n", "<C-l>", ":wincmd l <cr>")
+
+-- To Move among nvim and tmux panes
+map("n", "<C-h>", ":TmuxNavigateLeft <cr>")
+map("n", "<C-j>", ":TmuxNavigateDown <cr>")
+map("n", "<C-k>", ":TmuxNavigateRight<cr>")
 map("n", "<C-l>", ":wincmd l <cr>")
 
 -- map("n", "C-h", ":TmuxNavigateLeft<CR>")
 -- map("n", "C-j", ":TmuxNavigateDown<CR>")
 -- map("n", "C-k", ":TmuxNavigateUp<CR>")
 
--- Compiling Projects and files 
+-- Compiling Projects and files  (Using a created run script in each directory)
 map('n', '<leader>x' ,'<cmd> TermExec  cmd="./run" size=20 direction=horizontal go_back=0 <cr>',
      { desc = "Run Current Projects in Horizontal Terminal" },options)
 
@@ -144,9 +165,9 @@ map("n", "<leader>i" ,"<CMD>Oil<CR>", { desc = "Open parent directory as a Buffe
 require "CustomScripts.build"
 
 -- Lua configuration to open terminal in current buffer's directory
-
-
 vim.api.nvim_set_keymap('n', '<F11>', ':lua require("toggleterm").exec("cd " .. vim.fn.expand("%:p:h"))<CR>', {noremap = true, silent = true})
 
 
 map("n", "<F7>", ':lua test()<CR>', options)
+map("n", "<leader>hm", ':lua require("harpoon.ui").toggle_quick_menu()<CR>', options)
+map("n", "<leader>ha", ':lua require("harpoon.mark").add_file()<CR>', options)

@@ -6,7 +6,7 @@ require("lualine").setup {
 
     options = {
         globalstatus = true,
-        -- theme = 'base16'
+        -- theme = 'auto'
     },
 
     sections = {
@@ -15,9 +15,18 @@ require("lualine").setup {
             "mode",
         },
 
-        lualine_b = { "branch" },
+        lualine_c =  {
+            { 
+                "branch" ,
+                use_mode_colors = true,
+                buffers_color = {
+                    active = { bg = '', fg = '#fff' },
+                    inactive = { bg = '', fg = fg_gutter },
+                } 
+            }
+        },
 
-        lualine_c = {
+        lualine_b = {
             {
                 'buffers',
                 mode = 2,
@@ -25,7 +34,9 @@ require("lualine").setup {
                 buffers_color = {
                     active = { bg = '', fg = '#fff' },
                     inactive = { bg = '', fg = fg_gutter },
-                } },
+                } 
+
+            },
         },
 
         lualine_x = {

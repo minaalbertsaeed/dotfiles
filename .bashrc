@@ -1,53 +1,61 @@
-
-
-# ~/.bashrc
-#
-
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
 shopt -s autocd 
+shopt -s histappend
 stty -ixon
-HISTSIZE=-1
-HISTFILESIZE=-1
+stty quit '^q'
+HISTSIZE=100000000
+HISTFILESIZE=100000000
+HISTFILE=~/.bash_history
+PROMPT_COMMAND="history -a; history -n; $PROMPT_COMMAND"
+HISTCONTROL=ignoredups
 
 alias ls='ls --color=auto --group-directories-first'
-alias ll='ls -la'
+alias ll='ls -lah'
 alias grep='grep --color=auto'
 alias cs='clear'
+
 
 # Pacman Aliases
 alias i='sudo pacman -S'
 alias r='sudo pacman -Rns'
 alias q='sudo pacman -Qs'
 alias u='sudo pacman -Syu'
-alias s='sudo pacman -Ss'
+alias s='sudo pacman -Si'
+
+# yay Aliases
+alias yi='yay -S'
+alias ycc='yay -Scc'
+alias yq='yay -Qs'
+alias yu='yay -Syu'
+alias ys='yay -Ss'
 
 alias za='zathura'
 alias vim='nvim'
 alias lf='lfub'
-alias fi='find | fzf | xargs -r xdg-open'
-# alias llf='lfub -config .config/lf_for_dwm/lf/lfrc'
+alias fi='find | fzf --header="Jump to location" --preview="bat -f {}" --border| xargs -r xdg-open'
 alias transa='trans :en+ara'
+alias lman="man -k . | awk '{ print \$1 \" \"  \$2}' | fzf --preview='man -P bat {1}' --border | xargs man"
 alias gput='nvidia-settings -q gpucoretemp -t'
 alias pickcolor='xcolor -s'
-# alias freee='~/.local/bin/free'
-alias jo='joshuto'
 
+
+alias dot='cd $REPOS/dotfiles/'
+alias pkgs='nvim $HOME/.local/share/pkglist.txt'
 
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
 fzf_history(){
-    bash -c "$(cat ~/.bash_history | fzf --height=40%)"
+    local selected_command=$(tac ~/.bash_history | fzf --height=40% --border)
+    READLINE_LINE="${READLINE_LINE:+$READLINE_LINE }$selected_command"
+    READLINE_POINT=${#READLINE_LINE}
 }
 
 bind -m emacs-standard -x '"\C-r": fzf_history'
 bind -m vi-command -x '"\C-r": fzf_history'
 bind -m vi-insert -x '"\C-r": fzf_history'
 
-export PS1="\[\e[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] > "
+export PS1="\n\[\e[32m\]\w\[\033[33m\]\$(parse_git_branch) \[\033[37m\] \n❯❯ "
 
 set -o vi
 

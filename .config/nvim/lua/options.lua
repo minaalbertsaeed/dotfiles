@@ -6,7 +6,7 @@ vim.g.base16_colorspace = 256
 opt.laststatus = 3 -- global statusline
 opt.showmode = true
 opt.cursorline = true
-opt.cmdheight = 1
+opt.cmdheight = 0
 
 --neovide
 vim.g.neovide_cursor_animation_length = 0.00

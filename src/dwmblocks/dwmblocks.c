@@ -24,9 +24,11 @@ typedef struct {
 	unsigned int interval;
 	unsigned int signal;
 } Block;
+
 #ifndef __OpenBSD__
 void dummysighandler(int num);
 #endif
+
 void sighandler(int num);
 void getcmds(int time);
 void getsigcmds(unsigned int signal);
@@ -36,15 +38,16 @@ int getstatus(char *str, char *last);
 void statusloop();
 void termhandler();
 void pstdout();
+
 #ifndef NO_X
-void setroot();
-static void (*writestatus) () = setroot;
-static int setupX();
-static Display *dpy;
-static int screen;
-static Window root;
+    void setroot();
+    static void (*writestatus) () = setroot;
+    static int setupX();
+    static Display *dpy;
+    static int screen;
+    static Window root;
 #else
-static void (*writestatus) () = pstdout;
+    static void (*writestatus) () = pstdout;
 #endif
 
 

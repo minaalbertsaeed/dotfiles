@@ -85,7 +85,7 @@ lspconfig.clangd.setup {
 -- lspconfig.jdtls.setup{}
 
 -- setup multiple servers with same default options
-local servers = { "clangd" ,"rust_analyzer" ,"lua_ls", "texlab", "pyright"}
+local servers = { "clangd" ,"rust_analyzer" ,"lua_ls", "texlab", "pyright", "csharp_ls"}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
