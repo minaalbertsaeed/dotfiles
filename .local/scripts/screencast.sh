@@ -3,13 +3,20 @@
 # i use this script in my Xorg enviroment
 
 # Set the output file name and path
-output_file="/mnt/D/Mina/recordings/screencast_$(date +"%Y_%m_%d_%H_%M_%S").mkv"
+output_file="/home/mina/screencast_$(date +"%Y_%m_%d_%H_%M_%S").mkv"
 
 # Set the screen size
 start_recording() {
-    screen_size="$(xdpyinfo | grep dimensions | awk '{print $2;}')"
+    # Use slop to get the geometry for the region to be recorded
+    geometry=$(slop -f "%x %y %w %h")
+    
+    # Parse the geometry
+    read -r x y width height <<< "$geometry"
+
     echo "Starting recording..."
-    ffmpeg -f x11grab -s "$screen_size" -i :0.0 -f alsa -i default "$output_file"
+    
+    # Run ffmpeg with the selected region
+    ffmpeg -f x11grab -video_size "${width}x${height}" -i :0.0+$x,$y -f alsa -i default "$output_file"
 }
 
 stop_recording() {
