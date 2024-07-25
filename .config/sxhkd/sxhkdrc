@@ -17,6 +17,9 @@ alt + o
 # alt + s
 #     ~/.local/scripts/tmux_new_window.sh "find | fzf | xargs xdg-open"
 
+alt + Delete
+    feh --bg-scale $(find ~/repos/dotfiles/Pictures/wallpapers/ -type f | shuf -n 1)
+
 alt + v
     ~/.local/scripts/tmux_new_window.sh nvim
 
@@ -39,8 +42,11 @@ alt + m
 alt + g
 	~/.local/bin/gpt  
 
+alt + b
+	brave --app=https://excalidraw.com/
+
 alt + Print 
-    ~/.local/scripts/screencast.sh &&  pkill -RTMIN+15 dwmblocks
+    ~/.local/scripts/screencast.sh ;  pkill -RTMIN+15 dwmblocks
 
 alt + End
     pkill ffmpeg &&  pkill -RTMIN+15 dwmblocks
@@ -54,7 +60,7 @@ ctrl + space
     pkill -RTMIN+30 dwmblocks
 
 # Screen Locker
-alt + ctrl + Delete
+alt + shift + Delete
     slock
 
 # Take screenshot
