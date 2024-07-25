@@ -8,12 +8,6 @@ opt.showmode = true
 opt.cursorline = true
 opt.cmdheight = 0
 
---neovide
-vim.g.neovide_cursor_animation_length = 0.00
--- vim.o.guifont = "Source Code Pro:h14:b" -- text below applies for VimScript
-vim.g.neovide_scale_factor = 0.58
-
-
 -- Indenting
 opt.shiftwidth = 4
 opt.smartindent = true

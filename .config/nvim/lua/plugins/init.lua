@@ -1,15 +1,19 @@
 local plugins = {
 
     -- Themes
-    { 'yazeed1s/oh-lucy.nvim' },
     { "RRethy/base16-nvim" },
     { "xiyaowong/transparent.nvim" },
     {
-        "nyoom-engineering/oxocarbon.nvim"
-        -- Add in any other configuration; 
-        --   event = foo, 
-        --   config = bar
-        --   end,
+        'thimc/gruber-darker.nvim',
+        config = function()
+            require('gruber-darker').setup({
+                -- OPTIONAL
+                -- transparent = true, -- removes the background
+                -- underline = false, -- disables underline fonts
+                -- bold = false, -- disables bold fonts
+            })
+            vim.cmd.colorscheme('gruber-darker')
+        end,
     },
 
     -- {
@@ -37,17 +41,6 @@ local plugins = {
     },
 
     -- {
-    --     'nvimdev/dashboard-nvim',
-    --     event = 'VimEnter',
-    --     config = function()
-    --         require('dashboard').setup {
-    --             -- config
-    --         }
-    --     end,
-    --     dependencies = { {'nvim-tree/nvim-web-devicons'}}
-    -- },
-
-    -- {
     --     "folke/which-key.nvim",
     --     event = "VeryLazy",
     --     init = function ()
@@ -70,16 +63,16 @@ local plugins = {
             })
         end,
     },
-
-    {
-        "folke/trouble.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = {
-            -- your configuration comes here
-            -- or leave it empty to use the default settings
-            -- refer to the configuration section below
-        },
-    },
+    --
+    -- {
+    --     "folke/trouble.nvim",
+    --     dependencies = { "nvim-tree/nvim-web-devicons" },
+    --     opts = {
+    --         -- your configuration comes here
+    --         -- or leave it empty to use the default settings
+    --         -- refer to the configuration section below
+    --     },
+    -- },
 
     {
         'akinsho/toggleterm.nvim',
@@ -89,13 +82,13 @@ local plugins = {
         end
     },
 
-    -- {
-    --     'm4xshen/autoclose.nvim',
-    --     config = function()
-    --         require("autoclose").setup()
-    --     end
-    -- },
-    --
+    {
+        'm4xshen/autoclose.nvim',
+        config = function()
+            require("autoclose").setup()
+        end
+    },
+
     {
         'stevearc/dressing.nvim',
         config = function()
@@ -198,37 +191,37 @@ local plugins = {
         end,
     },
 
-    {
-        "echasnovski/mini.indentscope",
-        version = false, -- wait till new 0.7.0 release to put it back on semver
-        event = "VeryLazy",
-        opts = {
-            -- symbol = "▏",
-            symbol = "│",
-            options = { try_as_border = true },
-        },
-        init = function()
-            vim.api.nvim_create_autocmd("FileType", {
-                pattern = {
-                    "help",
-                    "alpha",
-                    "dashboard",
-                    "neo-tree",
-                    "Trouble",
-                    "trouble",
-                    "lazy",
-                    "mason",
-                    "notify",
-                    "toggleterm",
-                    "lazyterm",
-                },
-                callback = function()
-                    vim.b.miniindentscope_disable = true
-                end,
-            })
-        end,
-    },
-
+    -- {
+    --     "echasnovski/mini.indentscope",
+    --     version = '*', -- wait till new 0.7.0 release to put it back on semver
+    --     event = "VeryLazy",
+    --     opts = {
+    --         -- symbol = " ",
+    --         symbol = "│",
+    --         options = { border = 'both' },
+    --     },
+    --     init = function()
+    --         vim.api.nvim_create_autocmd("FileType", {
+    --             pattern = {
+    --                 "help",
+    --                 "alpha",
+    --                 "dashboard",
+    --                 "neo-tree",
+    --                 "Trouble",
+    --                 "trouble",
+    --                 "lazy",
+    --                 "mason",
+    --                 "notify",
+    --                 "toggleterm",
+    --                 "lazyterm",
+    --             },
+    --             callback = function()
+    --                 vim.b.miniindentscope_disable = true
+    --             end,
+    --         })
+    --     end,
+    -- },
+    --
 
     {
         'stevearc/oil.nvim',
@@ -374,21 +367,21 @@ local plugins = {
         end,
     },
 
-    -- indent lines
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        event = { "BufReadPre", "BufNewFile" },
-        char = "|",
-        tab_char = { "a", "b", "c" },
-        highlight = { "Function", "Label" },
-        smart_indent_cap = true,
-        priority = 2,
-
-
-        config = function()
-            require("ibl").setup()
-        end,
-    },
+    -- -- indent lines
+    -- {
+    --     "lukas-reineke/indent-blankline.nvim",
+    --     event = { "BufReadPre", "BufNewFile" },
+    --     char = "|",
+    --     tab_char = { "a", "b", "c" },
+    --     highlight = { "Function", "Label" },
+    --     smart_indent_cap = true,
+    --     priority = 2,
+    --
+    --
+    --     config = function()
+    --         require("ibl").setup()
+    --     end,
+    -- },
 
     -- fzf-lua
     {
