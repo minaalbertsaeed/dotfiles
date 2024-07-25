@@ -22,11 +22,11 @@ qemu-system-x86_64 \
    -smp 4 \
    -vga virtio \
    -display sdl,gl=on \
-   -chardev socket,path=/tmp/port1,server=on,wait=off,id=port1-char \
-   -device virtio-serial \
-   -device virtserialport,id=port1,chardev=port1-char,name=mina-ssh \
-   -net user,hostfwd=tcp::10022-:22 \
-   -net nic \
+   # -chardev socket,path=/tmp/port1,server=on,wait=off,id=port1-char \
+   # -device virtio-serial \
+   # -device virtserialport,id=port1,chardev=port1-char,name=mina-ssh \
+   # -net user,hostfwd=tcp::10022-:22 \
+   # -net nic \
    #
    # -usb \
    # -device usb-tablet \

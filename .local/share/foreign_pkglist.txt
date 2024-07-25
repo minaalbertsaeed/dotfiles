@@ -1,0 +1,9 @@
+brave-bin
+light
+packettracer
+rar
+rofi-greenclip
+sunroof-bin
+ttf-cairo
+xkblayout-state-git
+yay
