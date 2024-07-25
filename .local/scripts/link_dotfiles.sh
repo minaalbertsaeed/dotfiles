@@ -16,9 +16,11 @@ set --  .conifg/neofetch \
         .conifg/mimeapps.list \
         .conifg/greenclip.toml \
         .conifg/rofi \
+        .local/scripts \
+        .local/share/pkglist.txt \
+        .local/share/foreign_pkglist.txt \
         .bashrc \
         .bash_profile \
-        .local/scripts \
 
 # ln -s ~/repos/dotfiles/.config/neofetch ~/.config/neofetch
 for program in "$@"; do
@@ -26,6 +28,6 @@ for program in "$@"; do
     if [ -L "$path" ]; then
         echo "The symbolic link exists."
     else
-        echo "ln -s $DOTFILES/"$program" $HOME/"$program""
+        ln -s $DOTFILES/"$program" $HOME/"$program"
     fi
 done
