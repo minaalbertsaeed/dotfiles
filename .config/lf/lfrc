@@ -2,7 +2,7 @@
 set hidden true
 set info size
 set ignorecase true
-# set mouse true
+set mouse true
 set icons true
 # set drawbox true
 set cleaner '~/.config/lf/cleaner'
@@ -59,7 +59,7 @@ cmd open ${{
     test -L $f && f=$(readlink -f $f)    
     case "$(file --mime-type "$f" -b)" in    
         text/*) st -e nvim  "$fx" & disown  ;;    
-        application/pdf) $choose_pdf_app ;;
+        application/pdf) zathura "$fx" & disown;;
         image/*) sxiv "$fx" & disown;;
         audio/*) mpv --player-operation-mode=pseudo-gui "$fx" & disown;; 
         video/*) mpv --player-operation-mode=pseudo-gui "$fx" & disown;;
@@ -115,7 +115,7 @@ cmd final_delete ${{
     # fi
 }}
 cmd fzf_jump ${{
-    res="$(find . | fzf --header='Jump to location')"
+    res="$(find . | fzf --header='Jump to location' --preview="bat {}")"
     if [ -n "$res" ]; then
         if [ -d "$res" ]; then
             cmd="cd"
