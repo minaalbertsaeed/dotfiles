@@ -2,9 +2,7 @@
 
 command=$1
 TERMINAL="$TERMINAL"
-# echo $TERM
 
-hyprctl dispatch workspace 0
 create_tmux_window(){
     [ -z "$command" ] && tmux neww || tmux neww "$command" 
     xdotool key Alt+1
@@ -18,7 +16,7 @@ if pidof -x "$TERMINAL" > /dev/null; then
     fi
 
 else 
-    if pidof -x "$TERMINAL" > /dev/null; then
+    if pidof -x "tmux" > /dev/null; then
         $TERMINAL -e tmux attach && create_tmux_window 
     else
         $TERMINAL -e tmux && create_tmux_window 
