@@ -1,21 +1,21 @@
 #!/bin/sh
 
-set --  .conifg/neofetch \
-        .conifg/nvim \
-        .conifg/btop \
-        .conifg/dunst \
-        .conifg/lf \
-        .conifg/loadkeysrc \
-        .conifg/mpv \
-        .conifg/nvim \
-        .conifg/sxhkd \
-        .conifg/tmux \
-        .conifg/zathura \
-        .conifg/mpv \
-        .conifg/screenkey.json \
-        .conifg/mimeapps.list \
-        .conifg/greenclip.toml \
-        .conifg/rofi \
+set --  .config/neofetch \
+        .config/nvim \
+        .config/btop \
+        .config/dunst \
+        .config/lf \
+        .config/loadkeysrc \
+        .config/mpv \
+        .config/nvim \
+        .config/sxhkd \
+        .config/tmux \
+        .config/zathura \
+        .config/mpv \
+        .config/screenkey.json \
+        .config/mimeapps.list \
+        .config/greenclip.toml \
+        .config/rofi \
         .local/scripts \
         .local/share/pkglist.txt \
         .local/share/foreign_pkglist.txt \
