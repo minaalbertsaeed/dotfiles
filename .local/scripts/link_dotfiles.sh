@@ -2,7 +2,6 @@
 
 set --  .config/neofetch \
         .config/nvim \
-        .config/btop \
         .config/dunst \
         .config/lf \
         .config/loadkeysrc \
