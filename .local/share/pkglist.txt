@@ -6,7 +6,6 @@ aria2
 base
 base-devel
 bat
-bc
 bind
 blueman
 bluez-utils
@@ -106,6 +105,7 @@ qt5ct
 qt6-declarative
 qt6ct
 ripgrep
+rofi
 rsync
 screenkey
 slurp
