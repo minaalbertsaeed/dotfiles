@@ -16,11 +16,11 @@ local plugins = {
         end,
     },
 
-    -- {
-    --     "ThePrimeagen/harpoon",
-    --     branch = "master",
-    --     dependencies = { "nvim-lua/plenary.nvim" }
-    -- },
+    {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" }
+    },
 
     {
         "christoomey/vim-tmux-navigator",
@@ -183,7 +183,6 @@ local plugins = {
     },
 
     -- :SymbolsOutline -> get list of symobls
-
     {
         'simrat39/symbols-outline.nvim',
         config = function()
@@ -191,37 +190,6 @@ local plugins = {
         end,
     },
 
-    -- {
-    --     "echasnovski/mini.indentscope",
-    --     version = '*', -- wait till new 0.7.0 release to put it back on semver
-    --     event = "VeryLazy",
-    --     opts = {
-    --         -- symbol = " ",
-    --         symbol = "│",
-    --         options = { border = 'both' },
-    --     },
-    --     init = function()
-    --         vim.api.nvim_create_autocmd("FileType", {
-    --             pattern = {
-    --                 "help",
-    --                 "alpha",
-    --                 "dashboard",
-    --                 "neo-tree",
-    --                 "Trouble",
-    --                 "trouble",
-    --                 "lazy",
-    --                 "mason",
-    --                 "notify",
-    --                 "toggleterm",
-    --                 "lazyterm",
-    --             },
-    --             callback = function()
-    --                 vim.b.miniindentscope_disable = true
-    --             end,
-    --         })
-    --     end,
-    -- },
-    --
 
     {
         'stevearc/oil.nvim',
@@ -274,7 +242,6 @@ local plugins = {
     --         require "plugins.configs.bufferline"
     --     end,
     -- },
-
 
     {
         'echasnovski/mini.nvim',
