@@ -65,7 +65,7 @@ alt + shift + Delete
 
 # Take screenshot
 alt + s
-	maim -s  | xclip -selection clipboard -t image/png
+	maim -us -m 10  | xclip -selection clipboard -t image/png
 
 # Manipulate Sound
 alt + {F1,F2,F3}
