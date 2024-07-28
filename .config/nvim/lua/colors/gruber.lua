@@ -1,8 +1,9 @@
--- Clear existing highlights if any
-vim.cmd("highlight clear")
+-- gruber.lua
+-- Neovim color scheme based on the Gruber Dark theme
 
-if vim.fn.exists("syntax_on") then
-    vim.cmd("syntax reset")
+vim.cmd('highlight clear')
+if vim.fn.exists("syntax_on") == 1 then
+    vim.cmd('syntax reset')
 end
 
 vim.o.background = "dark"
@@ -13,7 +14,7 @@ local colors = {
     offwhite =  {"#e4e4e4", 110},
     brown =     {"#af875f", 137},
     cyan =      {"#afd7af", 151},
-    gray =      {"#9ba29f", 235},
+    gray =      {"#888798", 235},
     kamoni =    {"#87d75f", 113},
     red =       {"#ff5f5f", 203},
     white =     {"#FFFFFF", 254},
@@ -22,26 +23,21 @@ local colors = {
 
 local function hl(group, attrs)
     local command = {"highlight", group}
-
     if attrs.fg then
         table.insert(command, "guifg=" .. attrs.fg[1])
         table.insert(command, "ctermfg=" .. attrs.fg[2])
     end
-
     if attrs.bg then
         table.insert(command, "guibg=" .. attrs.bg[1])
         table.insert(command, "ctermbg=" .. attrs.bg[2])
     end
-
     if attrs.style then
         table.insert(command, "gui=" .. attrs.style)
         table.insert(command, "cterm=" .. attrs.style)
     end
-
     vim.cmd(table.concat(command, " "))
 end
 
--- Highlight groups
 hl("ColorColumn",   {bg = colors.gray})
 hl("Comment",       {fg = colors.brown})
 hl("Constant",      {fg = colors.white})
@@ -84,6 +80,11 @@ hl("String",        {fg = colors.kamoni})
 hl("Title",         {fg = colors.white})
 hl("Todo",          {fg = colors.brown, style = "italic"})
 hl("Type",          {fg = colors.gray, style = "bold"})
+hl("Typedef",       {fg = colors.green, style = "bold"})
+hl("TermCursor",    {fg = colors.green, style = "bold"})
+hl("StorageClass",  {fg = colors.green, style = "bold"})
+hl("Structure",     {fg = colors.green, style = "bold"})
+hl("CursorLineNr",  {fg = colors.green})
 hl("Underlined",    {style = "underline"})
 hl("VertSplit",     {fg = colors.gray})
 hl("WarningMsg",    {fg = colors.green})
