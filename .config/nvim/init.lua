@@ -1,6 +1,7 @@
-require "options"
-require "mappings"
-require "commands"
+require("options")
+require("mappings")
+require("commands")
+require("colors.gruber")
 
 -- --------------------------------------------
 local M = {}
@@ -45,7 +46,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.cmd("set guicursor=i:block")
 vim.cmd('set nofoldenable')
 vim.cmd("setlocal formatoptions-=c formatoptions-=r formatoptions-=o")-- Dont auto comment new line 
--- vim.cmd("colorscheme lackluster-night")
+-- vim.cmd("colorscheme gruber")
 vim.cmd("GitBlameDisable")
 
 return M
