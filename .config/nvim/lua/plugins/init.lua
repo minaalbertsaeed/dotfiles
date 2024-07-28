@@ -12,7 +12,7 @@ local plugins = {
                 -- underline = false, -- disables underline fonts
                 -- bold = false, -- disables bold fonts
             })
-            vim.cmd.colorscheme('gruber-darker')
+            -- vim.cmd.colorscheme('gruber-darker')
         end,
     },
 
@@ -63,16 +63,6 @@ local plugins = {
             })
         end,
     },
-    --
-    -- {
-    --     "folke/trouble.nvim",
-    --     dependencies = { "nvim-tree/nvim-web-devicons" },
-    --     opts = {
-    --         -- your configuration comes here
-    --         -- or leave it empty to use the default settings
-    --         -- refer to the configuration section below
-    --     },
-    -- },
 
     {
         'akinsho/toggleterm.nvim',
@@ -81,12 +71,19 @@ local plugins = {
             require("toggleterm").setup {}
         end
     },
-
+    --
+    -- {
+    --     'm4xshen/autoclose.nvim',
+    --     config = function()
+    --         require("autoclose").setup()
+    --     end
+    -- },
     {
-        'm4xshen/autoclose.nvim',
-        config = function()
-            require("autoclose").setup()
-        end
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true
+        -- use opts = {} for passing setup options
+        -- this is equalent to setup({}) function
     },
 
     {
@@ -194,7 +191,15 @@ local plugins = {
     {
         'stevearc/oil.nvim',
         config = function()
-            require("oil").setup()
+            require("oil").setup({
+                columns = {
+                    "icon",
+                    "permissions",
+                    "size",
+                    "mtime",
+                },
+                constrain_cursor = "name",
+            })
         end,
     },
 

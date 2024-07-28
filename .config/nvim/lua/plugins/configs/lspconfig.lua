@@ -81,7 +81,7 @@ lspconfig.clangd.setup {
   },
 }
 
--- lspconfig.rust_analyzer.setup{}
+lspconfig.rust_analyzer.setup{}
 -- lspconfig.jdtls.setup{}
 
 -- setup multiple servers with same default options

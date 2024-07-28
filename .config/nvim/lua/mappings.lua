@@ -7,7 +7,7 @@ local map = vim.keymap.set
 local options = { noremap = true, silent = true }
 local fzf_lua = require('fzf-lua')
 -- local harpoon = require("harpoon")
--- harpoon:setup()
+
 
 local telescope = require('telescope.builtin')
 map("n", "<Esc>", "<cmd> :noh <CR>")
