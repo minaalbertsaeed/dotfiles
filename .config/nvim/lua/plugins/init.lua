@@ -1,7 +1,7 @@
 local plugins = {
 
     -- Themes
-    { "RRethy/base16-nvim" },
+    -- { "RRethy/base16-nvim" },
     { "xiyaowong/transparent.nvim" },
     {
         'thimc/gruber-darker.nvim',
