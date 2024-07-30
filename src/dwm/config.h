@@ -31,6 +31,9 @@ static const char *colors[][3]      = {
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
 
+
+#define  DISCORD  "equibop"
+
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -46,7 +49,7 @@ static const Rule rules[] = {
     { NULL                      ,"excalidraw.com",     "Excalidraw",   1 << 6,            1,           0,          -1 },
 	{ "qemu-system-x86_64"      ,NULL,                  NULL,           1 << 7,            1,           0,          -1 },
 	// { "vesktop"                 ,NULL,                  NULL,           1 << 8,            1,           0,          -1 },
-	{ "sunroof"                 ,NULL,                  NULL,           1 << 8,            1,           0,          -1 },
+	{ DISCORD                   ,NULL,                  NULL,           1 << 8,            1,           0,          -1 },
     { "PacketTracer"            ,NULL,                  NULL,           1 << 9,            1,           0,          -1 },
 };
 
