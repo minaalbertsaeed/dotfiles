@@ -14,6 +14,7 @@ export CM_LAUNCHER="dmenu"
 export CM_DIR="$HOME/.cache/clipmenu"
 export GTK_THEME="Adwaita:dark"
 export GTK_FONT_NAME="Cairo:size=10"
+export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$PATH:$HOME/.local/bin/:$HOME/repos/tmuxifier/bin"
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
   --color=fg:#ffffff,fg+:#d0d0d0,bg:-1,bg+:#262626

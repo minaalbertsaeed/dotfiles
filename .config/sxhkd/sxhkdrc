@@ -1,9 +1,8 @@
-# open web browser
 alt + w
     $BROWSER
 
 alt + d
-     $DISCORD
+    $DISCORD
 
 super + c
     ~/.local/bin/freee
@@ -20,8 +19,8 @@ alt + o
 # alt + s
 #     ~/.local/scripts/tmux_new_window.sh "find | fzf | xargs xdg-open"
 
-alt + Delete
-    feh --bg-scale $(find ~/repos/dotfiles/Pictures/wallpapers/ -type f | shuf -n 1)
+# alt + Delete
+#     feh --bg-scale $(find ~/repos/dotfiles/Pictures/wallpapers/ -type f | shuf -n 1)
 
 alt + v
     ~/.local/scripts/tmux_new_window.sh nvim
