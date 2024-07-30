@@ -1,5 +1,6 @@
 0ad
 acpi
+alacritty
 alsa-tools
 alsa-utils
 aria2
@@ -22,6 +23,7 @@ fd
 fff
 ffmpeg
 ffmpegthumbnailer
+firefox
 freeglut
 fribidi
 fzf
@@ -47,6 +49,7 @@ linux-firmware
 linux-zen
 linux-zen-headers
 lshw
+lsof
 lua
 lua-language-server
 maim
@@ -57,6 +60,7 @@ mpv-mpris
 musl
 ncdu
 neofetch
+neovide
 neovim
 net-tools
 network-manager-applet
@@ -68,6 +72,7 @@ npm
 ntfs-3g
 ntp
 nvidia-dkms
+nvidia-prime
 nvidia-settings
 nvidia-utils
 openbsd-netcat
@@ -85,6 +90,7 @@ pipewire-alsa
 pipewire-pulse
 playerctl
 pulsemixer
+python-pip
 qemu-audio-spice
 qemu-base
 qemu-chardev-spice
@@ -104,9 +110,12 @@ qt5-webengine
 qt5ct
 qt6-declarative
 qt6ct
+raylib
 ripgrep
 rofi
 rsync
+rust-analyzer
+rustup
 screenkey
 slurp
 sof-firmware
@@ -131,7 +140,6 @@ usbutils
 vi
 vim
 vsftpd
-wesnoth
 wget
 wireshark-qt
 xclip
