@@ -1,7 +1,10 @@
 # open web browser
 alt + w
-    brave
-#
+    $BROWSER
+
+alt + d
+     $DISCORD
+
 super + c
     ~/.local/bin/freee
 
