@@ -88,6 +88,7 @@ static const Key keys[] = {
 	/* modifier                             key             function            argument */
     { MODKEY,                               XK_e,           togglefloating,     {0} },
     { MODKEY,                               XK_a,           shiftviewclients,   { .i = +1 } },         
+    { MODKEY|ShiftMask,                     XK_a,           shiftviewclients,   { .i = -1 } },         
 	// { MODKEY,                               XK_p,           spawn,              {.v = dmenucmd } },
 	{ MODKEY,                               XK_j,           focusstack,         {.i = +1 } },
 	{ MODKEY,                               XK_k,           focusstack,         {.i = -1 } },
@@ -117,7 +118,7 @@ static const Key keys[] = {
     { MODKEY|ShiftMask|ControlMask,			XK_k, 	        moveresize,		    {.v = (int []){ 0, 0, 0, -25 }}},
     { MODKEY|ShiftMask|ControlMask,			XK_l,	        moveresize,		    {.v = (int []){ 0, 0, 25, 0 }}},
     { MODKEY|ShiftMask|ControlMask,			XK_h,	        moveresize,		    {.v = (int []){ 0, 0, -25, 0 }}},
-    { MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },  // restart Signal
+    { MODKEY|ShiftMask,                     XK_q,      quit,           {1} },  // restart Signal
     // { MODKEY|ShiftMask,             XK_q,      quit,           {0} },  // Quit dwm
 	TAGKEYS(                                XK_1,                      0)
 	TAGKEYS(                                XK_2,                      1)
