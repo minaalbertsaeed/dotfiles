@@ -77,10 +77,6 @@ map("n", "<leader>T", "<cmd>TroubleToggle <cr>" ,                               
 -- map('n', "<leader>h3", function() harpoon:list():select(3) end)
 -- map('n', "<leader>h4", function() harpoon:list():select(4) end)
 
--- Toggle previous & next buffers
-map("n", "<leader>T", "<cmd>TroubleToggle <cr>" ,                                   { desc = "Start Trouble" })
-
-
 -- MiniIndentscope
 map({ "n", "v" }, "gt", "<CMD> lua MiniIndentscope.operator('top', true)<CR>" ,     { desc = "Go to begining of the scope" })
 map({ "n", "v" }, "gb", "<CMD> lua MiniIndentscope.operator('bottom', true)<CR>" ,  { desc = "Go to end of the scope" })
@@ -145,12 +141,9 @@ map("n", "<C-l>", ":wincmd l <cr>")
 -- To Move among nvim and tmux panes
 map("n", "<C-h>", ":TmuxNavigateLeft <cr>")
 map("n", "<C-j>", ":TmuxNavigateDown <cr>")
-map("n", "<C-k>", ":TmuxNavigateRight<cr>")
-map("n", "<C-l>", ":wincmd l <cr>")
+map("n", "<C-k>", ":TmuxNavigateUp<cr>")
+map("n", "<C-l>", ":TmuxNavigateRight<cr>")
 
--- map("n", "C-h", ":TmuxNavigateLeft<CR>")
--- map("n", "C-j", ":TmuxNavigateDown<CR>")
--- map("n", "C-k", ":TmuxNavigateUp<CR>")
 
 -- Compiling Projects and files  (Using a created run script in each directory)
 map('n', '<leader>x' ,'<cmd> TermExec  cmd="./run" size=20 direction=horizontal go_back=0 <cr>',
@@ -169,5 +162,21 @@ vim.api.nvim_set_keymap('n', '<F11>', ':lua require("toggleterm").exec("cd " .. 
 
 
 map("n", "<F7>", ':lua test()<CR>', options)
-map("n", "<leader>hm", ':lua require("harpoon.ui").toggle_quick_menu()<CR>', options)
-map("n", "<leader>ha", ':lua require("harpoon.mark").add_file()<CR>', options)
+vim.api.nvim_set_keymap('n', '<leader>,', ':lua ToggleQuickfix()<CR>', { noremap = true, silent = true })
+
+function ToggleQuickfix()
+  local quickfix_open = false
+  for _, win in ipairs(vim.fn.getwininfo()) do
+    if win['quickfix'] == 1 then
+      quickfix_open = true
+      break
+    end
+  end
+
+  if quickfix_open then
+    vim.cmd('cclose')
+  else
+    vim.cmd('copen')
+  end
+end
+
