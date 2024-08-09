@@ -10,11 +10,11 @@ vim.o.background = "dark"
 vim.g.colors_name = "gruber"
 
 local colors = {
-    black =     {"#1c1c1c", 234},
+    black =     {"#161616", 234},
     offwhite =  {"#e4e4e4", 110},
     brown =     {"#af875f", 137},
     cyan =      {"#afd7af", 151},
-    gray =      {"#888798", 235},
+    gray =      {"#94a5c7", 235},
     kamoni =    {"#87d75f", 113},
     red =       {"#ff5f5f", 203},
     white =     {"#FFFFFF", 254},
@@ -81,12 +81,9 @@ hl("Title",         {fg = colors.white})
 hl("Todo",          {fg = colors.brown, style = "italic"})
 hl("Type",          {fg = colors.gray, style = "bold"})
 hl("Typedef",       {fg = colors.green, style = "bold"})
-hl("TermCursor",    {fg = colors.green, style = "bold"})
 hl("StorageClass",  {fg = colors.green, style = "bold"})
 hl("Structure",     {fg = colors.green, style = "bold"})
 hl("CursorLineNr",  {fg = colors.green})
-hl("Cursor",        {fg = colors.green})
-hl("CursorReset",   {fg = colors.green})
 hl("Underlined",    {style = "underline"})
 hl("VertSplit",     {fg = colors.gray})
 hl("WarningMsg",    {fg = colors.green})

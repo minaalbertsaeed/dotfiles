@@ -3,7 +3,7 @@
 # i use this script in my Xorg enviroment
 
 # Set the output file name and path
-output_file="/home/mina/screencast_$(date +"%Y_%m_%d_%H_%M_%S").mkv"
+output_file="$HOME/hdd/D/Mina/recordings/screencast_$(date +"%Y_%m_%d_%H_%M_%S").mkv"
 
 # Set the screen size
 start_recording() {
@@ -16,7 +16,9 @@ start_recording() {
     echo "Starting recording..."
     
     # Run ffmpeg with the selected region
-    ffmpeg -f x11grab -video_size "${width}x${height}" -i :0.0+$x,$y -f alsa -i default "$output_file"
+    ffmpeg -f x11grab -video_size "${width}x${height}" -i :0.0+$x,$y \
+           -f pulse -ac 2 -i alsa_output.pci-0000_05_00.6.analog-stereo \
+           "$output_file" 
 }
 
 stop_recording() {
@@ -40,13 +42,5 @@ else
     start_recording &
 fi
 
-echo "$screen_size"
-echo "$screen_size"
-echo "$screen_size"
-echo "$screen_size"
-echo "$screen_size"
-# Record the screen with ffmpeg
-
 # pkill -RTMIN+15 dwmblocks
 # ffmpeg -f x11grab -s "$screen_size" -i :0.0 -f alsa -i default -c:v libx264 -c:a aac -strict experimental -b:a 192k "$output_file"
-

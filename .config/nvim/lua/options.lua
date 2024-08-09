@@ -8,6 +8,9 @@ opt.showmode = true
 opt.cursorline = true
 opt.cmdheight = 0
 
+opt.timeoutlen=1000
+opt.ttimeoutlen=0
+
 -- Indenting
 opt.shiftwidth = 4
 opt.smartindent = true
