@@ -1,16 +1,17 @@
 0ad
 acpi
-alacritty
 alsa-tools
 alsa-utils
 aria2
 base
 base-devel
 bat
+bc
 bind
 blueman
 bluez-utils
 btop
+clang
 cogl
 cronie
 dash
@@ -40,7 +41,7 @@ hplip
 htop
 i2c-tools
 iptables-nft
-ksh
+jq
 lazygit
 lf
 libreoffice-fresh
@@ -49,7 +50,6 @@ linux-firmware
 linux-zen
 linux-zen-headers
 lshw
-lsof
 lua
 lua-language-server
 maim
@@ -60,7 +60,6 @@ mpv-mpris
 musl
 ncdu
 neofetch
-neovide
 neovim
 net-tools
 network-manager-applet
@@ -75,6 +74,7 @@ nvidia-dkms
 nvidia-prime
 nvidia-settings
 nvidia-utils
+obs-studio
 openbsd-netcat
 opencl-nvidia
 opendoas
@@ -112,7 +112,6 @@ qt6-declarative
 qt6ct
 raylib
 ripgrep
-rofi
 rsync
 rust-analyzer
 rustup
@@ -127,6 +126,7 @@ sxiv
 tcc
 texlive-latexextra
 texlive-latexrecommended
+thunar
 tmux
 translate-shell
 trash-cli
@@ -154,7 +154,6 @@ xorg-fonts-100dpi
 xorg-fonts-75dpi
 xorg-fonts-encodings
 xorg-iceauth
-xorg-mkfontscale
 xorg-server
 xorg-server-common
 xorg-server-devel
@@ -192,5 +191,3 @@ yt-dlp
 zathura
 zathura-pdf-mupdf
 zip
-zoxide
-zsh
