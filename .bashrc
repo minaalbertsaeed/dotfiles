@@ -49,7 +49,7 @@ fzf_history(){
 }
 
 fzf_cd() {
-    local selected_dir=$(find "$HOME" -type d | fzf --height=50% --border)
+    local selected_dir=$(find "$HOME" -type d | fzf-tmux --height=50% --border)
     cd "$selected_dir" && echo "cd $selected_dir"
 }  
 
