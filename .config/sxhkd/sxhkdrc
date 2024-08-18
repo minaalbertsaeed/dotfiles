@@ -54,7 +54,7 @@ alt + End
     pkill ffmpeg &&  pkill -RTMIN+15 dwmblocks
 
 # launch powermenu
-alt + q
+alt + shift + q
 	~/.local/scripts/powermenu.sh	
 
 # Sends dwmblocks signal to update lang
