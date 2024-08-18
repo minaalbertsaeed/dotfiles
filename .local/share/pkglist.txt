@@ -128,7 +128,7 @@ tmux
 translate-shell
 trash-cli
 ttf-jetbrains-mono
-ttf-jetbrains-mono-nerd
+ttf-victor-mono-nerd
 ueberzug
 ufw
 unrar-free

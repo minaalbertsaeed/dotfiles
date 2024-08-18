@@ -12,10 +12,10 @@ static const int topbar             = 0;        /* 0 means bottom bar */
 static const int splitstatus        = 0;        /* 1 for split status items */
 static const char *splitdelim        = ";";       /* Character used for separating status */
 static const char *fonts[]          = { 
-    "JetBrains Mono Nerd Font:size=10",
-
+    "Victor Mono Nerd Font:style=Medium:size=10:"//antialias=true:autohint=true"
 }; 
-static const char dmenufont[]       = "JetBrains Mono Nerd Font:size=10";
+    
+static const char dmenufont[]       = "Victor Mono Nerd Font:size=10";
 static const char col_gray1[]       = "#161616";
 static const char col_gray2[]       = "#555555"; 
 static const char col_gray3[]       = "#bbbbbb";
