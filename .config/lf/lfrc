@@ -155,6 +155,7 @@ map C clear
 
 # Movement
 map gdf cd ~/hdd/D/Mina/Films/
+map gdr cd ~/hdd/D/Mina/recordings/
 map gdd cd ~/hdd/D
 map gdm cd ~/hdd/D/music
 map gf cd ~/hdd/F

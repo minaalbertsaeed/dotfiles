@@ -41,7 +41,7 @@ defaults = {
 
 	speed_persistency = '',
 	speed_step = 0.1,
-	speed_step_is_factor = true,
+	speed_step_is_factor = false,
 
 	menu_item_height = 36,
 	menu_min_width = 260,
