@@ -30,7 +30,7 @@ map('v', "<leader>p", "\"_dP" )
 map({ 'n', 'v' }, "<leader>d", "\"_d",{ desc = "Delete Text forever" })
 
 -- buffers
-map("n", "<Tab>", "<cmd> bnext <CR>")
+map("n", "<leader><Tab>", "<cmd> bnext <CR>")
 map('n', '<leader>1', '<Cmd>LualineBuffersJum 1<CR>', options)
 map('n', '<leader>2', '<Cmd>LualineBuffersJum 2<CR>', options)
 map('n', '<leader>3', '<Cmd>LualineBuffersJum 3<CR>', options)
@@ -52,18 +52,19 @@ map("v", "<leader>/", "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.
 
 -- Fzf-lua & Telescope Keymaps 
 -- map('n', "<leader>ff",  function () telescope.find_files({ hidden = true, follow= true})  end,{ desc = "Find files" })
-map('n', "<leader>ff",  function() fzf_lua.files() end,                             { desc = "Find files" })
-map('n', "<leader>lg",  function() fzf_lua.live_grep() end,                         { desc = "Live Grep" })
-map('n', "<leader>fh",  function() fzf_lua.files({cwd = "~"}) end,                  { desc = "Find files from ~" })
-map('n', "<leader>lp",  "<cmd> Telescope projects<CR>",                             { desc = "List Projects" })
-map('n', "<leader>b",   function() fzf_lua.buffers() end,                           { desc = "List Buffers" })
-map('n', "<leader>rr",  function() fzf_lua.registers() end,                         { desc = "Show Registers" })
-map('n', "<leader>ls",  function() fzf_lua.lsp_document_symbols() end,              { desc = "List Document Symbols" })
-map('n', "<leader>fo",  function() fzf_lua.oldfiles() end,                          { desc = "Search old files" })
-map('n', "<leader>lr",  function() fzf_lua.lsp_references() end,                    { desc = "List References" })
-map('n', "<leader>m",   function() fzf_lua.man_pages() end,                         { desc = "Show man_pages" })
-map("n", "<leader>S", "<cmd>SymbolsOutline <cr>" ,                                  { desc = "Start SymbolsOutline" })
-map("n", "<leader>T", "<cmd>TroubleToggle <cr>" ,                                   { desc = "Start Trouble" })
+map('n', "<leader>ff",  function() fzf_lua.files() end                   , { desc = "Find files" })
+map('n', "<leader>lg",  function() fzf_lua.live_grep() end               , { desc = "Live Grep" })
+map('n', "<leader>fh",  function() fzf_lua.files({cwd = "~"}) end        , { desc = "Find files from ~" })
+map('n', "<leader>lp",  "<cmd> Telescope projects<CR>"                   , { desc = "List Projects" })
+map('n', "<leader>b" ,   function() fzf_lua.buffers() end                , { desc = "List Buffers" })
+map('n', "<leader>rr",  function() fzf_lua.registers() end               , { desc = "Show Registers" })
+map('n', "<leader>ls",  function() fzf_lua.lsp_document_symbols() end    , { desc = "List Document Symbols" })
+map('n', "<leader>fo",  function() fzf_lua.oldfiles() end                , { desc = "Search old files" })
+-- map('n', "<leader>lr",  function() fzf_lua.lsp_references() end         , { desc = "List References" })
+map('n', "<leader>m" ,   function() fzf_lua.man_pages() end              , { desc = "Show man_pages" })
+map("n", "<leader>S" , "<cmd>SymbolsOutline <cr>"                        , { desc = "Start SymbolsOutline" })
+map("n", "<leader>T" , "<cmd>TroubleToggle <cr>"                         , { desc = "Start Trouble" })
+map("n", "gr", vim.lsp.buf.references, opts)
 
 -- harpoon bindings
 
@@ -78,57 +79,32 @@ map("n", "<leader>T", "<cmd>TroubleToggle <cr>" ,                               
 -- map('n', "<leader>h4", function() harpoon:list():select(4) end)
 
 -- MiniIndentscope
-map({ "n", "v" }, "gt", "<CMD> lua MiniIndentscope.operator('top', true)<CR>" ,     { desc = "Go to begining of the scope" })
-map({ "n", "v" }, "gb", "<CMD> lua MiniIndentscope.operator('bottom', true)<CR>" ,  { desc = "Go to end of the scope" })
+map({ "n", "v" }, "gt", "<CMD> lua MiniIndentscope.operator('top', true)<CR>"    , { desc = "Go to begining of the scope" })
+map({ "n", "v" }, "gb", "<CMD> lua MiniIndentscope.operator('bottom', true)<CR>" , { desc = "Go to end of the scope" })
 
 
 -- Git keymaps
-map("n", "<leader>gd", "<cmd> Gitsigns diffthis <CR>",                  { desc = "Diff Buffer" })
-map("n", "<leader>gr", "<cmd> Gitsigns reset_buffer <CR>",              { desc = "Reset Buffer" })
-map("n", "<leader>ga", "<cmd> Gitsigns stage_buffer<CR>",               { desc = "Diff Buffer" })
-map("n", "<leader>gs", "<cmd>FzfLua git_status <CR>",                   { desc = "Display git status" })
-map("n", "<leader>gc", function() require("tinygit").smartCommit() end, { desc = "git commit " })
-map("n", "<leader>gp", function() require("tinygit").push() end,        { desc = "git push" })
-
-
-
-function get_current_dir ()
-   local dir = vim.fn.expand('%:p:h')
-   local res = string.format('<cmd> ToggleTerm  dir=%s size=17 direction=horizontal<cr>', vim.fn.expand('%:p:h'))
-   print(res)
-   return res
-end
-
-function getTerminal(position)
-    local current_directory = vim.fn.expand("%:p:h") -- Get the full path of the current file
-    local command = string.format("cd %s ; clear", current_directory)
-    require("nvterm.terminal").send(command, position)
-end
-
---Terminal keymaps
-map('n', '<leader>th','<cmd> ToggleTerm  size=17 direction=horizontal<cr> ',
-    { desc = "Spwan Horizontal Terminal" }, options)
-
-map('n', '<leader>tc', ':lua getTerminal("horizontal")<CR>', { noremap = true, silent = true })
-
-map('n', '<leader>tv','<cmd> ToggleTerm  size=100 direction=vertical<cr> ',
-    { desc = "Spwan Vertical Terminal" }, options )
+map("n", "<leader>gd", "<cmd> Gitsigns diffthis <CR>"                   , { desc = "Diff Buffer" })
+map("n", "<leader>gr", "<cmd> Gitsigns reset_buffer <CR>"               , { desc = "Reset Buffer" })
+map("n", "<leader>ga", "<cmd> Gitsigns stage_buffer<CR>"                , { desc = "Diff Buffer" })
+map("n", "<leader>gs", "<cmd>FzfLua git_status <CR>"                    , { desc = "Display git status" })
+map("n", "<leader>gc", function() require("tinygit").smartCommit() end  , { desc = "git commit " })
+map("n", "<leader>gp", function() require("tinygit").push() end         , { desc = "git push" })
 
 -- Navigate Windows from terminal mode
-map('t', '<Esc>', '<C-\\><C-n>', options)
-map('t', '<C-h>', '<C-\\><C-n><C-w>h', options)
-map('t', '<C-j>', '<C-\\><C-n><C-w>j', options)
-map('t', '<C-k>', '<C-\\><C-n><C-w>k', options)
-map('t', '<C-l>', '<C-\\><C-n><C-w>l', options)
+map('t', '<Esc>', '<C-\\><C-n>'       , options)
+map('t', '<C-h>', '<C-\\><C-n><C-w>h' , options)
+map('t', '<C-j>', '<C-\\><C-n><C-w>j' , options)
+map('t', '<C-k>', '<C-\\><C-n><C-w>k' , options)
+map('t', '<C-l>', '<C-\\><C-n><C-w>l' , options)
 
 -- Resize Buffers
-map("n", "<Up>", ":resize +3<CR>", options)
-map("n", "<Down>", ":resize -3<CR>", options)
-map("n", "<Right>", ":vert resize -3<CR>", options)
-map("n", "<Left>", ":vert resize +3<CR>", options)
+map("n", "<Up>"    , ":resize +3<CR>"      , options)
+map("n", "<Down>"  , ":resize -3<CR>"      , options)
+map("n", "<Right>" , ":vert resize -3<CR>" , options)
+map("n", "<Left>"  , ":vert resize +3<CR>" , options)
 
-
--- Stay in indent mode
+-- Stay in indent mode  
 map("v", "<", "<gv", options)
 map("v", ">", ">gv", options)
 
@@ -144,39 +120,16 @@ map("n", "<C-j>", ":TmuxNavigateDown <cr>")
 map("n", "<C-k>", ":TmuxNavigateUp<cr>")
 map("n", "<C-l>", ":TmuxNavigateRight<cr>")
 
-
--- Compiling Projects and files  (Using a created run script in each directory)
-map('n', '<leader>x' ,'<cmd> TermExec  cmd="./run" size=20 direction=horizontal go_back=0 <cr>',
-     { desc = "Run Current Projects in Horizontal Terminal" },options)
-
-map('n', '<leader>X', '<cmd> TermExec  cmd="./run" size=100  direction=vertical go_back=0 <cr>' ,
-     { desc = "Run Current Projects in Vertical Terminal" },options)
-
-
 map("n", "<leader>i" ,"<CMD>Oil<CR>", { desc = "Open parent directory as a Buffer" })
 
 require "CustomScripts.build"
 
--- Lua configuration to open terminal in current buffer's directory
-vim.api.nvim_set_keymap('n', '<F11>', ':lua require("toggleterm").exec("cd " .. vim.fn.expand("%:p:h"))<CR>', {noremap = true, silent = true})
-
-
 map("n", "<F7>", ':lua test()<CR>', options)
-vim.api.nvim_set_keymap('n', '<leader>,', ':lua ToggleQuickfix()<CR>', { noremap = true, silent = true })
 
-function ToggleQuickfix()
-  local quickfix_open = false
-  for _, win in ipairs(vim.fn.getwininfo()) do
-    if win['quickfix'] == 1 then
-      quickfix_open = true
-      break
-    end
-  end
+local functions = require('my_functions')
 
-  if quickfix_open then
-    vim.cmd('cclose')
-  else
-    vim.cmd('copen')
-  end
-end
+-- Opening a termial window from Nvim (just a tmux pane)
+map('n', '<leader>,' , function () functions.toggle_quickfix() end,     { desc = "Toggle Quickfix list " }                         , options)
+map('n', '<leader>th', function () functions.open_tmux_pane(0) end,     { desc = "Open Horizontal Tmux Pane in current file dir" } , options)
+map('n', '<leader>tv', function () functions.open_tmux_pane(1) end,     { desc = "Open Vertical Tmux Pane in current file dir" }   , options)
 

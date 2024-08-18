@@ -19,8 +19,6 @@ opt.softtabstop = 4
 opt.expandtab = true
 opt.swapfile = false
 
--- opt.mouse = "n"
-opt.fillchars = { eob = " " }
 opt.ignorecase = true
 opt.smartcase = true
 opt.mouse = "a"
@@ -43,6 +41,8 @@ opt.undofile = true
 opt.scrolloff = 8
 opt.timeoutlen = 400
 opt.updatetime = 250
+-- opt.list = true
+-- opt.listchars = { tab = '>- ', multispace = '·', nbsp = '␣' }
 
 -- add binaries installed by mason.nvim to path
 local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
