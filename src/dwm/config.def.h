@@ -46,7 +46,7 @@ static const Rule rules[] = {
     { BROWSER                   ,"chat.openai.com" ,                 "ChatGPT",      1 << 2,            1,           0,          -1 },
     { "Zathura"                 ,NULL ,                 NULL,           1 << 3,            1,           0,          -1 },
     { "mpv"                     ,NULL ,                 NULL,           1 << 4,            1,           0,          -1 },
-    { "libreoffice"             ,NULL ,                 NULL,           1 << 5,            1,           0,          -1 },
+    { NULL                      ,NULL ,                 "gf2",          1 << 5,            1,           0,          -1 },
     { NULL                      ,"excalidraw.com",     "Excalidraw",   1 << 6,            1,           0,          -1 },
 	{ "qemu-system-x86_64"      ,NULL,                  NULL,           1 << 7,            1,           0,          -1 },
 	// { "vesktop"                 ,NULL,                  NULL,           1 << 8,            1,           0,          -1 },
@@ -118,7 +118,7 @@ static const Key keys[] = {
     { MODKEY|ShiftMask|ControlMask,			XK_k, 	        moveresize,		    {.v = (int []){ 0, 0, 0, -25 }}},
     { MODKEY|ShiftMask|ControlMask,			XK_l,	        moveresize,		    {.v = (int []){ 0, 0, 25, 0 }}},
     { MODKEY|ShiftMask|ControlMask,			XK_h,	        moveresize,		    {.v = (int []){ 0, 0, -25, 0 }}},
-    { MODKEY|ShiftMask,                     XK_q,      quit,           {1} },  // restart Signal
+    { MODKEY|ShiftMask|ControlMask,         XK_q,      quit,           {1} },  // restart Signal
     // { MODKEY|ShiftMask,             XK_q,      quit,           {0} },  // Quit dwm
 	TAGKEYS(                                XK_1,                      0)
 	TAGKEYS(                                XK_2,                      1)
