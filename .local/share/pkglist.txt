@@ -1,4 +1,3 @@
-0ad
 acpi
 alsa-tools
 alsa-utils
@@ -21,7 +20,6 @@ dnsmasq
 dunst
 efibootmgr
 fd
-fff
 ffmpeg
 ffmpegthumbnailer
 firefox
@@ -31,6 +29,8 @@ fzf
 gdb
 git
 github-cli
+glfw
+glm
 grim
 grub
 gstreamer
@@ -41,7 +41,6 @@ hplip
 htop
 i2c-tools
 iptables-nft
-jq
 lazygit
 lf
 libreoffice-fresh
@@ -57,7 +56,6 @@ man-pages
 mesa-utils
 mpv
 mpv-mpris
-musl
 ncdu
 neofetch
 neovim
@@ -74,7 +72,7 @@ nvidia-dkms
 nvidia-prime
 nvidia-settings
 nvidia-utils
-obs-studio
+nvme-cli
 openbsd-netcat
 opencl-nvidia
 opendoas
@@ -110,7 +108,6 @@ qt5-webengine
 qt5ct
 qt6-declarative
 qt6ct
-raylib
 ripgrep
 rsync
 rust-analyzer
@@ -146,7 +143,6 @@ xclip
 xcolor
 xdotool
 xf86-video-vesa
-xonotic
 xorg-bdftopcf
 xorg-docs
 xorg-font-util

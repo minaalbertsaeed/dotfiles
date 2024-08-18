@@ -1,11 +1,9 @@
 brave-bin
 equibop-bin
-gf2-git
 light
 packettracer
 rar
 rofi-greenclip
-spotube-bin
 ttf-cairo
 xkblayout-state-git
 yay

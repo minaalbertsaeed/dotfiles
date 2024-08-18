@@ -17,8 +17,8 @@ start_recording() {
     
     # Run ffmpeg with the selected region
     ffmpeg -f x11grab -video_size "${width}x${height}" -i :0.0+$x,$y \
-           -f pulse -ac 2 -i alsa_output.pci-0000_05_00.6.analog-stereo \
-           "$output_file" 
+           -f pulse -ac 2 -i alsa_output.pci-0000_05_00.6.analog-stereo.monitor \
+           "$output_file"
 }
 
 stop_recording() {
