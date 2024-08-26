@@ -1,5 +1,5 @@
-
-function test()
+local M = {}
+function M.test()
     local total_buffers = #vim.fn.getbufinfo({ buflisted = 1 })
 
     vim.ui.select({ 'test', 'lol', "asd", total_buffers }, {
@@ -17,3 +17,4 @@ function test()
         end
     end)
 end
+return M

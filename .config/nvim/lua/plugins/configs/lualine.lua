@@ -16,13 +16,13 @@ require("lualine").setup {
         },
 
         lualine_c =  {
-            { 
+            {
                 "branch" ,
                 use_mode_colors = true,
                 buffers_color = {
                     active = { bg = '', fg = '#fff' },
                     inactive = { bg = '', fg = fg_gutter },
-                } 
+                }
             }
         },
 
@@ -34,7 +34,7 @@ require("lualine").setup {
                 buffers_color = {
                     active = { bg = '', fg = '#fff' },
                     inactive = { bg = '', fg = fg_gutter },
-                } 
+                }
 
             },
         },
@@ -46,12 +46,13 @@ require("lualine").setup {
                 timeout = 10000,
             },
 
-            { "filename", path = 3 },
+            { "filename", path = 4 },
         },
 
         lualine_y = {
-            { "filetype", "progress", padding = { left = 1, right = 1 } },
-            { "location", padding = { left = 0, right = 1 } },
+            { "filetype" },
+            { "progress", padding = { left = 1, right = 1 } },
+            -- { "location", padding = { left = 0, right = 1 } },
         },
 
     },
