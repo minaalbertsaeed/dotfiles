@@ -34,6 +34,7 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" }
 
 #define DISCORD  "equibop"
 #define BROWSER  "Brave-browser"
+#define PDF_READER  "sioyek"
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -44,7 +45,7 @@ static const Rule rules[] = {
     { "st-256color"             ,NULL ,                 NULL,           1 << 0,            1,           0,          -1 },
     { BROWSER                   ,NULL ,                 NULL,           1 << 1,            1,           0,          -1 },
     { BROWSER                   ,"chat.openai.com" ,                 "ChatGPT",      1 << 2,            1,           0,          -1 },
-    { "Zathura"                 ,NULL ,                 NULL,           1 << 3,            1,           0,          -1 },
+    { PDF_READER                ,NULL ,                 NULL,           1 << 3,            1,           0,          -1 },
     { "mpv"                     ,NULL ,                 NULL,           1 << 4,            1,           0,          -1 },
     { NULL                      ,NULL ,                 "gf2",          1 << 5,            1,           0,          -1 },
     { NULL                      ,"excalidraw.com",     "Excalidraw",   1 << 6,            1,           0,          -1 },
