@@ -1,26 +1,33 @@
 local plugins = {
 
     -- Themes
-    -- { "RRethy/base16-nvim" },
     { "xiyaowong/transparent.nvim" },
+
     {
         'thimc/gruber-darker.nvim',
         config = function()
             require('gruber-darker').setup({
-                -- OPTIONAL
-                -- transparent = true, -- removes the background
-                -- underline = false, -- disables underline fonts
-                -- bold = false, -- disables bold fonts
             })
-            -- vim.cmd.colorscheme('gruber-darker')
         end,
     },
 
-    -- {
-    --     "ThePrimeagen/harpoon",
-    --     branch = "harpoon2",
-    --     dependencies = { "nvim-lua/plenary.nvim" }
-    -- },
+    {
+        "kawre/leetcode.nvim",
+        build = ":TSUpdate html",
+        dependencies = {
+            "nvim-telescope/telescope.nvim",
+            "nvim-lua/plenary.nvim", -- required by telescope
+            "MunifTanjim/nui.nvim",
+
+            -- optional
+            "nvim-treesitter/nvim-treesitter",
+            "rcarriga/nvim-notify",
+            "nvim-tree/nvim-web-devicons",
+        },
+        opts = {
+            -- configuration goes here
+        },
+    },
 
     {
         "christoomey/vim-tmux-navigator",
@@ -137,14 +144,14 @@ local plugins = {
         end,
     },
 
-    -- file tree
-    {
-        "nvim-tree/nvim-tree.lua",
-        cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-        config = function()
-            require("plugins.configs.nvim-tree");
-        end,
-    },
+    -- -- file tree
+    -- {
+    --     "nvim-tree/nvim-tree.lua",
+    --     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    --     config = function()
+    --         require("plugins.configs.nvim-tree");
+    --     end,
+    -- },
 
     -- icons, for UI related plugins
     {
@@ -223,7 +230,7 @@ local plugins = {
 
         },
         config = function()
-            require "plugins.configs.cmp"
+            -- require "plugins.configs.cmp"
         end,
     },
 
