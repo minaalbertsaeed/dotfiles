@@ -59,7 +59,7 @@ cmd open ${{
     test -L $f && f=$(readlink -f $f)    
     case "$(file --mime-type "$f" -b)" in    
         text/*) st -e nvim  "$fx" & disown  ;;    
-        application/pdf) zathura "$fx" & disown;;
+        application/pdf) sioyek "$fx" & disown;;
         image/*) sxiv "$fx" & disown;;
         audio/*) mpv --player-operation-mode=pseudo-gui "$fx" & disown;; 
         video/*) mpv --player-operation-mode=pseudo-gui "$fx" & disown;;
@@ -162,6 +162,7 @@ map gf cd ~/hdd/F
 map gt cd ~/.local/share/Trash/files/
 map gD cd ~/Downloads/
 map gl cd ~/.local
-map gb cd ~/hdd/D/books/
+map gdb cd ~/hdd/D/books/
+map gb cd ~/books_to_read
 map gc cd ~/.config
 map gr cd ~/repos
