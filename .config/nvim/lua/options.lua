@@ -22,7 +22,7 @@ opt.swapfile = false
 opt.ignorecase = true
 opt.smartcase = true
 opt.mouse = "a"
-opt.foldmethod = "syntax"
+-- opt.foldmethod = "syntax"
 -- Assuming g:netrw_browsex_viewer is a global variable for a plugin
 -- vim.g.netrw_browsex_viewer = "brave"
 
@@ -41,8 +41,9 @@ opt.undofile = true
 opt.scrolloff = 8
 opt.timeoutlen = 400
 opt.updatetime = 250
--- opt.list = true
--- opt.listchars = { tab = '>- ', multispace = '·', nbsp = '␣' }
+opt.list = true
+    opt.listchars = { tab = '  ', leadmultispace = '» ', nbsp = '␣' }
+
 
 -- add binaries installed by mason.nvim to path
 local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
