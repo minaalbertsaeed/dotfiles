@@ -10,7 +10,7 @@ This is the configuration of my Arch linux System using [DWM](https://dwm.suckle
 - Video Player: mpv with a nice UI using [uosc](https://github.com/tomasklaen/uosc)
 - Document Viewer: zathura (vim based keybindings)
 - Zathura pdf plugin: zathura-pdf-mupdf
-- Fonts: ttf-jetbrains-mono-nerd ttf-cairo
+- Fonts: ttf-victor-mono-nerd ttf-cairo
 - Menu: dmenu 
 - Web Browser: brave-bin 
 - Recording tool: ffmpeg
