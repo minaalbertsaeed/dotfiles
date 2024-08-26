@@ -24,7 +24,7 @@ This is the configuration of my Arch linux System using [DWM](https://dwm.suckle
  
 ## NOTES:
 - Keybindings related to windows and controlling them are located at src/dwm/config.def.h 
-- Other keybindings related to the rest of the system are located at .cofig/sxhkd/sxhkdrc 
+- Other keybindings related to the rest of the system are located at .config/sxhkd/sxhkdrc 
 - Some packages are in the official repositories and other from the AUR (Arch User Repository)
 - All the scripts use **/bin/sh** to execute so all of them are **POSIX compliant scripts**
 - All the installed packages are listed in .local/share/*pkglist.txt 
