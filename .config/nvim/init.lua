@@ -3,6 +3,7 @@ require("mappings")
 require("commands")
 require("colors.gruber")
 
+vim.api.nvim_set_hl(0, 'NonText', { fg = '#2E2E2E' })
 -- --------------------------------------------
 local M = {}
 
