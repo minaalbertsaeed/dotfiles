@@ -12,6 +12,8 @@ alias ls='ls --color=auto --group-directories-first'
 alias ll='ls -lah'
 alias grep='grep --color=auto'
 alias cs='clear'
+alias du='du -sh'
+alias vim='nvim'
 
 
 # Pacman Aliases
@@ -28,7 +30,6 @@ alias yq='yay -Qs'
 alias yu='yay -Syu'
 alias ys='yay -Ss'
 
-alias vim='nvim'
 alias lf='lfub'
 alias fi='find | fzf --header="Jump to location" --preview="bat -f {}" --border| xargs -r xdg-open'
 alias transa='trans :en+ara'
@@ -49,7 +50,7 @@ fzf_history(){
 }
 
 fzf_cd() {
-    local selected_dir=$(find "$HOME" -type d | fzf-tmux --height=50% --border)
+    local selected_dir=$(find "$HOME" -type d | fzf --height=50% --border)
     cd "$selected_dir" && echo "cd $selected_dir"
 }  
 
