@@ -11,54 +11,62 @@ set preview true
 set ratios 1:3:2
 
 # Custom Functions
+#-----------------------------------------------------------------------
 cmd mkdir ${{
   printf "Directory Name: "
   read ans
   mkdir $ans
 }}
 
+#-----------------------------------------------------------------------
 cmd mkfile ${{
   printf "File Name: "
   read ans
   touch $ans 
 }}
 
-cmd openwith ${{
-    printf "Enter program name: "
+#-----------------------------------------------------------------------
+cmd select-type &{{
+    set -f
+    [ "$#" -eq 0 ] && exit
+    files="$(
+        find "$PWD" -mindepth 1 -maxdepth 1 -type "$1" $([ "$lf_hidden" = false ] && printf '%s\n' -not -name '.*') -print0 |
+        sed -z 's/\\/\\\\/g;s/"/\\"/g;s/\n/\\n/g;s/^/"/;s/$/"/' |
+        tr '\0' ' ')"
 
-    read ans
-    ["$ans" = "nvim"] &&  st -e nvim "$fx" & disown
-    $ans "$fx" & disown
-
-
-
+    lf -remote "send $id :unselect; toggle $files"
 }}
 
-# dedicated keys for file opener actions
-# cmd video_preview ${{
-#     cache="$(mktemp "${TMPDIR:-/tmp}/thumb_cache.XXXXX")"
-#     ffmpegthumbnailer -i "$f" -o "$cache" -s 0
-#     # ~/.config/lf/draw_img.sh "$cache"
-# }}
-# map + :video_preview
+cmd selectdirs select-type d
+cmd selectfiles select-type f
 
+#-----------------------------------------------------------------------
+cmd openwith ${{
+    printf "Enter program name: "
+    read ans
+    ["$ans" = "nvim"] && $DOTFILES/.local/scripts/tmux_new_window.sh "nvim "$fx"" 
+    $ans "$fx" & disown
+}}
+
+#-----------------------------------------------------------------------
 cmd choose_pdf_app ${{
     filename="$fx"
     printf "Choose an App\n"
-    printf "1) Zathura\n"
+    printf "1) Sioyek\n"
     printf "2) Xournal++\n"
     read -p "Enter a choice (1) OR (2): " choice
     if [ "$choice" -eq 1 ]; then
-        zathura "$filename" & disown
+        $PDFVIEWER "$filename" & disown
     elif [ "$choice" -eq 2 ]; then
         xournalpp "$filename" & disown
     fi
 }}
 
-cmd open ${{    
+#-----------------------------------------------------------------------
+cmd open &{{    
     test -L $f && f=$(readlink -f $f)    
     case "$(file --mime-type "$f" -b)" in    
-        text/*) st -e nvim  "$fx" & disown  ;;    
+        text/*) $DOTFILES/.local/scripts/tmux_new_window.sh "nvim "$fx" " & disown  ;;    
         application/pdf) sioyek "$fx" & disown;;
         image/*) sxiv "$fx" & disown;;
         audio/*) mpv --player-operation-mode=pseudo-gui "$fx" & disown;; 
@@ -67,25 +75,19 @@ cmd open ${{
     esac    
 }}  
 
-
-
-
-
-
-# Archive bindings
+#-----------------------------------------------------------------------
 cmd unarchive ${{
   case "$f" in
       *.zip) unzip "$f" ;;
       *.tar.gz) tar -xzvf "$f" ;;
       *.tar.bz2) tar -xjvf "$f" ;;
       *.tar) tar -xvf "$f" ;;
+      *.rar) unrar e "$f" ;;
       *) echo "Unsupported format" ;;
   esac
 }}
-# dedicated keys for file opener actions
 
-
-# Trash bindings
+#-----------------------------------------------------------------------
 cmd trash ${{
   files=$(printf "$fx" | tr '\n' ';')
   while [ "$files" ]; do
@@ -100,11 +102,12 @@ cmd trash ${{
   done
 }}
 
+#-----------------------------------------------------------------------
 cmd restore_trash ${{
-  trash-restore
+    trash-restore
 }}
 
-
+#-----------------------------------------------------------------------
 cmd final_delete ${{
     # printf "Are U sure to delete this ?: "
     # read ans
@@ -114,6 +117,8 @@ cmd final_delete ${{
         # echo "Deletion cancelled."
     # fi
 }}
+
+#-----------------------------------------------------------------------
 cmd fzf_jump ${{
     res="$(find . | fzf --header='Jump to location' --preview="bat {}")"
     if [ -n "$res" ]; then
@@ -127,13 +132,15 @@ cmd fzf_jump ${{
     fi
 }}
 
-map S :fzf_jump
+#-----------------------------------------------------------------------
 
 # Bindings
 map d
 map m
+map f
 map o openwith
 map L redraw
+map ff :fzf_jump
 
 
 map au unarchive
@@ -142,16 +149,15 @@ map O choose_pdf_app
 # Basic Functions
 map . set hidden!
 map dt trash
-map df final_delete
+map dfd final_delete
 map dr restore_trash
 map p paste
 map dd cut
 map yy copy
-map <enter> open
 map R reload
 map mf mkfile
 map md mkdir
-map C clear
+map c :clear;unselect
 
 # Movement
 map gdf cd ~/hdd/D/Mina/Films/
