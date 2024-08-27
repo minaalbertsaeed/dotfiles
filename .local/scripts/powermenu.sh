@@ -2,9 +2,9 @@
 
 # Outputting choices to rofi in dmenu mode
 if pgrep -x "Hyprland" > /dev/null; then
-    choice=$(printf "exit\npoweroff\nreboot\nsuspend\nlogout" | ~/.config/rofi/scripts/launcher_t1 )
+    choice=$(printf "suspend\npoweroff\nreboot\nlogout" | ~/.config/rofi/scripts/launcher_t1 )
 else
-    choice=$(printf "exit\npoweroff\nreboot\nsuspend\nlogout" | dmenu -i -fn "$dmenufont" -p "Choose action: ")
+    choice=$(printf "suspend\npoweroff\nreboot\nlogout" | dmenu -i -fn "$dmenufont" -p "Choose action: ")
 fi
 
 [ "$choice" = "exit"  ] && exit 

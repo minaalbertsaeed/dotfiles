@@ -45,7 +45,7 @@ alt + g
 	~/.local/bin/gpt  
 
 alt + b
-	brave --app=https://excalidraw.com/
+	brave --app=https://excalidraw.com/ && xdotool key Alt+Shift+0 && xdotool key Alt+0
 
 alt + Print 
     ~/.local/scripts/screencast.sh ;  pkill -RTMIN+15 dwmblocks

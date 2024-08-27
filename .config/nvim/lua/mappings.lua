@@ -13,7 +13,7 @@ local telescope = require('telescope.builtin')
 map("n", "<Esc>", "<cmd> :noh <CR>")
 
 map("n", "<leader>q", "<cmd> :bd! <CR>",            { desc = "Close current buffer" })           --
--- map("n", "<leader>e", "<cmd> NvimTreeToggle <CR>",  { desc = "Open file explorer" })
+map("n", "<leader>e", "<cmd> NvimTreeToggle <CR>",  { desc = "Open file explorer" })
 
 -- Move group of lines
 map('v', "K", ":m '<-2<CR>gv=gv", options)

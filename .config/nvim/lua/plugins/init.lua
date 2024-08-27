@@ -1,6 +1,7 @@
 local plugins = {
 
     -- Themes
+    { "RRethy/base16-nvim" },
     { "xiyaowong/transparent.nvim" },
 
     {
@@ -10,7 +11,6 @@ local plugins = {
             })
         end,
     },
-
     {
         "kawre/leetcode.nvim",
         build = ":TSUpdate html",
@@ -144,14 +144,14 @@ local plugins = {
         end,
     },
 
-    -- -- file tree
-    -- {
-    --     "nvim-tree/nvim-tree.lua",
-    --     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-    --     config = function()
-    --         require("plugins.configs.nvim-tree");
-    --     end,
-    -- },
+    -- file tree
+    {
+        "nvim-tree/nvim-tree.lua",
+        cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+        config = function()
+            require("plugins.configs.nvim-tree");
+        end,
+    },
 
     -- icons, for UI related plugins
     {

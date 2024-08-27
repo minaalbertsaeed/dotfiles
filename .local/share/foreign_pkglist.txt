@@ -4,7 +4,6 @@ light
 rar
 rofi-greenclip
 sioyek
-spotify
 ttf-cairo
 xkblayout-state-git
 yay
