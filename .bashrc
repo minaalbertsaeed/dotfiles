@@ -14,6 +14,7 @@ alias grep='grep --color=auto'
 alias cs='clear'
 alias du='du -sh'
 alias vim='nvim'
+alias neo='fastfetch'
 
 
 # Pacman Aliases
