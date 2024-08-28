@@ -3,24 +3,24 @@
 This is the configuration of my Arch linux System using [DWM](https://dwm.suckless.org/) (Xorg)
 
 ## Common Packages
-- Window Manager : dwm
-- Terminal Multiplexer: tmux
-- Text Editor: nvim
-- Image Viewer: sxiv
-- Video Player: mpv with a nice UI using [uosc](https://github.com/tomasklaen/uosc)
-- Document Viewer: zathura, sioyek 
-- Zathura pdf plugin: zathura-pdf-mupdf
-- Fonts: ttf-victor-mono-nerd ttf-cairo
-- Menu: dmenu 
-- Web Browser: brave-bin 
-- Recording tool: ffmpeg
-- Machine Emulator & Virtualizer : qemu
-- Filemanager: lf
-- Screenshots: maim
-- System Monitor: btop
-- Clipboard Manager: xclip, rofi-greenclip
-- Backlight Controller: light
-- Command line Translator: translate-shell
+- Window Manager : `dwm`
+- Terminal Multiplexer: `tmux`
+- Text Editor: `nvim`
+- Image Viewer: `sxiv`
+- Video Player: `mpv` with a nice UI using [uosc](https://github.com/tomasklaen/uosc)
+- Document Viewer: `zathura`, `sioyek` 
+- Zathura pdf plugin: `zathura-pdf-mupdf`
+- Fonts: `ttf-victor-mono-nerd` `ttf-cairo`
+- Menu: `dmenu` 
+- Web Browser: `brave-bin` 
+- Recording tool: `ffmpeg`
+- Machine Emulator & Virtualizer : `qemu`
+- Filemanager: `lf`
+- Screenshots: `maim`
+- System Monitor: `btop`
+- Clipboard Manager: `xclip`, `rofi-greenclip`
+- Backlight Controller: `light`
+- Command line Translator: `translate-shell`
  
 ## NOTES:
 - Some packages are in the official repositories and others from the AUR (Arch User Repository)
