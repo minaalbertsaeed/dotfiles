@@ -34,7 +34,7 @@ My system is keyboard-driven, with specific modifiers (Mod keys) reserved for co
 - **Alt**: Used for controlling window management & Spawning programs (dwm & sxhkd).
 - **Ctrl + s**: Used as Tmux prefix
 - **Space**: Used in Neovim as the leader key
-- **Ctrl + Shift **: Used as Mod key in st terminal
+- **Ctrl + Shift**: Used as Mod key in st terminal
 
 
 As i spend 90% of my time in the temrinal, it's important to notice that working in terminal includes applications that works in different layers:
@@ -43,14 +43,14 @@ As i spend 90% of my time in the temrinal, it's important to notice that working
    - st has its own modifier key which is **Ctrl+Shift** as configured in src/st/config.def.h
    - Keybindings in st are generally reserved for basic terminal functions like copying (Mod + y), pasting (Mod + p), scrolling (Mod + j/k).
 
-2. **Second Layer: Shell (Bash)**
+2. **Second Layer: Shell (`Bash`)**
    - I use custom binds like Ctrl+o to move through directories using [fzf](https://github.com/junegunn/fzf) 
    - Bash itself reserves some keybindings by default, like C-r, C-d, etc.
 
-3. **Third Layer: Tmux**
+3. **Third Layer: `Tmux`**
    - I use C-s as my tmux prefix so that it doesn't conflict with any st or Bash keybindings.
 
-4. **Fourth Layer: Neovim**
+4. **Fourth Layer: `Neovim`**
    - I use Space as my main Mod (leader key) in Neovim , take care that vim/neovim has also a keybinds with **Ctrl** like **C-a**, **C-x** ..etc.
 
 Each layer introduces its own keybindings and Mod key. My keybindings are designed to avoid conflicts with these layers
