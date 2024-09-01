@@ -1554,7 +1554,7 @@ void
 xdrawcursor(int cx, int cy, Glyph g, int ox, int oy, Glyph og)
 {
     Color drawcol;
-    XRenderColor colbg;
+    // XRenderColor colbg;
 
 
 	/* remove the old cursor */
@@ -1584,20 +1584,11 @@ xdrawcursor(int cx, int cy, Glyph g, int ox, int oy, Glyph og)
 		if (selected(cx, cy)) {
 			g.fg = defaultfg;
 			g.bg = defaultrcs;
-		} else if (!(og.mode & ATTR_REVERSE)) {
-			unsigned long col = g.bg;
-			g.bg = g.fg;
-			g.fg = col;
-		}
-        if (IS_TRUECOL(g.bg)) {
- 			colbg.alpha = 0xffff;
- 			colbg.red = TRUERED(g.bg);
- 			colbg.green = TRUEGREEN(g.bg);
- 			colbg.blue = TRUEBLUE(g.bg);
- 			XftColorAllocValue(xw.dpy, xw.vis, xw.cmap, &colbg, &drawcol);
  		} else {
- 			drawcol = dc.col[g.bg];
+			g.fg = defaultbg;
+			g.bg = defaultcs;
  		}
+		drawcol = dc.col[g.bg];
  	}
 
 

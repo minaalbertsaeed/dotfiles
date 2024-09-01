@@ -14,11 +14,11 @@ local colors = {
     offwhite =  {"#e4e4e4", 110},
     brown =     {"#af875f", 137},
     cyan =      {"#afd7af", 151},
-    gray =      {"#94a5c7", 235},
-    kamoni =    {"#87d75f", 113},
+    gray =      {"#5f7daf", 235},
+    kamoni =    {"#F9E2AF", 113},
     red =       {"#ff5f5f", 203},
     white =     {"#FFFFFF", 254},
-    green =     {"#0adb61", 220},
+    green =     {"#89B4FA" , 220},
 }
 
 local function hl(group, attrs)
@@ -39,7 +39,7 @@ local function hl(group, attrs)
 end
 
 hl("ColorColumn",   {bg = colors.gray})
-hl("Comment",       {fg = colors.brown})
+hl("Comment",       {fg = colors.cyan})
 hl("Constant",      {fg = colors.white})
 -- hl("CursorLine",     {bg = colors.gray})
 hl("DiffAdd",       {fg = colors.kamoni})
@@ -78,6 +78,7 @@ hl("StatusLine",    {fg = colors.white, bg = colors.black, style = "bold"})
 hl("StatusLineNC",  {fg = colors.white, bg = colors.black})
 hl("String",        {fg = colors.kamoni})
 hl("Title",         {fg = colors.white})
+hl("IncSearch",     {fg = colors.black , bg = colors.green})
 hl("Todo",          {fg = colors.brown, style = "italic"})
 hl("Type",          {fg = colors.gray, style = "bold"})
 hl("Typedef",       {fg = colors.green, style = "bold"})

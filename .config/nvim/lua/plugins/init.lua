@@ -230,7 +230,7 @@ local plugins = {
 
         },
         config = function()
-            -- require "plugins.configs.cmp"
+            require "plugins.configs.cmp"
         end,
     },
 
