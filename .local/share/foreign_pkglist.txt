@@ -1,5 +1,5 @@
 brave-bin
-equibop-bin
+gitmux-bin
 light
 rar
 rofi-greenclip

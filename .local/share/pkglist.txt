@@ -22,10 +22,11 @@ fastfetch
 fd
 ffmpeg
 ffmpegthumbnailer
-firefox
+flameshot
 freeglut
 fribidi
 fzf
+gcr
 gdb
 git
 github-cli
@@ -41,6 +42,7 @@ hplip
 htop
 i2c-tools
 iptables-nft
+lazygit
 lf
 libreoffice-fresh
 libvirt
@@ -57,6 +59,7 @@ mpv
 mpv-mpris
 musl
 ncdu
+nemo
 neovim
 net-tools
 network-manager-applet
@@ -80,6 +83,7 @@ otf-font-awesome
 p7zip
 pamixer
 pavucontrol
+perf
 picom
 pipewire
 pipewire-alsa
@@ -105,11 +109,11 @@ slurp
 sof-firmware
 speedtest-cli
 strace
+swtpm
 sxhkd
 sxiv
 texlive-latexextra
 texlive-latexrecommended
-thunar
 tmux
 translate-shell
 trash-cli
@@ -120,10 +124,12 @@ ufw
 unrar-free
 unzip
 usbutils
+virt-manager
 wget
 xclip
 xcolor
 xdotool
+xf86-video-qxl
 xf86-video-vesa
 xorg-bdftopcf
 xorg-docs
