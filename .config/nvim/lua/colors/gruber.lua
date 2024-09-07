@@ -10,13 +10,13 @@ vim.o.background = "dark"
 vim.g.colors_name = "gruber"
 
 local colors = {
-    black =     {"#161616", 234},
+    black =     {"#16181d", 234},
     offwhite =  {"#e4e4e4", 110},
     brown =     {"#af875f", 137},
     cyan =      {"#afd7af", 151},
-    gray =      {"#5f7daf", 235},
+    gray =      {"#89B4FA", 235},
     kamoni =    {"#F9E2AF", 113},
-    red =       {"#ff5f5f", 203},
+    red =       {"#F38BA8", 203},
     white =     {"#FFFFFF", 254},
     green =     {"#89B4FA" , 220},
 }
