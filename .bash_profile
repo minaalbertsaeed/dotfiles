@@ -19,7 +19,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$PATH:$HOME/.local/bin/:$HOME/repos/tmuxifier/bin"
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
   --color=fg:#ffffff,fg+:#d0d0d0,bg:-1,bg+:#262626
-  --color=hl:#0ad85e,hl+:#0ad85e,info:#afaf87,marker:#87ff00
+  --color=hl:#89B4FA,hl+:#89B4FA,info:#afaf87,marker:#87ff00
   --color=prompt:#ffffff,spinner:#af5fff,pointer:#af5fff,header:#87afaf
   --color=border:#262626,label:#aeaeae,query:#d9d9d9
   --border="rounded" --border-label="" --preview-window="border-rounded" --prompt="❯❯ "
