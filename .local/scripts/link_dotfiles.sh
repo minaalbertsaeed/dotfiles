@@ -36,7 +36,8 @@ for dir in "${dirs[@]}"; do
 done
 
 for file in "${files[@]}"; do
+    echo "--> Executing rm -rf $HOME/$file"
     rm -rf "$HOME/$file"
     echo "--> Executing ln -s $DOTFILES/$file $HOME/$file"
-    echo "ln -s $DOTFILES/$file $HOME/$file"
+    ln -s $DOTFILES/$file $HOME/$file
 done
