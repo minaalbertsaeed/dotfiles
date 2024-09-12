@@ -12,7 +12,6 @@ alias ls='ls --color=auto --group-directories-first'
 alias ll='ls -lah'
 alias grep='grep --color=auto'
 alias cs='clear'
-alias du='du -sh'
 alias vim='nvim'
 alias neo='fastfetch'
 
@@ -32,7 +31,7 @@ alias yu='yay -Syu'
 alias ys='yay -Ss'
 
 alias lf='lfub'
-alias fi='find | fzf --header="Jump to location" --preview="bat -f {}" --border| xargs -r xdg-open'
+alias fi='find | fzf --header="Jump to location" --preview="bat -f {}" | xargs -r xdg-open'
 alias transa='trans :en+ara'
 alias gput='nvidia-settings -q gpucoretemp -t'
 
