@@ -1,5 +1,5 @@
 #!/bin/sh
-
+DOTFILES="$HOME/repos/dotfiles"
 dirs=(  
         ".config/neofetch/"
         ".config/nvim/"
@@ -28,6 +28,7 @@ files=(
 #ln -s ~/repos/dotfiles/.config/neofetch ~/.config/neofetch
 for dir in "${dirs[@]}"; do
     rm -rf $HOME/$dir
+    mkdir $HOME/$dir
     echo "--> Executing ln -s $DOTFILES/$dir $HOME/$dir"
     ln -s $DOTFILES/$dir $HOME/$dir
 done
