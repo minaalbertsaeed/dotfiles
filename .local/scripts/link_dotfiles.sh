@@ -27,14 +27,14 @@ files=(
          
 #ln -s ~/repos/dotfiles/.config/neofetch ~/.config/neofetch
 for dir in "${dirs[@]}"; do
-    rm -rf $HOME/$dir
+    rm -rf "$HOME/$dir"
     mkdir $HOME/$dir
     echo "--> Executing ln -s $DOTFILES/$dir $HOME/$dir"
     ln -s $DOTFILES/$dir $HOME/$dir
 done
 
 for file in "${files[@]}"; do
-    rm -rf $HOME/$file
+    rm -rf "$HOME/$file"
     echo "--> Executing ln -s $DOTFILES/$file $HOME/$file"
     echo "ln -s $DOTFILES/$file $HOME/$file"
 done
