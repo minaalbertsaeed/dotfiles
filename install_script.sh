@@ -56,12 +56,6 @@ echo "--> Cloning my dotfiles repo to $DOTFILES_PATH... "
 echo "--> Executing: git clone --depth=1 $DOTFILES_URL $DOTFILES_PATH"
 git clone --depth=1 $DOTFILES_URL $DOTFILES_PATH
 
-# Linking config files and dirs to the system
-echo "--> Linking the actual config files and dirs"
-echo "--> Executing: ./link_dotfiles.sh"
-source ./link_dotfiles.sh
-
-
 # System packages
 echo "--> Installing system packages"
 echo "--> executing sudo pacman -S -needed - < $DOTFILES_PATH/.local/pkglist.txt"
@@ -75,6 +69,8 @@ echo -e "--> Executing: \nsudo echo \"$doas_config_content\" > /etc/doas.conf"
 sudo echo "$doas_config_content" > sudo /etc/doas.conf
 
 
-
-echo 
-
+# Linking config files and dirs to the system
+link_dotfiles_script="$DOTFILES_PATH/.local/scripts/link_dotfiles.sh"
+echo "--> Linking the actual config files and dirs"
+echo "--> Executing: $link_dotfiles_script"
+source $link_dotfiles_script
