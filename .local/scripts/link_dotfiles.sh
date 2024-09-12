@@ -1,19 +1,19 @@
 #!/bin/sh
 DOTFILES="$HOME/repos/dotfiles"
 dirs=(  
-        ".config/neofetch/"
-        ".config/nvim/"
-        ".config/dunst/"
-        ".config/lf/"
-        ".config/loadkeysrc/"
-        ".config/mpv/"
-        ".config/nvim/"
-        ".config/sxhkd/"
-        ".config/tmux/"
-        ".config/zathura/"
-        ".config/mpv/"
-        ".config/rofi/"
-        ".local/scripts/"
+        ".config/neofetch"
+        ".config/nvim"
+        ".config/dunst"
+        ".config/lf"
+        ".config/loadkeysrc"
+        ".config/mpv"
+        ".config/nvim"
+        ".config/sxhkd"
+        ".config/tmux"
+        ".config/zathura"
+        ".config/mpv"
+        ".config/rofi"
+        ".local/scripts"
      )
 files=(
         ".local/share/pkglist.txt"
@@ -23,14 +23,16 @@ files=(
         ".config/greenclip.toml"
         ".bashrc"
         ".bash_profile"
+        ".xinitrC"
       )
          
 #ln -s ~/repos/dotfiles/.config/neofetch ~/.config/neofetch
 for dir in "${dirs[@]}"; do
+    echo "--> Executing rm -rf "$HOME/$dir""
     rm -rf "$HOME/$dir"
-    mkdir $HOME/$dir
     echo "--> Executing ln -s $DOTFILES/$dir $HOME/$dir"
     ln -s $DOTFILES/$dir $HOME/$dir
+    echo ""
 done
 
 for file in "${files[@]}"; do

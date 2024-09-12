@@ -66,11 +66,13 @@ sudo pacman -S --needed - < $DOTFILES_PATH/.local/share/pkglist.txt
 doas_config_content="permit nopass :wheel"
 echo "--> Configuring doas (Fuck sudo)"
 echo -e "--> Executing: \nsudo echo \"$doas_config_content\" > /etc/doas.conf"
-sudo echo "$doas_config_content" > sudo /etc/doas.conf
-
+sudo echo "$doas_config_content" | sudo tee /etc/doas.conf
+echo  "Removing sudo.... "
+echo "--> Executing: doas pacman -S sudo"
+doas pacman -S sudo
 
 # Linking config files and dirs to the system
 link_dotfiles_script="$DOTFILES_PATH/.local/scripts/link_dotfiles.sh"
 echo "--> Linking the actual config files and dirs"
 echo "--> Executing: $link_dotfiles_script"
-source $link_dotfiles_script
+$link_dotfiles_script
