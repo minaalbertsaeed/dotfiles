@@ -23,7 +23,7 @@ files=(
         ".config/greenclip.toml"
         ".bashrc"
         ".bash_profile"
-        ".xinitrC"
+        ".xinitrc"
       )
          
 #ln -s ~/repos/dotfiles/.config/neofetch ~/.config/neofetch
