@@ -1,32 +1,39 @@
 #!/bin/sh
 
-set --  .config/neofetch \
-        .config/nvim \
-        .config/dunst \
-        .config/lf \
-        .config/loadkeysrc \
-        .config/mpv \
-        .config/nvim \
-        .config/sxhkd \
-        .config/tmux \
-        .config/zathura \
-        .config/mpv \
-        .config/screenkey.json \
-        .config/mimeapps.list \
-        .config/greenclip.toml \
-        .config/rofi \
-        .local/scripts \
-        .local/share/pkglist.txt \
-        .local/share/foreign_pkglist.txt \
-        .bashrc \
-        .bash_profile \
+dirs=(  
+        ".config/neofetch/"
+        ".config/nvim/"
+        ".config/dunst/"
+        ".config/lf/"
+        ".config/loadkeysrc/"
+        ".config/mpv/"
+        ".config/nvim/"
+        ".config/sxhkd/"
+        ".config/tmux/"
+        ".config/zathura/"
+        ".config/mpv/"
+        ".config/rofi/"
+        ".local/scripts/"
+     )
+files=(
+        ".local/share/pkglist.txt"
+        ".local/share/foreign_pkglist.txt"
+        ".config/screenkey.json"
+        ".config/mimeapps.list"
+        ".config/greenclip.toml"
+        ".bashrc"
+        ".bash_profile"
+      )
+         
+#ln -s ~/repos/dotfiles/.config/neofetch ~/.config/neofetch
+for dir in "${dirs[@]}"; do
+    rm -rf $HOME/$dir
+    echo "--> Executing ln -s $DOTFILES/$dir $HOME/$dir"
+    ln -s $DOTFILES/$dir $HOME/$dir
+done
 
-# ln -s ~/repos/dotfiles/.config/neofetch ~/.config/neofetch
-for program in "$@"; do
-    path=$HOME/"$program"
-    if [ -L "$path" ]; then
-        echo "The symbolic link exists."
-    else
-        ln -s $DOTFILES/"$program" $HOME/"$program"
-    fi
+for file in "${files[@]}"; do
+    rm -rf $HOME/$file
+    echo "--> Executing ln -s $DOTFILES/$file $HOME/$file"
+    echo "ln -s $DOTFILES/$file $HOME/$file"
 done

@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/bin/bash
 :<<'TODO'
 
 TODO
@@ -27,17 +27,17 @@ echo
 echo 
 echo 
 
-# Constants
+Constants
 DOTFILES_PARENT="$HOME/repos"
 DOTFILES_PATH="$DOTFILES_PARENT/dotfiles"
 DOTFILES_URL="https://github.com/minaalbertsaeed/dotfiles.git"
 
-# Clone the minaalbertsaeed/dotfiles repo
+#------------------------------------------------------------------ 
 if [ ! -d "$DOTFILES_PARENT" ]; then
     echo "--> Directory $DOTFILES_PARENT does not exist."
     echo "--> Creating directory: $DOTFILES_PARENT"
 
-    echo "--> Executing: mkdir \"$DOTFILES_PARENT\""
+    echo "--> Executing: mkdir "$DOTFILES_PARENT""
     mkdir "$DOTFILES_PARENT"
 
     if [ $? -eq 0 ]; then
@@ -49,8 +49,32 @@ if [ ! -d "$DOTFILES_PARENT" ]; then
 else
     echo "--> Directory $DOTFILES_PARENT already exists. Skipping creation."
 fi
-echo "--> Cloning my dotfiles repo to $DOTFILES_PATH... "
-# git clone $DOTFILES_URL $DOTFILES_PATH
+#------------------------------------------------------------------ 
 
-# check if git is installted 
-# pacman -S needed - < 
+# Downloading the dotfiles
+echo "--> Cloning my dotfiles repo to $DOTFILES_PATH... "
+echo "--> Executing: git clone --depth=1 $DOTFILES_URL $DOTFILES_PATH"
+git clone --depth=1 $DOTFILES_URL $DOTFILES_PATH
+
+# Linking config files and dirs to the system
+echo "--> Linking the actual config files and dirs"
+echo "--> Executing: ./link_dotfiles.sh"
+source ./link_dotfiles.sh
+
+
+# System packages
+echo "--> Installing system packages"
+echo "--> executing sudo pacman -S -needed - < $DOTFILES_PATH/.local/pkglist.txt"
+sudo pacman -S --needed - < $DOTFILES_PATH/.local/share/pkglist.txt
+
+
+# doas config
+doas_config_content="permit nopass :wheel"
+echo "--> Configuring doas (Fuck sudo)"
+echo -e "--> Executing: \nsudo echo \"$doas_config_content\" > /etc/doas.conf"
+sudo echo "$doas_config_content" > sudo /etc/doas.conf
+
+
+
+echo 
+
