@@ -96,10 +96,13 @@ for program in "${suckless_programs[@]}"; do
 done
 
 echo "Installing Yay (Yet another Yougurt)"
-echo "--> Executing: git clone https://aur.archlinux.org/yay.git"
-git clone https://aur.archlinux.org/yay.git
+echo "--> Executing: git clone https://aur.archlinux.org/yay.git $HOME/yay"
+git clone https://aur.archlinux.org/yay.git "$HOME/yay"
 echo "--> Executing: cd yay"
 cd yay
 echo "--> Executing: makepkg -si"
 makepkg -si
+echo "--> Removing $HOME/yay/ .... "
+echo "--> Executing: rm -rf $HOME/yay/ .... "
+rm -rf "$HOME/yay"
 

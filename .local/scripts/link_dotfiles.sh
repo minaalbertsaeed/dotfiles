@@ -27,7 +27,7 @@ files=(
         ".xinitrc"
       )
          
-#ln -s ~/repos/dotfiles/.config/neofetch ~/.config/neofetch
+#ln -s ~/repos/dotfiles/.config/fastfetch ~/.config/fastfetch
 for dir in "${dirs[@]}"; do
     echo "--> Executing rm -rf "$HOME/$dir""
     rm -rf "$HOME/$dir"
