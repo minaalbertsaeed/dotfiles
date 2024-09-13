@@ -11,6 +11,9 @@ local plugins = {
             })
         end,
     },
+
+    -- { 'minaalbertsaeed/grubppuccin.nvim' },
+
     {
         "kawre/leetcode.nvim",
         build = ":TSUpdate html",

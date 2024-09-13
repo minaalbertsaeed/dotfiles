@@ -6,7 +6,8 @@ vim.g.base16_colorspace = 256
 opt.laststatus = 3 -- global statusline
 opt.showmode = true
 opt.cursorline = true
-opt.cmdheight = 0
+opt.cmdheight = 1
+opt.guicursor= "i:block"
 
 opt.timeoutlen=1000
 opt.ttimeoutlen=0
@@ -42,7 +43,7 @@ opt.scrolloff = 8
 opt.timeoutlen = 400
 opt.updatetime = 250
 opt.list = true
-    opt.listchars = { tab = '  ', leadmultispace = '» ', nbsp = '␣' }
+opt.listchars = { tab = '  ', leadmultispace = '» ', nbsp = '␣' }
 
 
 -- add binaries installed by mason.nvim to path

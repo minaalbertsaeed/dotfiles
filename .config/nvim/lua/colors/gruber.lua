@@ -19,6 +19,7 @@ local colors = {
     red =       {"#F38BA8", 203},
     white =     {"#FFFFFF", 254},
     green =     {"#89B4FA" , 220},
+    non =       {"#2E2E2E" , 100}
 }
 
 local function hl(group, attrs)
@@ -53,7 +54,7 @@ hl("ErrorMsg",      {fg = colors.red})
 hl("FoldColumn",    {fg = colors.brown, bg = colors.gray})
 hl("Folded",        {fg = colors.brown, bg = colors.gray, style = "italic"})
 hl("Function",      {fg = colors.offwhite})
-hl("Identifier",    {fg = colors.white})
+hl("identifier",    {fg = colors.white})
 hl("Ignore",        {fg = colors.black})
 hl("MatchParen",    {fg = colors.green, style = "bold"})
 hl("MoreMsg",       {fg = colors.kamoni})
@@ -92,4 +93,4 @@ hl("WildMenu",      {fg = colors.black, bg = colors.green, style = "bold"})
 hl("diffAdded",     {fg = colors.kamoni})
 hl("diffRemoved",   {fg = colors.red})
 hl("diffSubname",   {fg = colors.offwhite})
-
+hl("NonText",       { fg = colors.non})

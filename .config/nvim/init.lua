@@ -2,29 +2,7 @@ require("options")
 require("mappings")
 require("commands")
 require("colors.gruber")
-
-vim.api.nvim_set_hl(0, 'NonText', { fg = '#2E2E2E' })
--- --------------------------------------------
-local M = {}
-
-local group = vim.api.nvim_create_augroup("AbstractAutoCmdsGroup", { clear = true })
-
--- --------------------------------------------
-function M.create_autocmd(events, opts)
-	opts = vim.tbl_extend("force", opts, { group = group })
-	vim.api.nvim_create_autocmd(events, opts)
-end
-
--- --------------------------------------------
-function M.opts_extend(default, opts)
-	return vim.tbl_extend("force", default, opts ~= nil and opts or {})
-end
--- --------------------------------------------
-M.create_autocmd({ "BufEnter", "FileType" }, {
-		desc = "don't auto comment new line",
-		pattern = "*",
-		command = "setlocal formatoptions-=c formatoptions-=r formatoptions-=o",
-	})
+require("autocmds")
 
 -- bootstrap plugins & lazy.nvim
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim" -- path where its going to be installed
@@ -42,14 +20,4 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-
--- vim.cmd "colorscheme monochrome"
-vim.cmd("set guicursor=i:block")
 vim.cmd('set nofoldenable')
-vim.cmd("setlocal formatoptions-=c formatoptions-=r formatoptions-=o")-- Dont auto comment new line 
-vim.cmd(":set guicursor=a:blinkon500")-- Dont auto comment new line 
-
--- vim.cmd("colorscheme gruber")
-vim.cmd("GitBlameDisable")
-
-return M

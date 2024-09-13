@@ -29,7 +29,7 @@ map('v', "<leader>p", "\"_dP" )
 -- Delete forever !!!
 map({ 'n', 'v' }, "<leader>d", "\"_d",{ desc = "Delete Text forever" })
 
--- buffers
+-- Buffers
 map("n", "<S-Tab>", "<cmd> bnext <CR>")
 map('n', '<leader>1', '<Cmd>LualineBuffersJum 1<CR>', options)
 map('n', '<leader>2', '<Cmd>LualineBuffersJum 2<CR>', options)
@@ -39,9 +39,6 @@ map('n', '<leader>5', '<Cmd>LualineBuffersJum 5<CR>', options)
 map('n', '<leader>6', '<Cmd>LualineBuffersJum 6<CR>', options)
 map('n', '<leader>7', '<Cmd>LualineBuffersJum 7<CR>', options)
 map('n', '<leader>8', '<Cmd>LualineBuffersJum 8<CR>', options)
-
-map('n', '<leader>n', 'o<Esc>', options, { desc = "Add new line under cursor" })
-map('n', '<leader>N', 'O<Esc>', options, { desc = "Add new line above cursor" })
 
 -- Replacing current word with some another
 map({'n',  'x'}, "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],  { desc = "Replace Word Under cursor" })
@@ -63,7 +60,7 @@ map('n', "<leader>fo",  function() fzf_lua.oldfiles() end                , { des
 -- map('n', "<leader>lr",  function() fzf_lua.lsp_references() end         , { desc = "List References" })
 map('n', "<leader>m" ,   function() fzf_lua.man_pages() end              , { desc = "Show man_pages" })
 map("n", "<leader>S" , "<cmd>SymbolsOutline <cr>"                        , { desc = "Start SymbolsOutline" })
-map("n", "gr", vim.lsp.buf.references, {desc = "go to references"})
+map("n", "gr", vim.lsp.buf.references, { desc = "go to references" })
 
 -- harpoon bindings
 

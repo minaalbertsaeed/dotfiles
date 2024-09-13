@@ -7,5 +7,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
        vim.highlight.on_yank() 
     end,
 })
-
+--
+vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
+		desc = "don't auto comment new line",
+		pattern = "*",
+        group = vim.api.nvim_create_augroup('dont-comment', {clear = true }),
+		command = "setlocal formatoptions-=c formatoptions-=r formatoptions-=o",
+})
 
