@@ -14,6 +14,7 @@ dirs=(
         ".config/mpv"
         ".config/rofi"
         ".local/scripts"
+        ".local/bin"
      )
 files=(
         ".local/share/pkglist.txt"
