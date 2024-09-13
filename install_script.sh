@@ -52,6 +52,8 @@ fi
 #------------------------------------------------------------------ 
 
 # Downloading the dotfiles
+echo "--> Executing: rm -rf  $DOTFILES_PATH... "
+rm -rf $DOTFILES_PATH
 echo "--> Cloning my dotfiles repo to $DOTFILES_PATH... "
 echo "--> Executing: git clone --depth=1 $DOTFILES_URL $DOTFILES_PATH"
 git clone --depth=1 $DOTFILES_URL $DOTFILES_PATH
