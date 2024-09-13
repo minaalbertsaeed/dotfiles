@@ -1,0 +1,109 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "type": "kitty-direct",
+        "color": {"1": "blue", "2": "blue"},
+        "padding": {
+            "right": 10,
+            "top": 2
+        }
+    },
+    "general": {
+        "multithreading": true
+    },
+    "display": {
+        "separator": "➜   "
+    },
+    "modules": [
+        "break",
+        "break",
+        {
+            "type": "custom",
+            "format": "┌──────────────────────────────────── Hardware ───────────────────────────────────────┐" // `\u001b` is `\033`, or `\e`
+        },
+        "break",
+        {
+            "key": "     OS           ",
+            "keyColor": "blue",
+            "type": "os"
+        },
+        {
+            "key": "    󰌢 Machine      ",
+            "keyColor": "blue",
+            "type": "host"
+        },
+        {
+            "key": "    󰻠 CPU          ",
+            "keyColor": "blue",
+            "type": "cpu"
+        },
+        {
+            "key": "    󰍛 GPU          ",
+            "keyColor": "blue",
+            "type": "gpu"
+        },
+        {
+            "key": "    󰑭 Memory       ",
+            "keyColor": "blue",
+            "type": "memory"
+        },
+        {
+            "key": "     Kernel       ",
+            "keyColor": "blue",
+            "type": "kernel"
+        },
+        {
+            "type": "custom",
+            "format": "───────────────────────────────────── Software ────────────────────────────────────────" // `\u001b` is `\033`, or `\e`
+        },
+        {
+            "key": "    󰅐 Uptime       ",
+            "keyColor": "blue",
+            "type": "uptime"
+        },
+        {
+            "key": "     Packages     ",
+            "keyColor": "blue",
+            "type": "packages"
+        },
+        {
+            "key": "     WM           ",
+            "keyColor": "blue",
+            "type": "wm"
+        },
+        {
+            "key": "     Shell        ",
+            "keyColor": "blue",
+            "type": "shell"
+        },
+        {
+            "key": "     Terminal     ",
+            "keyColor": "blue",
+            "type": "terminal"
+        },
+        {
+            "key": "     Font         ",
+            "keyColor": "blue",
+            "type": "terminalfont"
+        },
+        {
+            "key": "     Wifi         ",
+            "keyColor": "blue",
+            "type": "wifi"
+        },
+        "break",
+        {
+            "type": "custom",
+            "format": "└──────────────────────────────────────────────────────────────────────────────────────┘" // `\u001b` is `\033`, or `\e`
+        },
+        "break",
+        {
+            "type": "colors",
+            "paddingLeft": 34,
+            "symbol": "square",
+            "block": {
+                "width": 10
+            }
+        }
+    ]
+}

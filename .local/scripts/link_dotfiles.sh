@@ -1,7 +1,7 @@
 #!/bin/sh
 DOTFILES="$HOME/repos/dotfiles"
 dirs=(  
-        ".config/neofetch"
+        ".config/fastfetch"
         ".config/nvim"
         ".config/dunst"
         ".config/lf"
