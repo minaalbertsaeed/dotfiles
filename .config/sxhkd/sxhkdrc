@@ -1,11 +1,8 @@
 alt + w
     $BROWSER
 
-alt + d
-    $DISCORD
-
 super + c
-    ~/.local/bin/freee
+   ~/.local/bin/freee
 
 alt + Return
     ~/.local/scripts/tmux_new_window.sh
@@ -19,11 +16,11 @@ alt + o
 # alt + s
 #     ~/.local/scripts/tmux_new_window.sh "find | fzf | xargs xdg-open"
 
-# alt + Delete
-#     feh --bg-scale $(find ~/repos/dotfiles/Pictures/wallpapers/ -type f | shuf -n 1)
+alt + Delete
+    xwallpaper --zoom $(find $HOME/Pictures/wallpapers -type f | shuf -n 1)
 
 alt + v
-    ~/.local/scripts/tmux_new_window.sh nvim
+    virt-manager
 
 alt + f
     ~/.local/scripts/tmux_new_window.sh lfub
