@@ -12,7 +12,7 @@ static const int topbar             = 0;        /* 0 means bottom bar */
 static const int splitstatus        = 0;        /* 1 for split status items */
 static const char *splitdelim        = ";";       /* Character used for separating status */
 static const char *fonts[]          = { 
-    "Victor Mono Nerd Font:style=Medium:size=10:"//antialias=true:autohint=true"
+    "Victor Mono Nerd Font:style=Bold:size=10:antialias=true:autohint=true"
 }; 
     
 static const char dmenufont[]       = "Victor Mono Nerd Font:size=10";
@@ -45,9 +45,10 @@ static const Rule rules[] = {
     { BROWSER                   ,NULL ,                 NULL,           1 << 1,            1,           0,          -1 },
     // { NULL                      ,NULL ,                 NULL,           1 << 2,            1,           0,          -1 },
     { PDF_READER                ,NULL ,                 NULL,           1 << 3,            1,           0,          -1 },
+    { "Zathura"                ,NULL ,                 NULL,           1 << 3,            1,           0,          -1 },
     { "mpv"                     ,NULL ,                 NULL,           1 << 4,            1,           0,          -1 },
     { NULL                      ,NULL ,                 "gf2",          1 << 5,            1,           0,          -1 },
-    // { NULL                      ,NULL ,                 NULL,           1 << 6,            1,           0,          -1 },
+    { "Virt-manager"            ,NULL ,                 NULL,           1 << 6,            1,           0,          -1 },
 	{ "qemu-system-x86_64"      ,NULL ,                 NULL,           1 << 7,            1,           0,          -1 },
 	// { NULL                      ,NULL ,                 NULL,           1 << 8,            1,           0,          -1 },
 	// { NULL                      ,NULL ,                 NULL,           1 << 8,            1,           0,          -1 },
@@ -63,9 +64,8 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "[T]",      tile },    /* first entry is default */
+	{ "<F>",      NULL },    /* no layout function means floating behavior */
 };
 
 /* key definitions */
