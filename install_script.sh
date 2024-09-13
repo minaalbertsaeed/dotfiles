@@ -89,4 +89,11 @@ for program in "${suckless_programs[@]}"; do
     doas make install clean
 done
 
+echo "Installing Yay (Yet another Yougurt)"
+echo "--> Executing: git clone https://aur.archlinux.org/yay.git"
+git clone https://aur.archlinux.org/yay.git
+echo "--> Executing: cd yay"
+cd yay
+echo "--> Executing: makepkg -si"
+makepkg -si
 
