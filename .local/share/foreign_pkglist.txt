@@ -3,7 +3,6 @@ gitmux-bin
 light
 rar
 rofi-greenclip
-sioyek
 ttf-cairo
 xkblayout-state-git
 yay
