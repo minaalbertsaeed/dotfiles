@@ -44,7 +44,7 @@ cmd selectfiles select-type f
 cmd openwith ${{
     printf "Enter program name: "
     read ans
-    ["$ans" = "nvim"] && $DOTFILES/.local/scripts/tmux_new_window.sh "nvim "$fx"" 
+    [ "$ans" = "nvim"] && $DOTFILES/.local/scripts/tmux_new_window.sh "nvim "$fx"" 
     $ans "$fx" & disown
 }}
 
@@ -54,11 +54,14 @@ cmd choose_pdf_app ${{
     printf "Choose an App\n"
     printf "1) Sioyek\n"
     printf "2) Xournal++\n"
-    read -p "Enter a choice (1) OR (2): " choice
+    printf "3) Zathura\n"
+    read -p "Enter a choice (1) OR (2) OR (3): " choice
     if [ "$choice" -eq 1 ]; then
         $PDFVIEWER "$filename" & disown
     elif [ "$choice" -eq 2 ]; then
         xournalpp "$filename" & disown
+    else 
+        zathura "$filename" & disown
     fi
 }}
 
