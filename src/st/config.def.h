@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Victor Mono Nerd Font:style=Bold:pixelsize=15:antialias=true:autohint=true";
+static char *font = "Victor Mono Nerd Font:style=Bold:pixelsize=15:antialias=true:autohint=true, Noto Color Emoji:size=12";
 static int borderpx = 0;
 
 /*
@@ -94,30 +94,31 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.95;
-// float alpha = 1.0;
+// float alpha = 0.95;
+float alpha = 1.0;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	"#45475A",
+	"#585B70",
 	"#F38BA8",
-	"#A6E3A1",
-	"#F9E2AF",
 	"#89B4FA",
+	"#F9E2AF",
+	// "#A6E3A1",
+	"#F5F5F5",
 	"#F5C2E7",
 	"#94E2D5",
-	"#FAF9F6",
+	"#F5F5F5",
 
 	/* 8 bright colors */
 	"#585B70",
 	"#F38BA8",
-	"#A6E3A1",
+	"#F5F5F5",
 	"#F9E2AF",
 	"#89B4FA",
 	"#F5C2E7",
 	"#94E2D5",
-	"#FAF9F6",
+	"#F5F5F5",
 
 [256] = "#FAF9F6", /* default foreground colour */
 [257] = "#16181d", /* default background colour */
