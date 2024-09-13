@@ -39,5 +39,5 @@ items=$(printf '%s\n' "${urls[@]}" "${wwws[@]}" "${gh[@]}" "${ips[@]}" "${gits[@
 [ -z "$items" ] && tmux display 'tmux-fzf-url: no URLs found' && exit
 
 selected_urls=$(echo "$items" | awk '{print $3}' | _fzf)
-
+[ -z "$selected_urls" ] && exit
 open_url "$selected_urls"
