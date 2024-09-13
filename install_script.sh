@@ -27,7 +27,7 @@ echo
 echo 
 echo 
 
-Constants
+# Constants
 DOTFILES_PARENT="$HOME/repos"
 DOTFILES_PATH="$DOTFILES_PARENT/dotfiles"
 DOTFILES_URL="https://github.com/minaalbertsaeed/dotfiles.git"
@@ -76,3 +76,17 @@ link_dotfiles_script="$DOTFILES_PATH/.local/scripts/link_dotfiles.sh"
 echo "--> Linking the actual config files and dirs"
 echo "--> Executing: $link_dotfiles_script"
 $link_dotfiles_script
+
+# Building suckless tools
+suckless_programs=("dwm" "dwmblocks" "dmenu" "st" "slock")
+for program in "${suckless_programs[@]}"; do
+    echo "$DOTFILES_PATH/src/$program"
+    cd "$DOTFILES_PATH/src/$program" 
+    echo "-------------------------------------"
+    echo "--> Compiling & installing $program"
+    echo "--> Executing: doas make install clean"
+    echo "-------------------------------------"
+    doas make install clean
+done
+
+
