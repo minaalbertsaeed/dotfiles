@@ -56,6 +56,10 @@ echo "--> Cloning my dotfiles repo to $DOTFILES_PATH... "
 echo "--> Executing: git clone --depth=1 $DOTFILES_URL $DOTFILES_PATH"
 git clone --depth=1 $DOTFILES_URL $DOTFILES_PATH
 
+# Installing TPM for tmux 
+echo "--> Executing: git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm"
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+
 # System packages
 echo "--> Installing system packages"
 echo "--> executing sudo pacman -S -needed - < $DOTFILES_PATH/.local/pkglist.txt"
