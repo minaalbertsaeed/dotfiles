@@ -95,6 +95,7 @@ for program in "${suckless_programs[@]}"; do
     doas make install clean
 done
 
+# Yay 
 echo "Installing Yay (Yet another Yougurt)"
 echo "--> Executing: git clone https://aur.archlinux.org/yay.git $HOME/yay"
 git clone https://aur.archlinux.org/yay.git "$HOME/yay"
@@ -106,3 +107,7 @@ echo "--> Removing $HOME/yay/ .... "
 echo "--> Executing: rm -rf $HOME/yay/ .... "
 rm -rf "$HOME/yay"
 
+# AUR Packages
+echo "Installing AUR Packages from $HOME/.local/share/foreign_pkglist.txt"
+echo "--> Executing: yay -S --needed - < $HOME/.local/share/foreign_pkglist.txt .... "
+yay -S --needed - < $HOME/.local/share/foreign_pkglist.txt 
