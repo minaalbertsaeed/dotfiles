@@ -1,9 +1,5 @@
-require("options")
-require("mappings")
-require("commands")
-require("colors.gruber")
-require("autocmds")
 
+-- --------------------------------------------
 -- bootstrap plugins & lazy.nvim
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim" -- path where its going to be installed
 
@@ -21,3 +17,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 vim.cmd('set nofoldenable')
+
+require("options")
+require("mappings")
+require("commands")
+require("colors.gruber")
+require("autocmds")
