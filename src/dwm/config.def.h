@@ -16,7 +16,7 @@ static const char *fonts[]          = {
 }; 
     
 static const char dmenufont[]       = "Victor Mono Nerd Font:size=10";
-static const char col_gray1[]       = "#161616";
+static const char col_gray1[]       = "#16181d";
 static const char col_gray2[]       = "#555555"; 
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
