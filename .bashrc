@@ -17,11 +17,11 @@ alias neo='fastfetch'
 
 
 # Pacman Aliases
-alias i='sudo pacman -S'
-alias r='sudo pacman -Rns'
-alias q='sudo pacman -Qs'
-alias u='sudo pacman -Syu'
-alias s='sudo pacman -Si'
+alias i='doas pacman -S'
+alias r='doas pacman -Rns'
+alias q='doas pacman -Qs'
+alias u='doas pacman -Syu'
+alias s='doas pacman -Si'
 
 # yay Aliases
 alias yi='yay -S'
