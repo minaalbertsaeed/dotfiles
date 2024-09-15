@@ -2,6 +2,7 @@ local plugins = {
 
     -- Themes
     { "RRethy/base16-nvim" },
+
     { "xiyaowong/transparent.nvim" },
 
     {
@@ -49,21 +50,6 @@ local plugins = {
             { "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>" },
         },
     },
-
-
-    {
-        'm4xshen/autoclose.nvim',
-        config = function()
-            require("autoclose").setup()
-        end
-    },
-    -- {
-    --     'windwp/nvim-autopairs',
-    --     event = "InsertEnter",
-    --     config = true
-    --     -- use opts = {} for passing setup options
-    --     -- this is equalent to setup({}) function
-    -- },
 
     {
         'stevearc/dressing.nvim',

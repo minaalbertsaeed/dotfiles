@@ -17,7 +17,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 vim.cmd('set nofoldenable')
-
+vim.cmd("set guicursor+=a:-blinkwait175-blinkoff150-blinkon175")
 require("options")
 require("mappings")
 require("commands")
