@@ -1,5 +1,0 @@
-*.o
-st
-patches
-config.h
-/compile_flags.txt
