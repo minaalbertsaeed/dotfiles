@@ -1,6 +1,7 @@
 acpi
 alsa-tools
 alsa-utils
+arandr
 aria2
 base
 base-devel
@@ -22,7 +23,6 @@ fastfetch
 fd
 ffmpeg
 ffmpegthumbnailer
-flameshot
 freeglut
 fribidi
 fzf
@@ -80,6 +80,7 @@ os-prober
 otf-font-awesome
 p7zip
 pamixer
+pass
 pavucontrol
 picom
 pipewire
@@ -89,6 +90,8 @@ pulsemixer
 qemu-full
 ripgrep
 rsync
+rust-analyzer
+rustup
 screenkey
 slurp
 sof-firmware
@@ -101,6 +104,7 @@ tmux
 translate-shell
 trash-cli
 tree
+ttf-font-awesome
 ttf-victor-mono-nerd
 ueberzug
 ufw
