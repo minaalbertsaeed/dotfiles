@@ -21,7 +21,7 @@ alias i='doas pacman -S'
 alias r='doas pacman -Rns'
 alias q='doas pacman -Qs'
 alias u='doas pacman -Syu'
-alias s='doas pacman -Si'
+alias s='doas pacman -Ss'
 
 # yay Aliases
 alias yi='yay -S'
@@ -31,11 +31,15 @@ alias yu='yay -Syu'
 alias ys='yay -Ss'
 
 alias lf='lfub'
-alias fi='find | fzf --header="Jump to location" --preview="bat -f {}" | xargs -r xdg-open'
+ 
+goto(){
+    local file=$(find . | fzf --header="Jump to location" --border --height=50% )
+    [ -d "$file" ] && cd $file || cd $(dirname "$file")
+}
+
+alias ff=goto
 alias transa='trans :en+ara'
 alias gput='nvidia-settings -q gpucoretemp -t'
-
-
 alias dot='cd $REPOS/dotfiles/'
 alias pkgs='tmux neww "nvim $HOME/.local/share/pkglist.txt" '
 
@@ -49,7 +53,7 @@ fzf_history(){
     READLINE_POINT=${#READLINE_LINE}
 }
 
-fzf_cd() {
+fzf_dir() {
     local selected_dir=$(find "$HOME" -type d | fzf --height=50% --border)
     cd "$selected_dir" && echo "cd $selected_dir"
 }  
@@ -58,9 +62,9 @@ bind -m emacs-standard -x '"\C-r": fzf_history'
 bind -m vi-command -x '"\C-r": fzf_history'
 bind -m vi-insert -x '"\C-r": fzf_history'
 
-bind -m emacs-standard -x '"\C-o": fzf_cd'
-bind -m vi-command -x '"\C-o": fzf_cd'
-bind -m vi-insert -x '"\C-o": fzf_cd'
+bind -m emacs-standard -x '"\C-o": fzf_dir'
+bind -m vi-command -x '"\C-o": fzf_dir'
+bind -m vi-insert -x '"\C-o": fzf_dir'
 
 export PS1="\n\[\e[32m\]\w\[\033[33m\]\$(parse_git_branch) \[\033[37m\] \n❯❯ "
 
