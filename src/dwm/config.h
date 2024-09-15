@@ -1,6 +1,6 @@
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 3;        /* gaps between windows */
+static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 1;    /* 0: systray in the right corner, >0: systray on left of status text */
@@ -87,9 +87,9 @@ static const char *termcmd[]  = { "st", NULL };
 static const Key keys[] = {
 	/* modifier                             key             function            argument */
     { MODKEY,                               XK_e,           togglefloating,     {0} },
+    { MODKEY|ShiftMask,                     XK_t,           setlayout,          {0} },
     { MODKEY,                               XK_a,           shiftviewclients,   { .i = +1 } },         
     { MODKEY|ShiftMask,                     XK_a,           shiftviewclients,   { .i = -1 } },         
-	// { MODKEY,                               XK_p,           spawn,              {.v = dmenucmd } },
 	{ MODKEY,                               XK_j,           focusstack,         {.i = +1 } },
 	{ MODKEY,                               XK_k,           focusstack,         {.i = -1 } },
 	{ MODKEY,                               XK_h,           setmfact,           {.f = -0.05} },
@@ -103,7 +103,6 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,                     XK_l,           setcfact,           {.f = -0.25} },
 	// { MODKEY|ShiftMask,                     XK_o,           setcfact,           {.f =  0.00} },
 
-	{ MODKEY|ShiftMask,                     XK_backslash,   shiftviewclients    , { .i = -1 } },
     { MODKEY|ShiftMask,                     XK_b,           togglebar,          {0} },
     { MODKEY|ShiftMask,                     XK_period,      tagmon,             {.i = +1 } },
 	{ MODKEY|ShiftMask,                     XK_c,           killclient,         {0} },
