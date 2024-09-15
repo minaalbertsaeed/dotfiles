@@ -6,6 +6,6 @@ xwallpaper --maximize ~/Downloads/wallpaper.png
 sxhkd & 
 picom &
 # dunst &
-clipmenud & 
+greenclip daemon & 
 dwmblocks & 
 dwm

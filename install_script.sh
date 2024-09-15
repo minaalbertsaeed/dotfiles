@@ -111,3 +111,6 @@ rm -rf "$HOME/yay"
 echo "Installing AUR Packages from $HOME/.local/share/foreign_pkglist.txt"
 echo "--> Executing: yay -S --needed - < $HOME/.local/share/foreign_pkglist.txt .... "
 yay -S --needed - < $HOME/.local/share/foreign_pkglist.txt 
+echo "--> Executing: yay -Runcs $(yay -Qqdt)... "
+
+
