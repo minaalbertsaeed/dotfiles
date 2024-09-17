@@ -5,7 +5,7 @@ super + c
    ~/.local/bin/freee
 
 alt + Return
-    ~/.local/scripts/tmux_new_window.sh
+    $TERMINAL
 
 alt + p
     dmenu_run -i -fn "$dmenufont"
@@ -13,8 +13,11 @@ alt + p
 alt + o
     mpv $(xclip -o)
 
-# alt + s
-#     ~/.local/scripts/tmux_new_window.sh "find | fzf | xargs xdg-open"
+alt + i
+    ~/.local/scripts/tmux_get_session.sh
+
+alt + n
+    ~/.local/scripts/tmux_new_session.sh
 
 alt + Delete
     xwallpaper --zoom $(find $HOME/Pictures/wallpapers -type f | shuf -n 1)
@@ -63,7 +66,7 @@ alt + shift + Delete
     slock
 
 # Take screenshot
-alt + s
+alt + Insert
 	maim -us -m 10  | xclip -selection clipboard -t image/png
 
 # Manipulate Sound

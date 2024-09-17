@@ -1,5 +1,4 @@
 # vim:ft=conf
-
 # These examples require Nerd Fonts or a compatible font to be used.
 # See https://www.nerdfonts.com for more information.
 
@@ -20,22 +19,23 @@
 # fi      -       # FILE
 
 # file types (with matching order)
-ln             # LINK
-or             # ORPHAN
+ln             # ORPHAN
 tw      t       # STICKY_OTHER_WRITABLE
-ow             # OTHER_WRITABLE
+ow             # OTHER_WRITABLE
 st      t       # STICKY
-di             # DIR
+di            # DIR
 pi      p       # FIFO
 so      s       # SOCK
 bd      b       # BLK
 cd      c       # CHR
 su      u       # SETUID
 sg      g       # SETGID
-ex             # EXEC
+# ex      x       # SETGID
 fi             # FILE
 
 # file extensions (vim-devicons)
+# file extensions (vim-devicons)
+*.iso          💿
 *.styl          
 *.sass          
 *.scss          
@@ -356,6 +356,8 @@ Vagrantfile             
 *.opus  
 *.spx   
 *.xspf  
+*.webm  
 
 # other formats
 *.pdf   
+*.iso   

@@ -1,0 +1,1 @@
+rm -rf config.h && doas make install clean -selection primary

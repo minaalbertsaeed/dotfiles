@@ -36,12 +36,10 @@ grub
 gstreamer
 gvfs
 gvfs-mtp
-help2man
 hplip
 htop
 i2c-tools
 iptables-nft
-lazygit
 lf
 libreoffice-fresh
 libvirt
@@ -59,6 +57,7 @@ mpv-mpris
 musl
 ncdu
 nemo
+neofetch
 neovim
 network-manager-applet
 networkmanager
@@ -80,7 +79,6 @@ os-prober
 otf-font-awesome
 p7zip
 pamixer
-pass
 pavucontrol
 picom
 pipewire
@@ -97,7 +95,6 @@ slurp
 sof-firmware
 speedtest-cli
 strace
-swtpm
 sxhkd
 sxiv
 tmux
@@ -105,7 +102,6 @@ translate-shell
 trash-cli
 tree
 ttf-font-awesome
-ttf-victor-mono-nerd
 ueberzug
 ufw
 unrar-free
@@ -141,6 +137,7 @@ xorg-xcmsdb
 xorg-xdpyinfo
 xorg-xdriinfo
 xorg-xev
+xorg-xfd
 xorg-xgamma
 xorg-xhost
 xorg-xinit

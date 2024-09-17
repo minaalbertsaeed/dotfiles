@@ -1,5 +1,6 @@
 #!/bin/sh
 
+xdotool key Alt+1
 command=$1
 TERMINAL="$TERMINAL"
 
@@ -23,5 +24,4 @@ else
     fi
 fi
 
-# xdotool key Alt+1
 
