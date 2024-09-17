@@ -5,7 +5,11 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Victor Mono Nerd Font:style=Bold:pixelsize=15:antialias=true:autohint=true, Noto Color Emoji:size=12";
+static char *font = "Iosevka Term Nerd Font :style=Medium:pixelsize=17:antialias=true:autohint=true";
+static char *font2[] = { 
+    "NotoColorEmoji:pixelsize=15:antialias=true:autohint=true" 
+};
+
 static int borderpx = 0;
 
 /*
