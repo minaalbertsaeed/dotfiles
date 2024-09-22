@@ -34,7 +34,7 @@ alias ys='yay -Ss'
 alias lf='lfub'
  
 goto(){
-    local file=$(find . | fzf --header="Jump to location" --border --height=50% )
+    local file=$(find . | fzf --reverse --header="Jump to location" --border --height=50% )
     [ -d "$file" ] && cd $file || cd $(dirname "$file")
 }
 
@@ -49,13 +49,13 @@ parse_git_branch() {
 }
 
 fzf_history(){
-    local selected_command=$(tac ~/.bash_history | fzf --height=40% --border)
+    local selected_command=$(tac ~/.bash_history | fzf --reverse --height=40% --border)
     READLINE_LINE="${READLINE_LINE:+$READLINE_LINE }$selected_command"
     READLINE_POINT=${#READLINE_LINE}
 }
 
 fzf_dir() {
-    local selected_dir=$(find "$HOME" -type d | fzf --height=50% --border)
+    local selected_dir=$(find "$HOME" -type d | fzf --reverse --height=50% --border)
     cd "$selected_dir" && echo "cd $selected_dir"
 }  
 

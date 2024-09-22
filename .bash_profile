@@ -1,15 +1,14 @@
 doas loadkeys ~/.config/loadkeysrc/loadkeysrc  
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
-
 export EDITOR="nvim"
 export BROWSER="brave"
 export REPOS="$HOME/repos"
 export DOTFILES="$REPOS/dotfiles"
-export PDFVIEWER="sioyek"
+export PDFVIEWER="zathura"
 export dmenufont="Iosevka Term Nerd Font :style=Medium:size=11"    
 export TERMINAL="st"
-export TERM="st"
+export TERM="st-256color"
 export TERM_PROGRAM="st"
 export CM_LAUNCHER="dmenu"
 export GTK_THEME="Adwaita:dark"
