@@ -1,0 +1,20 @@
+#!/bin/python3
+
+import toml
+import os
+
+file_path = os.path.expanduser('~/.local/share/bookmarks.toml')
+data = toml.load(file_path)
+
+links_dict = {link['name']: link['url'] for link in data['links']}
+
+keys = list(links_dict.keys())
+
+keys_string = '\n'.join(keys)
+
+dmenu_command = f'echo "{keys_string}" | dmenu -i -l 20 -p "Bookmarks"'
+selected_name = os.popen(dmenu_command).read().strip()
+
+if selected_name in links_dict:
+    selected_url = links_dict[selected_name]
+    os.system(f'brave {selected_url} && xdotool key Alt+2 ')
