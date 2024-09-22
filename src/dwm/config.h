@@ -1,6 +1,6 @@
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 5;        /* gaps between windows */
+static const unsigned int gappx     = 10;       /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 1;    /* 0: systray in the right corner, >0: systray on left of status text */
@@ -9,13 +9,16 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
-static const int splitstatus        = 0;        /* 1 for split status items */
+static const int splitstatus        = 1;        /* 1 for split status items */
 static const char *splitdelim        = ";";       /* Character used for separating status */
+
 static const char *fonts[]          = { 
-    "Victor Mono Nerd Font:style=Bold:size=10:antialias=true:autohint=true"
+    "Iosevka Term Nerd Font :style=Medium:pixelsize=14:antialias=true:autohint=true",
+    "NotoColorEmoji:pixelsize=20:antialias=true:autohint=true" 
 }; 
     
-static const char dmenufont[]       = "Victor Mono Nerd Font:size=10";
+    
+static const char dmenufont[]       = "Iosevka Term Nerd Font :style=Medium:pixelsize=14:antialias=true:autohint=true";
 static const char col_gray1[]       = "#16181d";
 static const char col_gray2[]       = "#555555"; 
 static const char col_gray3[]       = "#bbbbbb";
@@ -33,7 +36,6 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" }
 
 
 #define BROWSER  "Brave-browser"
-#define PDF_READER  "sioyek"
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -44,12 +46,11 @@ static const Rule rules[] = {
     { "st-256color"             ,NULL ,                 NULL,           1 << 0,            1,           0,          -1 },
     { BROWSER                   ,NULL ,                 NULL,           1 << 1,            1,           0,          -1 },
     // { NULL                      ,NULL ,                 NULL,           1 << 2,            1,           0,          -1 },
-    { PDF_READER                ,NULL ,                 NULL,           1 << 3,            1,           0,          -1 },
     { "Zathura"                ,NULL ,                 NULL,           1 << 3,            1,           0,          -1 },
     { "mpv"                     ,NULL ,                 NULL,           1 << 4,            1,           0,          -1 },
     { NULL                      ,NULL ,                 "gf2",          1 << 5,            1,           0,          -1 },
     { "Virt-manager"            ,NULL ,                 NULL,           1 << 6,            1,           0,          -1 },
-	{ "qemu-system-x86_64"      ,NULL ,                 NULL,           1 << 7,            1,           0,          -1 },
+	{ "qemu-system-x86_64"      ,NULL ,                 NULL,           1 << 6,            1,           0,          -1 },
 	// { NULL                      ,NULL ,                 NULL,           1 << 8,            1,           0,          -1 },
 	// { NULL                      ,NULL ,                 NULL,           1 << 8,            1,           0,          -1 },
     // { NULL                      ,NULL ,                 NULL,           1 << 9,            1,           0,          -1 },
@@ -101,8 +102,6 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,                     XK_f,           togglefullscr,      {0} },
 	{ MODKEY|ShiftMask,                     XK_h,           setcfact,           {.f = +0.25} },
 	{ MODKEY|ShiftMask,                     XK_l,           setcfact,           {.f = -0.25} },
-	// { MODKEY|ShiftMask,                     XK_o,           setcfact,           {.f =  0.00} },
-
     { MODKEY|ShiftMask,                     XK_b,           togglebar,          {0} },
     { MODKEY|ShiftMask,                     XK_period,      tagmon,             {.i = +1 } },
 	{ MODKEY|ShiftMask,                     XK_c,           killclient,         {0} },
@@ -117,8 +116,7 @@ static const Key keys[] = {
     { MODKEY|ShiftMask|ControlMask,			XK_k, 	        moveresize,		    {.v = (int []){ 0, 0, 0, -25 }}},
     { MODKEY|ShiftMask|ControlMask,			XK_l,	        moveresize,		    {.v = (int []){ 0, 0, 25, 0 }}},
     { MODKEY|ShiftMask|ControlMask,			XK_h,	        moveresize,		    {.v = (int []){ 0, 0, -25, 0 }}},
-    { MODKEY|ShiftMask|ControlMask,         XK_q,      quit,           {1} },  // restart Signal
-    // { MODKEY|ShiftMask,             XK_q,      quit,           {0} },  // Quit dwm
+    { MODKEY|ShiftMask|ControlMask,         XK_q,           quit,               {1} },  // restart Signal
 	TAGKEYS(                                XK_1,                      0)
 	TAGKEYS(                                XK_2,                      1)
 	TAGKEYS(                                XK_3,                      2)
@@ -136,7 +134,6 @@ static const Key keys[] = {
 static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
     { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
-	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },

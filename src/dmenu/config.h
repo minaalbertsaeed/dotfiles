@@ -4,14 +4,14 @@
 static int topbar = 1;                      /* -b  option; if 0, dmenu appears at bottom     */
 /* -fn option overrides fonts[0]; default X11 font or font set */
 static const char *fonts[] = {
-	"monospace:size=10"
+    "Iosevka Term Nerd Font :style=Medium:pixelsize=14:antialias=true:autohint=true",
+    "NotoColorEmoji:pixelsize=15:antialias=true:autohint=true"  // fallback font
 };
 static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
 static const char *colors[SchemeLast][2] = {
 	/*                  fg         bg       */
 	[SchemeNorm] = { "#ffffff", "#16181d" },
 	[SchemeSel] = { "#ffffff", "#555555" },
-	[SchemeOut] = { "#000000", "#00ffff" },
 };
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
 static unsigned int lines      = 0;
