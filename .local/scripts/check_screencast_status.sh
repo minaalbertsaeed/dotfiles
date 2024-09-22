@@ -1,5 +1,5 @@
 #!/bin/sh
-test=`pgrep ffmpeg`
+test=
 
-[ -n "$test" ] && printf "Recording"  
+[ -n "$(pgrep ffmpeg)" ] && printf "Recording"  || printf "zby"
  

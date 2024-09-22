@@ -18,29 +18,29 @@ start_recording() {
     # Run ffmpeg with the selected region
     ffmpeg -f x11grab -video_size "${width}x${height}" -i :0.0+$x,$y \
            -f pulse -ac 2 -i alsa_output.pci-0000_05_00.6.analog-stereo.monitor \
-           "$output_file"
+           "$output_file" &
+    pkill -RTMIN+22 dwmblocks
+
 }
 
 stop_recording() {
     echo "Stopping recording..."
-    killall ffmpeg
-    # pkill -RTMIN+15 dwmblocks
+    pkill ffmpeg
+    pkill dwmblocks && dwmblocks & disown
 }
-
 process_name="ffmpeg"
 
 if pgrep -x "$process_name" > /dev/null; then
-    choice=$(printf "Yes\nNo" | dmenu -i -fn "$dmenufont" -p "Stop Recording ?")
+    choice=$(printf "Yes\nNo" | dmenu -i -p "Stop Recording ?")
 
     if [ "$choice" = "Yes" ]; then
-            # pkill -RTMIN+15 dwmblocks
             stop_recording  
-            # pkill -RTMIN+15 dwmblocks
+            exit 1
     fi
-
-else
-    start_recording &
 fi
 
-# pkill -RTMIN+15 dwmblocks
+start_recording
+
+
+# pkill -RTMIN+22 dwmblocks
 # ffmpeg -f x11grab -s "$screen_size" -i :0.0 -f alsa -i default -c:v libx264 -c:a aac -strict experimental -b:a 192k "$output_file"

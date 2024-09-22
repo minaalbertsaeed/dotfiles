@@ -8,7 +8,7 @@ DiskImages=$(ls ~/vms/)
 if pgrep -x "Hyprland" > /dev/null; then
     diskImage=$(echo "$DiskImages" | rofi -dmenu -p "Choose a Disk Image:")
 else
-    diskImage=$(echo  "$DiskImages" | dmenu -fn "$dmenufont" -i -p "Choose a Disk Image:")
+    diskImage=$(echo  "$DiskImages" | dmenu -i -p "Choose a Disk Image:")
 fi
 
 

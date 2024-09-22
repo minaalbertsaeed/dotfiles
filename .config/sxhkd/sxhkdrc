@@ -8,7 +8,7 @@ alt + Return
     $TERMINAL
 
 alt + p
-    dmenu_run -i -fn "$dmenufont"
+    dmenu_run -i 
 
 alt + o
     mpv $(xclip -o)
@@ -48,10 +48,10 @@ alt + b
 	brave --app=https://excalidraw.com/ && xdotool key Alt+Shift+0 && xdotool key Alt+0
 
 alt + Print 
-    ~/.local/scripts/screencast.sh ;  pkill -RTMIN+15 dwmblocks
+    ~/.local/scripts/screencast.sh 
 
 alt + End
-    pkill ffmpeg &&  pkill -RTMIN+15 dwmblocks
+    ~/.local/scripts/screencast.sh ; pkill -RTMIN+22 dwmblocks
 
 # launch powermenu
 alt + shift + q
@@ -75,11 +75,12 @@ alt + {F1,F2,F3}
 
 # Decrease brightness
 alt + F5
-	light -U 10 && pkill -RTMIN+25 dwmblocks
+    brightnessctl set 10%- && pkill -RTMIN+25 dwmblocks
+
+# Increase brightness
+alt + F6
+    brightnessctl set +10% && pkill -RTMIN+25 dwmblocks
 
 alt + F11
     pamixer --default-source -t && pkill -RTMIN+10 dwmblocks
 
-# Increase brightness
-alt + F6
-	light -A 10  && pkill -RTMIN+25 dwmblocks

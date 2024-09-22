@@ -11,6 +11,8 @@ local fzf_lua = require('fzf-lua')
 
 local telescope = require('telescope.builtin')
 map("n", "<Esc>", "<cmd> :noh <CR>")
+map("i", "<C-E>", "<C-o>$")
+map("i", "<C-e>", "<C-o>w")
 
 map("n", "<leader>q", "<cmd> :bd! <CR>",            { desc = "Close current buffer" })           --
 map("n", "<leader>e", "<cmd> NvimTreeToggle <CR>",  { desc = "Open file explorer" })
@@ -30,7 +32,7 @@ map('v', "<leader>p", "\"_dP" )
 map({ 'n', 'v' }, "<leader>d", "\"_d",{ desc = "Delete Text forever" })
 
 -- Buffers
-map("n", "<S-Tab>", "<cmd> bnext <CR>")
+map("n", "<Tab>", "<cmd> bnext <CR>")
 map('n', '<leader>1', '<Cmd>LualineBuffersJum 1<CR>', options)
 map('n', '<leader>2', '<Cmd>LualineBuffersJum 2<CR>', options)
 map('n', '<leader>3', '<Cmd>LualineBuffersJum 3<CR>', options)

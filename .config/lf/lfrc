@@ -52,16 +52,13 @@ cmd openwith ${{
 cmd choose_pdf_app ${{
     filename="$fx"
     printf "Choose an App\n"
-    printf "1) Sioyek\n"
+    printf "1) Zathura\n"
     printf "2) Xournal++\n"
-    printf "3) Zathura\n"
-    read -p "Enter a choice (1) OR (2) OR (3): " choice
+    read -p "Enter a choice (1) OR (2): " choice
     if [ "$choice" -eq 1 ]; then
         $PDFVIEWER "$filename" & disown
-    elif [ "$choice" -eq 2 ]; then
-        xournalpp "$filename" & disown
     else 
-        zathura "$filename" & disown
+        xournalpp "$filename" & disown
     fi
 }}
 
@@ -70,7 +67,7 @@ cmd open &{{
     test -L $f && f=$(readlink -f $f)    
     case "$(file --mime-type "$f" -b)" in    
         text/*) $DOTFILES/.local/scripts/tmux_new_window.sh "nvim "$fx" " & disown  ;;    
-        application/pdf) sioyek "$fx" & disown;;
+        application/pdf) $PDFVIEWER "$fx" & disown;;
         image/*) sxiv "$fx" & disown;;
         audio/*) mpv --player-operation-mode=pseudo-gui "$fx" & disown;; 
         video/*) mpv --player-operation-mode=pseudo-gui "$fx" & disown;;

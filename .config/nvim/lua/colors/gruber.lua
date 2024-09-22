@@ -14,12 +14,16 @@ local colors = {
     offwhite =  {"#e4e4e4", 110},
     brown =     {"#af875f", 137},
     cyan =      {"#afd7af", 151},
-    gray =      {"#89B4FA", 235},
+    blue =      {"#89B4FA", 235},
     kamoni =    {"#F9E2AF", 113},
     red =       {"#F38BA8", 203},
     white =     {"#FFFFFF", 254},
     green =     {"#89B4FA" , 220},
-    non =       {"#2E2E2E" , 100}
+    non =       {"#2E2E2E" , 100},
+    comment =   {"#5e5f70", 201 }
+
+
+
 }
 
 local function hl(group, attrs)
@@ -39,10 +43,10 @@ local function hl(group, attrs)
     vim.cmd(table.concat(command, " "))
 end
 
-hl("ColorColumn",   {bg = colors.gray})
-hl("Comment",       {fg = colors.cyan})
+hl("ColorColumn",   {bg = colors.blue})
+hl("Comment",       {fg = colors.comment})
 hl("Constant",      {fg = colors.white})
--- hl("CursorLine",     {bg = colors.gray})
+-- hl("CursorLine",     {bg = colors.blue})
 hl("DiffAdd",       {fg = colors.kamoni})
 hl("DiffChange",    {fg = colors.offwhite})
 hl("DiffDelete",    {fg = colors.red})
@@ -51,8 +55,8 @@ hl("Directory",     {fg = colors.offwhite})
 hl("EndOfBuffer",   {fg = colors.black})
 hl("Error",         {fg = colors.red})
 hl("ErrorMsg",      {fg = colors.red})
-hl("FoldColumn",    {fg = colors.brown, bg = colors.gray})
-hl("Folded",        {fg = colors.brown, bg = colors.gray, style = "italic"})
+hl("FoldColumn",    {fg = colors.brown, bg = colors.blue})
+hl("Folded",        {fg = colors.brown, bg = colors.blue, style = "italic"})
 hl("Function",      {fg = colors.offwhite})
 hl("identifier",    {fg = colors.white})
 hl("Ignore",        {fg = colors.black})
@@ -61,13 +65,13 @@ hl("MoreMsg",       {fg = colors.kamoni})
 hl("NonText",       {fg = colors.offwhite})
 hl("Normal",        {fg = colors.white, bg = colors.black})
 hl("Pmenu",         {fg = colors.white, bg = colors.black})
-hl("PmenuSbar",     {bg = colors.gray})
+hl("PmenuSbar",     {bg = colors.blue})
 hl("PmenuSel",      {fg = colors.black, bg = colors.green, style = "bold"})
 hl("PmenuThumb",    {bg = colors.black})
-hl("PreProc",       {fg = colors.gray})
+hl("PreProc",       {fg = colors.blue})
 hl("Question",      {fg = colors.offwhite})
 hl("Special",       {fg = colors.white})
-hl("SpecialChar",   {fg = colors.gray})
+hl("SpecialChar",   {fg = colors.blue})
 hl("SpecialComment",{fg = colors.brown})
 hl("SpecialKey",    {fg = colors.offwhite})
 hl("SpellBad",      {fg = colors.red, style = "underline"})
@@ -81,13 +85,14 @@ hl("String",        {fg = colors.kamoni})
 hl("Title",         {fg = colors.white})
 hl("IncSearch",     {fg = colors.black , bg = colors.green})
 hl("Todo",          {fg = colors.brown, style = "italic"})
-hl("Type",          {fg = colors.gray, style = "bold"})
+hl("Type",          {fg = colors.blue, style = "bold"})
 hl("Typedef",       {fg = colors.green, style = "bold"})
+-- hl("Function",       {fg = colors.green, style = "bold"})
 hl("StorageClass",  {fg = colors.green, style = "bold"})
 hl("Structure",     {fg = colors.green, style = "bold"})
 hl("CursorLineNr",  {fg = colors.green})
 hl("Underlined",    {style = "underline"})
-hl("VertSplit",     {fg = colors.gray})
+hl("VertSplit",     {fg = colors.blue})
 hl("WarningMsg",    {fg = colors.green})
 hl("WildMenu",      {fg = colors.black, bg = colors.green, style = "bold"})
 hl("diffAdded",     {fg = colors.kamoni})

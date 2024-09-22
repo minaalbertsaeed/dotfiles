@@ -1,109 +1,86 @@
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
     "logo": {
-        "type": "kitty-direct",
-        "color": {"1": "blue", "2": "blue"},
-        "padding": {
-            "right": 10,
-            "top": 2
+        "type": "builtin",
+        "color": {
+            "1": "white",
+            "2": "cyan"
         }
     },
-    "general": {
-        "multithreading": true
-    },
     "display": {
-        "separator": "➜   "
+        "separator": "   ",
+        "color": "cyan"
     },
     "modules": [
-        "break",
-        "break",
+        {
+            "type": "custom", // HardwareStart
+            "format": "┌─────────── \u001b[1mHardware Information\u001b[0m ───────────┐" // `\u001b` is `\033`, or `\e`
+        },
+        {
+            "type": "host",
+            "key": "  󰌢"
+        },
+        {
+            "type": "cpu",
+            "key": "  "
+        },
+        {
+            "type": "gpu",
+            "detectionMethod": "pci",
+            "key": "  "
+        },
+        {
+            "type": "display",
+            "key": "  󱄄"
+        },
+        {
+            "type": "memory",
+            "key": "  "
+        },
+        {
+            "type": "custom", // SoftwareStart
+            "format": "├─────────── \u001b[1mSoftware Information\u001b[0m ───────────┤"
+        },
+        {
+            "type": "os",
+            "key": "  " // Just get your distro's logo off nerdfonts.com,
+        },
+        {
+            "type": "kernel",
+            "key": "  ",
+            "format": "{1} {2}"
+        },
+        {
+            "type": "wm",
+            "key": "  "
+        },
+        {
+            "type": "shell",
+            "key": "  "
+        },
         {
             "type": "custom",
-            "format": "┌──────────────────────────────────── Hardware ───────────────────────────────────────┐" // `\u001b` is `\033`, or `\e`
-        },
-        "break",
-        {
-            "key": "     OS           ",
-            "keyColor": "blue",
-            "type": "os"
+            "format": "|──────────────\u001b[1mUptime / Age\u001b[0m──────────────────|"
         },
         {
-            "key": "    󰌢 Machine      ",
-            "keyColor": "blue",
-            "type": "host"
+            "type": "command",
+            "key": "  OS Age ",
+            "keyColor": "magenta",
+            "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
         },
         {
-            "key": "    󰻠 CPU          ",
-            "keyColor": "blue",
-            "type": "cpu"
+            "type": "uptime",
+            "key": "  Uptime ",
+            "keyColor": "magenta"
         },
         {
-            "key": "    󰍛 GPU          ",
-            "keyColor": "blue",
-            "type": "gpu"
+            "type": "custom", // InformationEnd
+            "format": "└────────────────────────────────────────────┘"
         },
-        {
-            "key": "    󰑭 Memory       ",
-            "keyColor": "blue",
-            "type": "memory"
-        },
-        {
-            "key": "     Kernel       ",
-            "keyColor": "blue",
-            "type": "kernel"
-        },
-        {
-            "type": "custom",
-            "format": "───────────────────────────────────── Software ────────────────────────────────────────" // `\u001b` is `\033`, or `\e`
-        },
-        {
-            "key": "    󰅐 Uptime       ",
-            "keyColor": "blue",
-            "type": "uptime"
-        },
-        {
-            "key": "     Packages     ",
-            "keyColor": "blue",
-            "type": "packages"
-        },
-        {
-            "key": "     WM           ",
-            "keyColor": "blue",
-            "type": "wm"
-        },
-        {
-            "key": "     Shell        ",
-            "keyColor": "blue",
-            "type": "shell"
-        },
-        {
-            "key": "     Terminal     ",
-            "keyColor": "blue",
-            "type": "terminal"
-        },
-        {
-            "key": "     Font         ",
-            "keyColor": "blue",
-            "type": "terminalfont"
-        },
-        {
-            "key": "     Wifi         ",
-            "keyColor": "blue",
-            "type": "wifi"
-        },
-        "break",
-        {
-            "type": "custom",
-            "format": "└──────────────────────────────────────────────────────────────────────────────────────┘" // `\u001b` is `\033`, or `\e`
-        },
-        "break",
         {
             "type": "colors",
-            "paddingLeft": 34,
-            "symbol": "square",
-            "block": {
-                "width": 10
-            }
+            "paddingLeft": 2,
+            "symbol": "circle"
         }
     ]
 }
