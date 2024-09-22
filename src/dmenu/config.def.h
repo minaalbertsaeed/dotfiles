@@ -7,7 +7,7 @@ static const char *fonts[] = {
     "Iosevka Term Nerd Font :style=Medium:pixelsize=14:antialias=true:autohint=true",
     "NotoColorEmoji:pixelsize=15:antialias=true:autohint=true"  // fallback font
 };
-static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
+static const char *prompt = NULL;      /* -p  option; prompt to the left of input field */
 static const char *colors[SchemeLast][2] = {
 	/*                  fg         bg       */
 	[SchemeNorm] = { "#ffffff", "#16181d" },
