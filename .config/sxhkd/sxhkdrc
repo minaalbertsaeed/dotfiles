@@ -13,9 +13,6 @@ alt + p
 alt + o
     mpv $(xclip -o)
 
-alt + i
-    ~/.local/scripts/tmux_get_session.sh
-
 alt + n
     ~/.local/scripts/tmux_new_session.sh
 
@@ -24,6 +21,9 @@ alt + Delete
 
 alt + v
     virt-manager
+
+alt + i
+    ~/.local/scripts/bookmarks
 
 alt + f
     ~/.local/scripts/tmux_new_window.sh lfub
