@@ -20,7 +20,8 @@ local colors = {
     white =     {"#FFFFFF", 254},
     green =     {"#89B4FA" , 220},
     non =       {"#2E2E2E" , 100},
-    comment =   {"#5e5f70", 201 }
+    comment =   {"#5e5f70", 201 },
+    gray =      {"#84888e", 241 }
 
 
 
@@ -57,7 +58,7 @@ hl("Error",         {fg = colors.red})
 hl("ErrorMsg",      {fg = colors.red})
 hl("FoldColumn",    {fg = colors.brown, bg = colors.blue})
 hl("Folded",        {fg = colors.brown, bg = colors.blue, style = "italic"})
-hl("Function",      {fg = colors.offwhite})
+hl("Function",      {fg = colors.gray })
 hl("identifier",    {fg = colors.white})
 hl("Ignore",        {fg = colors.black})
 hl("MatchParen",    {fg = colors.green, style = "bold"})
