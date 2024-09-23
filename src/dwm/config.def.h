@@ -49,7 +49,7 @@ static const Rule rules[] = {
     { "Zathura"                ,NULL ,                 NULL,           1 << 3,            1,           0,          -1 },
     { "mpv"                     ,NULL ,                 NULL,           1 << 4,            1,           0,          -1 },
     { NULL                      ,NULL ,                 "gf2",          1 << 5,            1,           0,          -1 },
-    { "Virt-manager"            ,NULL ,                 NULL,           1 << 6,            1,           0,          -1 },
+    // { "Virt-manager"            ,NULL ,                 NULL,           1 << 6,            1,           0,          -1 },
 	{ "qemu-system-x86_64"      ,NULL ,                 NULL,           1 << 6,            1,           0,          -1 },
 	// { NULL                      ,NULL ,                 NULL,           1 << 8,            1,           0,          -1 },
 	// { NULL                      ,NULL ,                 NULL,           1 << 8,            1,           0,          -1 },
