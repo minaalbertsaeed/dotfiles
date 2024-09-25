@@ -19,6 +19,7 @@ dirs=(
 files=(
         ".local/share/pkglist.txt"
         ".local/share/foreign_pkglist.txt"
+        ".local/share/bookmarks.toml"
         ".config/screenkey.json"
         ".config/mimeapps.list"
         ".config/greenclip.toml"
