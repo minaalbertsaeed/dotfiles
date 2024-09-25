@@ -16,8 +16,6 @@
 #endif
 #include <X11/Xft/Xft.h>
 
-#include <fribidi.h>
-
 #include "drw.h"
 #include "util.h"
 
@@ -36,7 +34,6 @@ struct item {
 };
 
 static char text[BUFSIZ] = "";
-static char fribidi_text[BUFSIZ] = "";
 static char *embed;
 static int bh, mw, mh;
 static int inputw = 0, promptw;
@@ -132,26 +129,6 @@ cistrstr(const char *h, const char *n)
 	return NULL;
 }
 
-static void
-apply_fribidi(char *str)
-{
-  FriBidiStrIndex len = strlen(str);
-  FriBidiChar logical[BUFSIZ];
-  FriBidiChar visual[BUFSIZ];
-  FriBidiParType base = FRIBIDI_PAR_ON;
-  FriBidiCharSet charset;
-  fribidi_boolean result;
-
-  fribidi_text[0] = 0;
-  if (len>0)
-  {
-    charset = fribidi_parse_charset("UTF-8");
-    len = fribidi_charset_to_unicode(charset, str, len, logical);
-    result = fribidi_log2vis(logical, len, &base, visual, NULL, NULL, NULL);
-    len = fribidi_unicode_to_charset(charset, visual, len, fribidi_text);
-  }
-}
-
 static int
 drawitem(struct item *item, int x, int y, int w)
 {
@@ -162,44 +139,33 @@ drawitem(struct item *item, int x, int y, int w)
 	else
 		drw_setscheme(drw, scheme[SchemeNorm]);
 
-	apply_fribidi(item->text);
-	return drw_text(drw, x, y, w, bh, lrpad / 2, fribidi_text, 0);
+	return drw_text(drw, x, y, w, bh, lrpad / 2, item->text, 0);
 }
 
 static void
 drawmenu(void)
 {
-	static int curpos, oldcurlen;
+	unsigned int curpos;
 	struct item *item;
 	int x = 0, y = 0, w;
-	int curlen, rcurlen;
 
 	drw_setscheme(drw, scheme[SchemeNorm]);
 	drw_rect(drw, 0, 0, mw, mh, 1, 1);
 
 	if (prompt && *prompt) {
 		drw_setscheme(drw, scheme[SchemeSel]);
-		// x = drw_text(drw, x, 0, promptw, bh, lrpad / 2, prompt, 0);
-        apply_fribidi(text);
-        x = drw_text(drw, x, 0, promptw, bh, lrpad / 2, prompt, 0);
+		x = drw_text(drw, x, 0, promptw, bh, lrpad / 2, prompt, 0);
 	}
 	/* draw input field */
 	w = (lines > 0 || !matches) ? mw - x : inputw;
-	w -= lrpad / 2;
-	x += lrpad / 2;
-
-	rcurlen = drw_fontset_getwidth(drw, text + cursor);
-	curlen = drw_fontset_getwidth(drw, text) - rcurlen;
-	curpos += curlen - oldcurlen;
-	curpos = MIN(w, MAX(0, curpos));
-	curpos = MAX(curpos, w - rcurlen);
-	curpos = MIN(curpos, curlen);
-	oldcurlen = curlen;
-
 	drw_setscheme(drw, scheme[SchemeNorm]);
-	drw_text_align(drw, x, 0, curpos, bh, text, cursor, AlignR);
-	drw_text_align(drw, x + curpos, 0, w - curpos, bh, text + cursor, strlen(text) - cursor, AlignL);
-	drw_rect(drw, x + curpos - 1, 2, 2, bh - 4, 1, 0);
+	drw_text(drw, x, 0, w, bh, lrpad / 2, text, 0);
+
+	curpos = TEXTW(text) - TEXTW(&text[cursor]);
+	if ((curpos += lrpad / 2 - 1) < w) {
+		drw_setscheme(drw, scheme[SchemeNorm]);
+		drw_rect(drw, x + curpos, 2, 2, bh - 4, 1, 0);
+	}
 
 	if (lines > 0) {
 		/* draw vertical list */
@@ -562,142 +528,6 @@ draw:
 }
 
 static void
-buttonpress(XEvent *e)
-{
-	struct item *item;
-	XButtonPressedEvent *ev = &e->xbutton;
-	int x = 0, y = 0, h = bh, w;
-
-	if (ev->window != win)
-		return;
-
-	/* right-click: exit */
-	if (ev->button == Button3)
-		exit(1);
-
-	if (prompt && *prompt)
-		x += promptw;
-
-	/* input field */
-	w = (lines > 0 || !matches) ? mw - x : inputw;
-
-	/* left-click on input: clear input,
-	 * NOTE: if there is no left-arrow the space for < is reserved so
-	 *       add that to the input width */
-	if (ev->button == Button1 &&
-	   ((lines <= 0 && ev->x >= 0 && ev->x <= x + w +
-	   ((!prev || !curr->left) ? TEXTW("<") : 0)) ||
-	   (lines > 0 && ev->y >= y && ev->y <= y + h))) {
-		insert(NULL, -cursor);
-		drawmenu();
-		return;
-	}
-	/* middle-mouse click: paste selection */
-	if (ev->button == Button2) {
-		XConvertSelection(dpy, (ev->state & ShiftMask) ? clip : XA_PRIMARY,
-		                  utf8, utf8, win, CurrentTime);
-		drawmenu();
-		return;
-	}
-	/* scroll up */
-	if (ev->button == Button4 && prev) {
-		sel = curr = prev;
-		calcoffsets();
-		drawmenu();
-		return;
-	}
-	/* scroll down */
-	if (ev->button == Button5 && next) {
-		sel = curr = next;
-		calcoffsets();
-		drawmenu();
-		return;
-	}
-	if (ev->button != Button1)
-		return;
-	if (ev->state & ~ControlMask)
-		return;
-	if (lines > 0) {
-		/* vertical list: (ctrl)left-click on item */
-		w = mw - x;
-		for (item = curr; item != next; item = item->right) {
-			y += h;
-			if (ev->y >= y && ev->y <= (y + h)) {
-				puts(item->text);
-				if (!(ev->state & ControlMask))
-					exit(0);
-				sel = item;
-				if (sel) {
-					sel->out = 1;
-					drawmenu();
-				}
-				return;
-			}
-		}
-	} else if (matches) {
-		/* left-click on left arrow */
-		x += inputw;
-		w = TEXTW("<");
-		if (prev && curr->left) {
-			if (ev->x >= x && ev->x <= x + w) {
-				sel = curr = prev;
-				calcoffsets();
-				drawmenu();
-				return;
-			}
-		}
-		/* horizontal list: (ctrl)left-click on item */
-		for (item = curr; item != next; item = item->right) {
-			x += w;
-			w = MIN(TEXTW(item->text), mw - x - TEXTW(">"));
-			if (ev->x >= x && ev->x <= x + w) {
-				puts(item->text);
-				if (!(ev->state & ControlMask))
-					exit(0);
-				sel = item;
-				if (sel) {
-					sel->out = 1;
-					drawmenu();
-				}
-				return;
-			}
-		}
-		/* left-click on right arrow */
-		w = TEXTW(">");
-		x = mw - w;
-		if (next && ev->x >= x && ev->x <= x + w) {
-			sel = curr = next;
-			calcoffsets();
-			drawmenu();
-			return;
-		}
-	}
-}
-
-static void
-motionevent(XButtonEvent *ev)
-{
-	struct item *it;
-	int xy, ev_xy;
-
-	if (ev->window != win || matches == 0)
-		return;
-
-	xy = lines > 0 ? bh : inputw + promptw + TEXTW("<");
-	ev_xy = lines > 0 ? ev->y : ev->x;
-	for (it = curr; it && it != next; it = it->right) {
-		int wh = lines > 0 ? bh : textw_clamp(it->text, mw - xy - TEXTW(">"));
-		if (ev_xy >= xy && ev_xy < (xy + wh)) {
-			sel = it;
-			calcoffsets();
-			drawmenu();
-			break;
-		}
-		xy += wh;
-	}
-}
-
-static void
 paste(void)
 {
 	char *p, *q;
@@ -756,12 +586,6 @@ run(void)
 				break;
 			cleanup();
 			exit(1);
-		case ButtonPress:
-			buttonpress(&ev);
-			break;
-		case MotionNotify:
-			motionevent(&ev.xbutton);
-			break;
 		case Expose:
 			if (ev.xexpose.count == 0)
 				drw_map(drw, win, 0, 0, mw, mh);
@@ -859,9 +683,7 @@ setup(void)
 	/* create menu window */
 	swa.override_redirect = True;
 	swa.background_pixel = scheme[SchemeNorm][ColBg].pixel;
-	swa.event_mask = ExposureMask | KeyPressMask | VisibilityChangeMask |
-+	                 ButtonPressMask | PointerMotionMask;
-
+	swa.event_mask = ExposureMask | KeyPressMask | VisibilityChangeMask;
 	win = XCreateWindow(dpy, root, x, y, mw, mh, 0,
 	                    CopyFromParent, CopyFromParent, CopyFromParent,
 	                    CWOverrideRedirect | CWBackPixel | CWEventMask, &swa);

@@ -25,4 +25,12 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     end,
 })
 
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "toml",
+--   callback = function()
+--     vim.cmd("highlight tomlTable guifg=#89B4FA")
+--     vim.cmd("highlight tomlTableArray guifg=#89B4FA")
+--   end,
+-- })
+
 return M

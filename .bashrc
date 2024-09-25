@@ -13,7 +13,6 @@ alias ll='ls -lah'
 alias grep='grep --color=auto'
 alias cs='clear'
 alias vim='nvim'
-alias neo='fastfetch'
 alias t='tmux'
 
 

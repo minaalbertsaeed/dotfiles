@@ -72,8 +72,6 @@ lspconfig.clangd.setup {
       filetypes = {
         c = 'c',
         cpp = 'cpp',
-        objc = 'objective-c',
-        objcpp = 'objective-cpp',
       },
       format = {
         style = 'Mozilla', -- Specify your preferred formatting style here
@@ -86,7 +84,7 @@ lspconfig.clangd.setup {
 -- lspconfig.jdtls.setup{}
 
 -- setup multiple servers with same default options
-local servers = { "clangd" ,--[=[ "rust_analyzer",--]=] "lua_ls", --[=[ "texlab" ,--]=] "pyright" , "zls"}
+local servers = { "clangd" ,"lua_ls", "zls", "basedpyright"}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {

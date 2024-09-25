@@ -2,36 +2,7 @@ local plugins = {
 
     -- Themes
     { "RRethy/base16-nvim" },
-
     { "xiyaowong/transparent.nvim" },
-
-    {
-        'thimc/gruber-darker.nvim',
-        config = function()
-            require('gruber-darker').setup({
-            })
-        end,
-    },
-
-    -- { 'minaalbertsaeed/grubppuccin.nvim' },
-
-    {
-        "kawre/leetcode.nvim",
-        build = ":TSUpdate html",
-        dependencies = {
-            "nvim-telescope/telescope.nvim",
-            "nvim-lua/plenary.nvim", -- required by telescope
-            "MunifTanjim/nui.nvim",
-
-            -- optional
-            "nvim-treesitter/nvim-treesitter",
-            "rcarriga/nvim-notify",
-            "nvim-tree/nvim-web-devicons",
-        },
-        opts = {
-            -- configuration goes here
-        },
-    },
 
     {
         "christoomey/vim-tmux-navigator",
@@ -40,14 +11,14 @@ local plugins = {
             "TmuxNavigateDown",
             "TmuxNavigateUp",
             "TmuxNavigateRight",
-            "TmuxNavigatePrevious",
+            --"TmuxNavigatePrevious",
         },
         keys = {
             { "<c-h>",  "<cmd>TmuxNavigateLeft<cr>" },
             { "<c-j>",  "<cmd>TmuxNavigateDown<cr>" },
             { "<c-k>",  "<cmd>TmuxNavigateUp<cr>" },
             { "<c-l>",  "<cmd>TmuxNavigateRight<cr>" },
-            { "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>" },
+            --{ "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>" },
         },
     },
 
@@ -110,15 +81,7 @@ local plugins = {
     {
         'stevearc/oil.nvim',
         config = function()
-            require("oil").setup({
-                columns = {
-                    "icon",
-                    "permissions",
-                    "size",
-                    "mtime",
-                },
-                constrain_cursor = "name",
-            })
+            require("plugins.configs.oil");
         end,
     },
 
@@ -132,14 +95,14 @@ local plugins = {
         end,
     },
 
-    -- file tree
-    {
-        "nvim-tree/nvim-tree.lua",
-        cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-        config = function()
-            require("plugins.configs.nvim-tree");
-        end,
-    },
+    -- -- file tree
+    -- {
+    --     "nvim-tree/nvim-tree.lua",
+    --     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    --     config = function()
+    --         require("plugins.configs.nvim-tree");
+    --     end,
+    -- },
 
     -- icons, for UI related plugins
     {
@@ -166,11 +129,6 @@ local plugins = {
     --         require "plugins.configs.bufferline"
     --     end,
     -- },
-
-    {
-        'echasnovski/mini.nvim',
-        version = false,
-    },
 
     {
         'f-person/git-blame.nvim',
@@ -250,13 +208,13 @@ local plugins = {
     },
 
     -- formatting , linting
-    {
-        "stevearc/conform.nvim",
-        lazy = true,
-        config = function()
-            require "plugins.configs.conform"
-        end,
-    },
+    -- {
+    --     "stevearc/conform.nvim",
+    --     lazy = true,
+    --     config = function()
+    --         require "plugins.configs.conform"
+    --     end,
+    -- },
 
     -- -- indent lines
     -- {
@@ -287,19 +245,19 @@ local plugins = {
         lazy = true,
     },
 
-    -- Telescope
-    {
-        "nvim-telescope/telescope.nvim",
-        cmd = "Telescope",
-        config = function()
-            require "plugins.configs.telescope"
-        end,
-    },
+    -- -- Telescope
+    -- {
+    --     "nvim-telescope/telescope.nvim",
+    --     cmd = "Telescope",
+    --     config = function()
+    --         require "plugins.configs.telescope"
+    --     end,
+    -- },
     --
-    {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'make'
-    },
+    -- {
+    --     'nvim-telescope/telescope-fzf-native.nvim',
+    --     build = 'make'
+    -- },
 
     {
         "lewis6991/gitsigns.nvim",

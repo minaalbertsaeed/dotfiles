@@ -11,17 +11,15 @@ vim.g.colors_name = "gruber"
 
 local colors = {
     black =     {"#16181d", 234},
-    offwhite =  {"#e4e4e4", 110},
     brown =     {"#af875f", 137},
     cyan =      {"#afd7af", 151},
     blue =      {"#89B4FA", 235},
     kamoni =    {"#F9E2AF", 113},
     red =       {"#F38BA8", 203},
-    white =     {"#FFFFFF", 254},
-    green =     {"#89B4FA" , 220},
+    white =     {"#ffffff", 254},
     non =       {"#2E2E2E" , 100},
     comment =   {"#5e5f70", 201 },
-    gray =      {"#84888e", 241 }
+    gray =      {"#9B9EA3", 241 }
 
 
 
@@ -49,10 +47,10 @@ hl("Comment",       {fg = colors.comment})
 hl("Constant",      {fg = colors.white})
 -- hl("CursorLine",     {bg = colors.blue})
 hl("DiffAdd",       {fg = colors.kamoni})
-hl("DiffChange",    {fg = colors.offwhite})
+hl("DiffChange",    {fg = colors.white})
 hl("DiffDelete",    {fg = colors.red})
-hl("DiffText",      {fg = colors.offwhite, style = "underline"})
-hl("Directory",     {fg = colors.offwhite})
+hl("DiffText",      {fg = colors.white, style = "underline"})
+hl("Directory",     {fg = colors.white})
 hl("EndOfBuffer",   {fg = colors.black})
 hl("Error",         {fg = colors.red})
 hl("ErrorMsg",      {fg = colors.red})
@@ -61,42 +59,42 @@ hl("Folded",        {fg = colors.brown, bg = colors.blue, style = "italic"})
 hl("Function",      {fg = colors.gray })
 hl("identifier",    {fg = colors.white})
 hl("Ignore",        {fg = colors.black})
-hl("MatchParen",    {fg = colors.green, style = "bold"})
+hl("MatchParen",    {fg = colors.blue, style = "bold"})
 hl("MoreMsg",       {fg = colors.kamoni})
-hl("NonText",       {fg = colors.offwhite})
+hl("NonText",       {fg = colors.white})
 hl("Normal",        {fg = colors.white, bg = colors.black})
 hl("Pmenu",         {fg = colors.white, bg = colors.black})
 hl("PmenuSbar",     {bg = colors.blue})
-hl("PmenuSel",      {fg = colors.black, bg = colors.green, style = "bold"})
+hl("PmenuSel",      {fg = colors.black, bg = colors.blue, style = "bold"})
 hl("PmenuThumb",    {bg = colors.black})
 hl("PreProc",       {fg = colors.blue})
-hl("Question",      {fg = colors.offwhite})
+hl("Question",      {fg = colors.white})
 hl("Special",       {fg = colors.white})
 hl("SpecialChar",   {fg = colors.blue})
 hl("SpecialComment",{fg = colors.brown})
-hl("SpecialKey",    {fg = colors.offwhite})
+hl("SpecialKey",    {fg = colors.white})
 hl("SpellBad",      {fg = colors.red, style = "underline"})
-hl("SpellCap",      {fg = colors.offwhite, style = "underline"})
-hl("SpellLocal",    {fg = colors.green, style = "underline"})
+hl("SpellCap",      {fg = colors.white, style = "underline"})
+hl("SpellLocal",    {fg = colors.blue, style = "underline"})
 hl("SpellRare",     {style = "underline"})
-hl("Statement",     {fg = colors.green, style = "bold"})
+hl("Statement",     {fg = colors.blue, style = "bold"})
 hl("StatusLine",    {fg = colors.white, bg = colors.black, style = "bold"})
 hl("StatusLineNC",  {fg = colors.white, bg = colors.black})
 hl("String",        {fg = colors.kamoni})
 hl("Title",         {fg = colors.white})
-hl("IncSearch",     {fg = colors.black , bg = colors.green})
+hl("IncSearch",     {fg = colors.black , bg = colors.blue})
 hl("Todo",          {fg = colors.brown, style = "italic"})
 hl("Type",          {fg = colors.blue, style = "bold"})
-hl("Typedef",       {fg = colors.green, style = "bold"})
--- hl("Function",       {fg = colors.green, style = "bold"})
-hl("StorageClass",  {fg = colors.green, style = "bold"})
-hl("Structure",     {fg = colors.green, style = "bold"})
-hl("CursorLineNr",  {fg = colors.green})
+hl("Typedef",       {fg = colors.blue, style = "bold"})
+-- hl("Function",       {fg = colors.blue, style = "bold"})
+hl("StorageClass",  {fg = colors.blue, style = "bold"})
+hl("Structure",     {fg = colors.blue, style = "bold"})
+hl("CursorLineNr",  {fg = colors.blue})
 hl("Underlined",    {style = "underline"})
 hl("VertSplit",     {fg = colors.blue})
-hl("WarningMsg",    {fg = colors.green})
-hl("WildMenu",      {fg = colors.black, bg = colors.green, style = "bold"})
+hl("WarningMsg",    {fg = colors.red})
+hl("WildMenu",      {fg = colors.black, bg = colors.blue, style = "bold"})
 hl("diffAdded",     {fg = colors.kamoni})
 hl("diffRemoved",   {fg = colors.red})
-hl("diffSubname",   {fg = colors.offwhite})
+hl("diffSubname",   {fg = colors.white})
 hl("NonText",       { fg = colors.non})

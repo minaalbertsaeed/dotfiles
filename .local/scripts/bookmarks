@@ -12,9 +12,16 @@ keys = list(links_dict.keys())
 
 keys_string = '\n'.join(keys)
 
-dmenu_command = f'echo "{keys_string}" | dmenu -i -l 20 -p "Bookmarks"'
+dmenu_command = f'echo "{keys_string}" | dmenu -i -l 10 -p "Bookmarks"'
 selected_name = os.popen(dmenu_command).read().strip()
+move2_tag2 = 'xdotool key Alt+2 '
 
 if selected_name in links_dict:
     selected_url = links_dict[selected_name]
-    os.system(f'brave {selected_url} && xdotool key Alt+2 ')
+    os.system(f'brave {selected_url} && {move2_tag2}')
+elif selected_name:
+    os.system(f'brave https://www.google.com/search?q="{selected_name}" && {move2_tag2}')
+else:
+    exit()
+
+

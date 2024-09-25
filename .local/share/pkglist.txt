@@ -19,7 +19,6 @@ dhcp
 dnsmasq
 dunst
 efibootmgr
-fastfetch
 ffmpeg
 ffmpegthumbnailer
 freeglut
@@ -83,6 +82,11 @@ pipewire
 pipewire-alsa
 pipewire-pulse
 pulsemixer
+pyright
+python-black
+python-pip
+python-toml
+python-virtualenv
 qemu-audio-spice
 qemu-base
 qemu-chardev-spice
@@ -165,4 +169,6 @@ xwallpaper
 yt-dlp
 zathura
 zathura-pdf-mupdf
+zig
 zip
+zls

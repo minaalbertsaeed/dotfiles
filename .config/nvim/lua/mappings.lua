@@ -9,13 +9,12 @@ local fzf_lua = require('fzf-lua')
 -- local harpoon = require("harpoon")
 
 
-local telescope = require('telescope.builtin')
+-- local telescope = require('telescope.builtin')
 map("n", "<Esc>", "<cmd> :noh <CR>")
-map("i", "<C-E>", "<C-o>$")
 map("i", "<C-e>", "<C-o>w")
 
 map("n", "<leader>q", "<cmd> :bd! <CR>",            { desc = "Close current buffer" })           --
-map("n", "<leader>e", "<cmd> NvimTreeToggle <CR>",  { desc = "Open file explorer" })
+-- map("n", "<leader>e", "<cmd> NvimTreeToggle <CR>",  { desc = "Open file explorer" })
 
 -- Move group of lines
 map('v', "K", ":m '<-2<CR>gv=gv", options)
@@ -130,4 +129,3 @@ local functions = require('my_functions')
 map('n', '<leader>,' , function () functions.toggle_quickfix() end,     { desc = "Toggle Quickfix list " }                         , options)
 map('n', '<leader>th', function () functions.open_tmux_pane(0) end,     { desc = "Open Horizontal Tmux Pane in current file dir" } , options)
 map('n', '<leader>tv', function () functions.open_tmux_pane(1) end,     { desc = "Open Vertical Tmux Pane in current file dir" }   , options)
-

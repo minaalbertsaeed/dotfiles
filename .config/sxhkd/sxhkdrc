@@ -20,7 +20,7 @@ alt + Delete
     xwallpaper --zoom $(find $HOME/Pictures/wallpapers -type f | shuf -n 1)
 
 alt + v
-    virt-manager
+    $HOME/.local/scripts/tmux_new_window.sh nvim
 
 alt + i
     ~/.local/scripts/bookmarks
