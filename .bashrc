@@ -58,6 +58,11 @@ fzf_dir() {
     cd "$selected_dir" && echo "cd $selected_dir"
 }  
 
+parse_venv() {
+    echo $VIRTUAL_ENV_PROMPT
+}
+
+
 bind -m emacs-standard -x '"\C-r": fzf_history'
 bind -m vi-command -x '"\C-r": fzf_history'
 bind -m vi-insert -x '"\C-r": fzf_history'
@@ -66,6 +71,6 @@ bind -m emacs-standard -x '"\C-o": fzf_dir'
 bind -m vi-command -x '"\C-o": fzf_dir'
 bind -m vi-insert -x '"\C-o": fzf_dir'
 
-export PS1="\n\[\e[32m\]\w\[\033[33m\]\$(parse_git_branch) \[\033[37m\] \n❯❯ "
+export PS1="\n\[\e[32m\]\w\[\033[33m\]\$(parse_git_branch) \$(parse_venv) \[\033[37m\] \n❯❯ "
 
 set -o vi
