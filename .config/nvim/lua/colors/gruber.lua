@@ -14,7 +14,7 @@ local colors = {
     brown =     {"#af875f", 137},
     cyan =      {"#afd7af", 151},
     blue =      {"#89B4FA", 235},
-    kamoni =    {"#F9E2AF", 113},
+    yellow =    {"#afd7af", 113},
     red =       {"#F38BA8", 203},
     white =     {"#ffffff", 254},
     non =       {"#2E2E2E" , 100},
@@ -46,7 +46,7 @@ hl("ColorColumn",   {bg = colors.blue})
 hl("Comment",       {fg = colors.comment})
 hl("Constant",      {fg = colors.white})
 -- hl("CursorLine",     {bg = colors.blue})
-hl("DiffAdd",       {fg = colors.kamoni})
+hl("DiffAdd",       {fg = colors.yellow})
 hl("DiffChange",    {fg = colors.white})
 hl("DiffDelete",    {fg = colors.red})
 hl("DiffText",      {fg = colors.white, style = "underline"})
@@ -60,7 +60,7 @@ hl("Function",      {fg = colors.gray })
 hl("identifier",    {fg = colors.white})
 hl("Ignore",        {fg = colors.black})
 hl("MatchParen",    {fg = colors.blue, style = "bold"})
-hl("MoreMsg",       {fg = colors.kamoni})
+hl("MoreMsg",       {fg = colors.yellow})
 hl("NonText",       {fg = colors.white})
 hl("Normal",        {fg = colors.white, bg = colors.black})
 hl("Pmenu",         {fg = colors.white, bg = colors.black})
@@ -80,7 +80,7 @@ hl("SpellRare",     {style = "underline"})
 hl("Statement",     {fg = colors.blue, style = "bold"})
 hl("StatusLine",    {fg = colors.white, bg = colors.black, style = "bold"})
 hl("StatusLineNC",  {fg = colors.white, bg = colors.black})
-hl("String",        {fg = colors.kamoni})
+hl("String",        {fg = colors.yellow})
 hl("Title",         {fg = colors.white})
 hl("IncSearch",     {fg = colors.black , bg = colors.blue})
 hl("Todo",          {fg = colors.brown, style = "italic"})
@@ -94,7 +94,7 @@ hl("Underlined",    {style = "underline"})
 hl("VertSplit",     {fg = colors.blue})
 hl("WarningMsg",    {fg = colors.red})
 hl("WildMenu",      {fg = colors.black, bg = colors.blue, style = "bold"})
-hl("diffAdded",     {fg = colors.kamoni})
+hl("diffAdded",     {fg = colors.yellow})
 hl("diffRemoved",   {fg = colors.red})
 hl("diffSubname",   {fg = colors.white})
 hl("NonText",       { fg = colors.non})

@@ -15,3 +15,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
 		command = "setlocal formatoptions-=c formatoptions-=r formatoptions-=o",
 })
 
+vim.api.nvim_create_user_command('GrepNoGit', function(opts)
+  vim.cmd('grep --exclude-dir=.git ' .. opts.args)
+end, { nargs = '+' })

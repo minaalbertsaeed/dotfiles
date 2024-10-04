@@ -51,18 +51,6 @@ capabilities.textDocument.completion.completionItem = {
 -- Setup language servers.
 local lspconfig = require "lspconfig"
 
-lspconfig.lua_ls.setup {
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      diagnostics = {
-
-      },
-    },
-  },
-}
-
-
 lspconfig.clangd.setup {
   cmd = { 'clangd', '--background-index' },
   filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
@@ -84,7 +72,7 @@ lspconfig.clangd.setup {
 -- lspconfig.jdtls.setup{}
 
 -- setup multiple servers with same default options
-local servers = { "clangd" ,"lua_ls", "zls", "basedpyright"}
+local servers = { "clangd" ,"lua_ls", "zls", "pyright"}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {

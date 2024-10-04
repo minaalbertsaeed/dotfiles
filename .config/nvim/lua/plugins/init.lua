@@ -4,6 +4,7 @@ local plugins = {
     { "RRethy/base16-nvim" },
     { "xiyaowong/transparent.nvim" },
 
+
     {
         "christoomey/vim-tmux-navigator",
         cmd = {
@@ -14,10 +15,10 @@ local plugins = {
             --"TmuxNavigatePrevious",
         },
         keys = {
-            { "<c-h>",  "<cmd>TmuxNavigateLeft<cr>" },
-            { "<c-j>",  "<cmd>TmuxNavigateDown<cr>" },
-            { "<c-k>",  "<cmd>TmuxNavigateUp<cr>" },
-            { "<c-l>",  "<cmd>TmuxNavigateRight<cr>" },
+            { "<c-h>", "<cmd>TmuxNavigateLeft<cr>" },
+            { "<c-j>", "<cmd>TmuxNavigateDown<cr>" },
+            { "<c-k>", "<cmd>TmuxNavigateUp<cr>" },
+            { "<c-l>", "<cmd>TmuxNavigateRight<cr>" },
             --{ "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>" },
         },
     },
@@ -94,6 +95,8 @@ local plugins = {
             vim.fn["mkdp#util#install"]()
         end,
     },
+
+
 
     -- -- file tree
     -- {
@@ -216,21 +219,6 @@ local plugins = {
     --     end,
     -- },
 
-    -- -- indent lines
-    -- {
-    --     "lukas-reineke/indent-blankline.nvim",
-    --     event = { "BufReadPre", "BufNewFile" },
-    --     char = "|",
-    --     tab_char = { "a", "b", "c" },
-    --     highlight = { "Function", "Label" },
-    --     smart_indent_cap = true,
-    --     priority = 2,
-    --
-    --
-    --     config = function()
-    --         require("ibl").setup()
-    --     end,
-    -- },
 
     -- fzf-lua
     {
@@ -254,10 +242,6 @@ local plugins = {
     --     end,
     -- },
     --
-    -- {
-    --     'nvim-telescope/telescope-fzf-native.nvim',
-    --     build = 'make'
-    -- },
 
     {
         "lewis6991/gitsigns.nvim",

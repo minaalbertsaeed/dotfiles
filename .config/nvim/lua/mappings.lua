@@ -60,8 +60,9 @@ map('n', "<leader>ls",  function() fzf_lua.lsp_document_symbols() end    , { des
 map('n', "<leader>fo",  function() fzf_lua.oldfiles() end                , { desc = "Search old files" })
 -- map('n', "<leader>lr",  function() fzf_lua.lsp_references() end         , { desc = "List References" })
 map('n', "<leader>m" ,   function() fzf_lua.man_pages() end              , { desc = "Show man_pages" })
+map('n', "<leader>c" ,   function() fzf_lua.command_history() end        , { desc = "Show Command History" })
 map("n", "<leader>S" , "<cmd>SymbolsOutline <cr>"                        , { desc = "Start SymbolsOutline" })
-map("n", "gr", vim.lsp.buf.references, { desc = "go to references" })
+map("n", "gr", vim.lsp.buf.references                                    , { desc = "Go to references" })
 
 -- harpoon bindings
 
@@ -89,7 +90,7 @@ map("n", "<leader>gc", function() require("tinygit").smartCommit() end  , { desc
 map("n", "<leader>gp", function() require("tinygit").push() end         , { desc = "git push" })
 
 -- Navigate Windows from terminal mode
-map('t', '<Esc>', '<C-\\><C-n>'       , options)
+-- map('t', '<Esc>', '<C-\\><C-n>'       , options)
 map('t', '<C-h>', '<C-\\><C-n><C-w>h' , options)
 map('t', '<C-j>', '<C-\\><C-n><C-w>j' , options)
 map('t', '<C-k>', '<C-\\><C-n><C-w>k' , options)
