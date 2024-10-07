@@ -3,6 +3,10 @@ local opt = vim.opt
 vim.g.mapleader = " "
 vim.g.base16_colorspace = 256
 
+vim.g.neovide_cursor_vfx_mode = "railgun"
+vim.o.guifont = "IosevkaTerm Nerd Font:h9" -- text below applies for VimScript
+
+
 opt.laststatus = 3 -- global statusline
 opt.showmode = true
 opt.cursorline = true

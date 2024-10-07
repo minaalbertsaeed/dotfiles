@@ -40,6 +40,7 @@ map('n', '<leader>5', '<Cmd>LualineBuffersJum 5<CR>', options)
 map('n', '<leader>6', '<Cmd>LualineBuffersJum 6<CR>', options)
 map('n', '<leader>7', '<Cmd>LualineBuffersJum 7<CR>', options)
 map('n', '<leader>8', '<Cmd>LualineBuffersJum 8<CR>', options)
+map('n', 'yyp', 'mmyyp`mj', options)
 
 -- Replacing current word with some another
 map({'n',  'x'}, "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],  { desc = "Replace Word Under cursor" })
