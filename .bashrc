@@ -59,7 +59,7 @@ fzf_dir() {
 }  
 
 parse_venv() {
-    echo $VIRTUAL_ENV_PROMPT
+    echo "$VIRTUAL_ENV_PROMPT"
 }
 
 
