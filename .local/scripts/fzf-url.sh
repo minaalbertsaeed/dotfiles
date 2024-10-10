@@ -1,10 +1,5 @@
 #!/bin/bash
 
-fzf_options="--multi --no-preview"
-_fzf() {
-  fzf $fzf_options
-}
-
 open_url() {
     for url in "$@" ; do
         if hash xdg-open &>/dev/null; then
@@ -37,7 +32,6 @@ items=$(printf '%s\n' "${urls[@]}" "${wwws[@]}" "${gh[@]}" "${ips[@]}" "${gits[@
 )
 
 [ -z "$items" ] && tmux display 'tmux-fzf-url: no URLs found' && exit
-
-selected_urls=$(echo "$items" | awk '{print $3}' | _fzf)
+selected_urls=$(echo "$items" | awk '{print $2}' | fzf)
 [ -z "$selected_urls" ] && exit
 open_url "$selected_urls"
