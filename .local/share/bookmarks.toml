@@ -278,3 +278,7 @@ url = "https://www.youtube.com/"
 [[links]]
 name = "Dotfiles"
 url = "https://gitlab.com/minaalbert/dotfiles"
+
+[[links]]
+name = "Linux-Programming-Interface-Journey"
+url = "https://github.com/minaalbertsaeed/Linux-Programming-Interface-Journey"

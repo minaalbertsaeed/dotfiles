@@ -1,7 +1,7 @@
 acpi
+alacritty
 alsa-tools
 alsa-utils
-arandr
 aria2
 base
 base-devel
@@ -17,8 +17,8 @@ dash
 dbus-glib
 dhcp
 dnsmasq
-dunst
 efibootmgr
+emacs
 ffmpeg
 ffmpegthumbnailer
 freeglut
@@ -39,6 +39,7 @@ hplip
 htop
 i2c-tools
 iptables-nft
+lazygit
 lf
 libreoffice-fresh
 libvirt
@@ -55,7 +56,6 @@ mpv
 mpv-mpris
 musl
 ncdu
-nemo
 neofetch
 neovim
 network-manager-applet
@@ -63,7 +63,6 @@ networkmanager
 nodejs
 noto-fonts
 noto-fonts-emoji
-npm
 ntfs-3g
 ntp
 nvidia-dkms
@@ -110,7 +109,6 @@ strace
 sxhkd
 sxiv
 tmux
-translate-shell
 trash-cli
 tree
 ttf-font-awesome
@@ -119,6 +117,7 @@ ufw
 unrar-free
 unzip
 usbutils
+vi
 virglrenderer
 wget
 xclip
@@ -169,6 +168,4 @@ xwallpaper
 yt-dlp
 zathura
 zathura-pdf-mupdf
-zig
 zip
-zls
