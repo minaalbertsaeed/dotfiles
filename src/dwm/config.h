@@ -51,6 +51,7 @@ static const Rule rules[] = {
     { NULL                      ,NULL ,                 "gf2",          1 << 5,            1,           0,          -1 },
     // { "Virt-manager"            ,NULL ,                 NULL,           1 << 6,            1,           0,          -1 },
 	{ "qemu-system-x86_64"      ,NULL ,                 NULL,           1 << 6,            1,           0,          -1 },
+	{ "Emacs"      ,NULL ,                 NULL,           1 << 7,            1,           0,          -1 },
 	// { NULL                      ,NULL ,                 NULL,           1 << 8,            1,           0,          -1 },
 	// { NULL                      ,NULL ,                 NULL,           1 << 8,            1,           0,          -1 },
     // { NULL                      ,NULL ,                 NULL,           1 << 9,            1,           0,          -1 },
