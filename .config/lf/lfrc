@@ -169,6 +169,6 @@ map gt cd ~/.local/share/Trash/files/
 map gD cd ~/Downloads/
 map gl cd ~/.local
 map gdb cd ~/hdd/D/books/
-map gb cd ~/books_to_read
+map gb cd ~/books
 map gc cd ~/.config
 map gr cd ~/repos

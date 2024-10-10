@@ -5,16 +5,13 @@ super + c
    ~/.local/bin/freee
 
 alt + Return
-    $TERMINAL
+    $HOME/.local/scripts/tmux_new_window.sh
 
 alt + p
     dmenu_run -i 
 
 alt + o
     mpv $(xclip -o)
-
-alt + n
-    ~/.local/scripts/tmux_new_session.sh
 
 alt + Delete
     xwallpaper --zoom $(find $HOME/Pictures/wallpapers -type f | shuf -n 1)
