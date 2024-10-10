@@ -55,17 +55,6 @@ lspconfig.clangd.setup {
   cmd = { 'clangd', '--background-index' },
   filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
   on_attach = vim.lsp.common_on_attach,
-  settings = {
-    clangd = {
-      filetypes = {
-        c = 'c',
-        cpp = 'cpp',
-      },
-      format = {
-        style = 'Mozilla', -- Specify your preferred formatting style here
-      },
-    },
-  },
 }
 
 -- lspconfig.rust_analyzer.setup{}

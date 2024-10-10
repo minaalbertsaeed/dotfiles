@@ -19,7 +19,7 @@ local colors = {
     white =     {"#ffffff", 254},
     non =       {"#2E2E2E" , 100},
     comment =   {"#5e5f70", 201 },
-    gray =      {"#8997b5", 241 }
+    gray =      {"#A0ABC3", 241 }
 
 
 
