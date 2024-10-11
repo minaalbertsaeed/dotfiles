@@ -2,6 +2,7 @@ doas loadkeys ~/.config/loadkeysrc/loadkeysrc
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 export EDITOR="nvim"
+export EMACSDIR="$HOME/.config/emacs"
 export BROWSER="brave"
 export REPOS="$HOME/repos"
 export DOTFILES="$REPOS/dotfiles"
