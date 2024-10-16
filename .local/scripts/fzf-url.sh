@@ -33,5 +33,11 @@ items=$(printf '%s\n' "${urls[@]}" "${wwws[@]}" "${gh[@]}" "${ips[@]}" "${gits[@
 
 [ -z "$items" ] && tmux display 'tmux-fzf-url: no URLs found' && exit
 selected_urls=$(echo "$items" | awk '{print $2}' | fzf)
-[ -z "$selected_urls" ] && exit
+
+echo $selected_urls | xclip -selection clipboard
+
+notify-send $selected_urls
+
+
+[ -z "$selected_urls" ] && exit 
 open_url "$selected_urls"

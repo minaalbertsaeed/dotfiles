@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 DOTFILES="$HOME/repos/dotfiles"
 dirs=(  
         ".config/fastfetch"

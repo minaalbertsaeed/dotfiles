@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/bin/sh
 command=$1
 TERMINAL="$TERMINAL"
 
