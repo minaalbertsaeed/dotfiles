@@ -15,16 +15,16 @@ function M.opts_extend(default, opts)
 end
 
 -- Compile dmenu, dwm, and st after :w in config.def.h || config.h
-vim.api.nvim_create_autocmd("BufWritePost", {
-    pattern = {"config.def.h", "config.h"},
-    callback = function()
-        local dir = vim.fn.expand('%:p:h')
-        vim.cmd('cd ' .. dir)
-        vim.opt.makeprg = 'rm -rf config.h && doas make install clean'
-        vim.cmd('make')
-        vim.opt.makeprg = 'make'
-    end,
-})
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+--     pattern = {"config.def.h", "config.h"},
+--     callback = function()
+--         local dir = vim.fn.expand('%:p:h')
+--         vim.cmd('cd ' .. dir)
+--         vim.opt.makeprg = 'rm -rf config.h && doas make install clean'
+--         vim.cmd('make')
+--         vim.opt.makeprg = 'make'
+--     end,
+-- })
 
 ----------------------------------------------
 vim.api.nvim_create_autocmd('TextYankPost', {

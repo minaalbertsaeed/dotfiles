@@ -30,6 +30,15 @@ map('v', "<leader>p", "\"_dP" )
 -- Delete forever !!!
 map({ 'n', 'v' }, "<leader>d", "\"_d",{ desc = "Delete Text forever" })
 
+-- Matching Pairs
+map('i' , "<", "<><Left>")
+map('i' , "(", "()<Left>")
+map('i' , "[", "[]<Left>")
+map('i' , "{", "{}<Left>")
+map('i' , "'", "''<Left>")
+map('i' , "\"", "\"\"<Left>")
+map('i' , "`", "``<Left>")
+
 -- Buffers
 map("n", "<Tab>", "<cmd> bnext <CR>")
 map('n', '<leader>1', '<Cmd>LualineBuffersJum 1<CR>', options)
@@ -45,23 +54,8 @@ map('n', '<leader>8', '<Cmd>LualineBuffersJum 8<CR>', options)
 map({'n',  'x'}, "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],  { desc = "Replace Word Under cursor" })
 
 -- comment.nvim
--- Comment current line with linewise comment for Python files, otherwise blockwise comment
-map("n", "<leader>/", function()
-  if vim.bo.filetype == 'python' then
-    require("Comment.api").toggle.linewise.current()
-  else
-    require("Comment.api").toggle.blockwise.current()
-  end
-end, { desc = "Comment Current line" })
-
--- Comment visual selection with linewise for Python, blockwise for others
-map("v", "<leader>/", function()
-  if vim.bo.filetype == 'python' then
-    require('Comment.api').toggle.linewise.current(vim.fn.visualmode())
-  else
-    require('Comment.api').toggle.blockwise(vim.fn.visualmode())
-  end
-end, { desc = "Comment Current Block" })
+map("n", "<leader>/", function() require("Comment.api").toggle.linewise.current() end ,                 { desc = "Comment Current line" })
+map("v", "<leader>/", "<ESC><cmd>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<CR>" , { desc = "Comment Current Block" })
 
 -- Fzf-lua & Telescope Keymaps 
 -- map('n', "<leader>ff",  function () telescope.find_files({ hidden = true, follow= true})  end,{ desc = "Find files" })

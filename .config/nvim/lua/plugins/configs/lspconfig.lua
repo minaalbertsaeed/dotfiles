@@ -31,23 +31,23 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
--- capabilities.textDocument.completion.completionItem = {
---     documentationFormat = { "markdown", "plaintext" },
---     snippetSupport = true,
---     preselectSupport = true,
---     insertReplaceSupport = true,
---     labelDetailsSupport = true,
---     deprecatedSupport = true,
---     commitCharactersSupport = true,
---     tagSupport = { valueSet = { 1 } },
---     resolveSupport = {
---     properties = {
---         "documentation",
---         "detail",
---         "additionalTextEdits",
---     },
---   },
--- }
+ capabilities.textDocument.completion.completionItem = {
+     documentationFormat = { "markdown", "plaintext" },
+     snippetSupport = true,
+     preselectSupport = true,
+     insertReplaceSupport = true,
+     labelDetailsSupport = true,
+     deprecatedSupport = true,
+     commitCharactersSupport = true,
+     tagSupport = { valueSet = { 1 } },
+     resolveSupport = {
+     properties = {
+         "documentation",
+         "detail",
+         "additionalTextEdits",
+     },
+   },
+ }
 -- Setup language servers.
 local lspconfig = require "lspconfig"
 
@@ -60,7 +60,8 @@ lspconfig.clangd.setup {
 -- lspconfig.rust_analyzer.setup{}
 -- lspconfig.jdtls.setup{}
 
--- setup multiple servers with same default options
+
+
 local servers = { "clangd" ,"lua_ls", "pyright"}
 
 for _, lsp in ipairs(servers) do

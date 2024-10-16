@@ -3,20 +3,12 @@ local plugins = {
     -- Themes
     { "RRethy/base16-nvim" },
     { "xiyaowong/transparent.nvim" },
-    -- lazy.nvim
     {
-        "folke/noice.nvim",
-        event = "VeryLazy",
-        dependencies = {
-            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-            "MunifTanjim/nui.nvim",
-            -- OPTIONAL:
-            --   `nvim-notify` is only needed, if you want to use the notification view.
-            --   If not available, we use `mini` as the fallback
-            "rcarriga/nvim-notify",
-        },
+        '2hdddg/fex.nvim',
+        config = function()
+            require("fex").setup({ls = "-al"})
+        end
     },
-
 
     {
         "christoomey/vim-tmux-navigator",
@@ -92,6 +84,15 @@ local plugins = {
     },
 
 
+    {
+        "X3eRo0/dired.nvim",
+        dependencies = {
+            "MunifTanjim/nui.nvim"
+        },
+        config = function()
+            require("plugins.configs.dired");
+        end
+    },
     {
         'stevearc/oil.nvim',
         config = function()

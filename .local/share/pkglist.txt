@@ -6,6 +6,7 @@ aria2
 base
 base-devel
 bat
+bigloo
 bind
 blueman
 bluez-utils
@@ -17,10 +18,12 @@ dash
 dbus-glib
 dhcp
 dnsmasq
+dunst
 efibootmgr
 emacs
 ffmpeg
 ffmpegthumbnailer
+firefox
 freeglut
 fribidi
 fzf
@@ -30,6 +33,7 @@ git-lfs
 github-cli
 glfw
 glm
+gnome-disk-utility
 grim
 grub
 gstreamer
@@ -56,6 +60,7 @@ mpv
 mpv-mpris
 musl
 ncdu
+nemo
 neofetch
 neovim
 network-manager-applet
@@ -81,6 +86,7 @@ pipewire
 pipewire-alsa
 pipewire-pulse
 pulsemixer
+pyenv
 pyright
 python-black
 python-pip
@@ -108,6 +114,7 @@ speedtest-cli
 strace
 sxhkd
 sxiv
+texlive-latexrecommended
 tmux
 trash-cli
 tree
@@ -119,6 +126,7 @@ unzip
 usbutils
 vi
 virglrenderer
+virt-manager
 wget
 xclip
 xcolor

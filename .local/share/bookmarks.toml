@@ -1,3 +1,45 @@
+
+
+[[links]]
+name = "GitHub"
+url = "https://github.com/"
+
+[[links]]
+name = "Google Classroom"
+url = "https://classroom.google.com/"
+
+[[links]]
+name = "Cdecl"
+url = "https://cdecl.org/"
+
+[[links]]
+name = "Google Drive"
+url = "https://drive.google.com/"
+
+[[links]]
+name = "Youtube"
+url = "https://www.youtube.com/"
+
+[[links]]
+name = "Dotfiles"
+url = "https://github.com/minahermina/dotfiles"
+
+[[links]]
+name = "Linux-Programming-Interface-Journey"
+url = "https://github.com/minahermina/Linux-Programming-Interface-Journey"
+
+[[links]]
+name = "YTS"
+url = "https://yts.mx/"
+
+[[links]]
+name = "Bing"
+url = "https://www.bing.com/"
+
+[[links]]
+name = "IBM Dynamic Libraries"
+url = "https://developer.ibm.com/tutorials/l-dynamic-libraries/"
+
 [[links]]
 name = "Beautiful"
 url = "https://www.beautiful.ai/"
@@ -91,10 +133,6 @@ name = "LeetCode"
 url = "https://leetcode.com/"
 
 [[links]]
-name = "Google Classroom"
-url = "https://classroom.google.com/"
-
-[[links]]
 name = "Vjudge"
 url = "https://vjudge.net/group/l2-c2-uni-spring23-phase1"
 
@@ -138,21 +176,6 @@ url = "https://linuxopsys.com/"
 name = "Gmail"
 url = "https://mail.google.com/mail/u/0/"
 
-[[links]]
-name = "GitHub"
-url = "https://github.com/"
-
-[[links]]
-name = "Google Drive"
-url = "https://drive.google.com/"
-
-[[links]]
-name = "Cdecl"
-url = "https://cdecl.org/"
-
-[[links]]
-name = "IBM Dynamic Libraries"
-url = "https://developer.ibm.com/tutorials/l-dynamic-libraries/"
 
 [[links]]
 name = "Linux Inside Booting"
@@ -269,16 +292,3 @@ url = "https://jsoncrack.com/"
 [[links]]
 name = "Library Genesis"
 url = "https://www.libgen.rs/"
-
-[[links]]
-name = "Youtube"
-url = "https://www.youtube.com/"
-
-
-[[links]]
-name = "Dotfiles"
-url = "https://gitlab.com/minaalbert/dotfiles"
-
-[[links]]
-name = "Linux-Programming-Interface-Journey"
-url = "https://github.com/minaalbertsaeed/Linux-Programming-Interface-Journey"
